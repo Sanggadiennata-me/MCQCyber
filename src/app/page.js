@@ -1,10 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Shield,
   Users,
-  Zap,
-  Lock,
-  Clock,
   ArrowRight,
   Database,
   Terminal,
@@ -14,6 +12,7 @@ import {
   FileSearch,
   Crosshair,
   Bug,
+  ExternalLink,
 } from 'lucide-react';
 import { getCategories } from '@/lib/questions/loader';
 
@@ -32,6 +31,36 @@ const categoryIcons = {
 export default function HomePage() {
   const categories = getCategories();
   const totalQuestions = categories.reduce((sum, c) => sum + (c.questionsCount || 0), 0);
+
+  const ecosystemMembers = [
+    {
+      name: 'M. Aryanda Sanggadiennata',
+      role: 'Developer & Cyber Security Practitioner',
+      organization: 'Aryanda.my.id',
+      description: 'Pengembang platform MCQCyber, antusias keamanan siber, web security, dan peserta simulasi CTF/KMIPN.',
+      url: 'https://aryanda.my.id/',
+      image: '/assets/about/aryanda.jpeg',
+      badge: 'Author',
+    },
+    {
+      name: 'Itech Poliban',
+      role: 'Komunitas Riset & Teknologi Mahasiswa',
+      organization: 'Politeknik Negeri Banjarmasin',
+      description: 'Unit kegiatan mahasiswa di Poliban yang berfokus pada pengembangan software, pemrograman, dan riset teknologi informasi.',
+      url: 'https://www.itechpoliban.com/',
+      image: '/assets/about/itech.png',
+      badge: 'Komunitas IT',
+    },
+    {
+      name: 'Komunitas Makat-Xploit',
+      role: 'Cyber Security Research Group',
+      organization: 'Security Research & CTF',
+      description: 'Komunitas riset keamanan informasi, eksploitasi etis, penetration testing, serta persiapan kompetisi Capture The Flag.',
+      url: 'https://github.com/makat-xploit',
+      image: '/assets/about/makat.jpeg',
+      badge: 'Riset Cyber',
+    },
+  ];
 
   return (
     <div className="flex-1 flex flex-col">
@@ -87,126 +116,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DUA MODE UTAMA */}
-      <section className="py-20 bg-cyber-secondary border-b border-cyber-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <h2 className="text-3xl font-bold text-white tracking-tight">Dua Mode Simulasi</h2>
-            <p className="text-base text-cyber-muted mt-2">
-              Pilih antara latihan mandiri dengan konfigurasi kustom atau kompetisi tim dengan timer individual.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* SOLO PRACTICE */}
-            <div className="rounded-sm border border-cyber-border bg-cyber-card p-8 flex flex-col justify-between hover:border-cyber-primary transition-colors">
-              <div className="space-y-4">
-                <div className="text-sm font-semibold text-cyber-primary">Latihan Mandiri</div>
-                <h3 className="text-2xl font-bold text-white">
-                  Solo Practice
-                </h3>
-                <p className="text-sm text-cyber-muted leading-relaxed">
-                  Latihan mandiri dengan filter kategori, tingkat kesulitan (Easy, Medium, Hard, Campuran), jumlah soal 5 hingga 50, dan durasi pengerjaan. Kunci jawaban dan pembahasan teknis ditampilkan setelah ujian diserahkan.
-                </p>
-
-                <ul className="space-y-2.5 text-sm text-cyber-muted pt-3">
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Pilih kombinasi dari 9 kategori materi cybersecurity</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Navigasi nomor soal dengan penanda status jawaban</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Pembahasan teknis mendalam untuk setiap soal pada hasil akhir</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Opsi pengurangan nilai salah (negative marking) dan pengacakan</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <Link
-                  href="/practice"
-                  className="inline-flex items-center justify-center gap-2 w-full rounded-sm bg-cyber-field border border-cyber-primary/40 px-5 py-3 text-sm font-semibold text-white hover:bg-cyber-primary transition-colors"
-                >
-                  Buka Pengaturan Solo
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* TEAM CHALLENGE */}
-            <div className="rounded-sm border border-cyber-border bg-cyber-card p-8 flex flex-col justify-between hover:border-cyber-primary transition-colors">
-              <div className="space-y-4">
-                <div className="text-sm font-semibold text-cyber-primary">Mode Kompetisi Tim</div>
-                <h3 className="text-2xl font-bold text-white">
-                  Team Challenge
-                </h3>
-                <p className="text-sm text-cyber-muted leading-relaxed">
-                  Mode multiplayer hingga 3 peserta per room. Host membuat room dan membagikan kode. Setiap anggota tim menerima paket soal yang berbeda tanpa duplikasi dan timer mandiri di sisi server.
-                </p>
-
-                <ul className="space-y-2.5 text-sm text-cyber-muted pt-3">
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Distribusi soal eksklusif: 0% soal kembar antar rekan tim</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Timer individual berbasis batas waktu server (tahan refresh browser)</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Kalkulasi skor kolektif tim dan kontribusi poin per anggota</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-primary mt-2 flex-shrink-0" />
-                    <span>Sinkronisasi lobby dan room realtime melalui Supabase</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8 flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/team/create"
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-sm bg-cyber-primary px-5 py-3 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
-                >
-                  Buat Room Baru
-                </Link>
-                <Link
-                  href="/team/join"
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-sm border border-cyber-border bg-cyber-bg px-5 py-3 text-sm font-semibold text-cyber-text hover:border-cyber-primary transition-colors"
-                >
-                  Gabung Room
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* KATEGORI PREVIEW */}
-      <section className="py-20 bg-cyber-bg border-b border-cyber-border">
+      <section className="py-20 bg-cyber-secondary border-b border-cyber-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
               <h2 className="text-3xl font-bold text-white tracking-tight">9 Bidang Keamanan Siber</h2>
               <p className="text-base text-cyber-muted mt-2">
-                Bank soal disusun berdasarkan kurikulum kompetisi dan sertifikasi industri terkini.
+                Bank soal komprehensif disusun berdasarkan kurikulum kompetisi dan standar industri.
               </p>
             </div>
-            <Link
-              href="/categories"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyber-primary hover:underline"
-            >
-              Lihat Rincian Seluruh Kategori
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -232,40 +151,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* KEAMANAN & ARSITEKTUR */}
-      <section className="py-20 bg-cyber-secondary">
+      {/* TENTANG PENGEMBANG & EKOSISTEM */}
+      <section className="py-20 bg-cyber-bg">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <h2 className="text-3xl font-bold text-white tracking-tight">Integritas dan Keamanan Ujian</h2>
+            <h2 className="text-3xl font-bold text-white tracking-tight">Tentang Pengembang & Ekosistem</h2>
             <p className="text-base text-cyber-muted mt-2">
-              Arsitektur aplikasi dirancang untuk mencegah kebocoran data dan menjaga kejujuran simulasi.
+              Proyek ini dibangun oleh M. Aryanda Sanggadiennata didukung oleh ekosistem riset keamanan siber dan teknologi informasi.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
-              <Lock className="h-6 w-6 text-cyber-primary" />
-              <h3 className="font-bold text-white text-base">Evaluasi Sisi Server</h3>
-              <p className="text-sm text-cyber-muted leading-relaxed">
-                Kunci jawaban dan pembahasan tidak dikirim ke browser peserta saat kuis berjalan. Perhitungan skor dilakukan sepenuhnya oleh server saat jawaban diserahkan.
-              </p>
-            </div>
+            {ecosystemMembers.map((member) => (
+              <a
+                key={member.name}
+                href={member.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-sm border border-cyber-border bg-cyber-card p-6 flex flex-col justify-between hover:border-cyber-primary transition-colors"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="relative h-14 w-14 overflow-hidden rounded-sm border border-cyber-border bg-cyber-secondary">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="56px"
+                      />
+                    </div>
+                    <span className="text-xs text-cyber-muted font-medium px-2 py-0.5 rounded-sm bg-cyber-secondary border border-cyber-border">
+                      {member.badge}
+                    </span>
+                  </div>
 
-            <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
-              <Clock className="h-6 w-6 text-cyber-primary" />
-              <h3 className="font-bold text-white text-base">Timer Server-Authoritative</h3>
-              <p className="text-sm text-cyber-muted leading-relaxed">
-                Waktu selesai kuis dikunci pada database. Refresh halaman tidak akan menambah waktu. Jawaban yang diserahkan setelah waktu berakhir akan ditolak otomatis.
-              </p>
-            </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white group-hover:text-cyber-primary transition-colors flex items-center gap-2">
+                      <span>{member.name}</span>
+                      <ExternalLink className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100" />
+                    </h3>
+                    <p className="text-xs text-cyber-primary mt-0.5">{member.role}</p>
+                    <p className="text-xs text-cyber-muted mt-2.5 leading-relaxed">{member.description}</p>
+                  </div>
+                </div>
 
-            <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
-              <Shield className="h-6 w-6 text-cyber-primary" />
-              <h3 className="font-bold text-white text-base">Pembersihan Otomatis</h3>
-              <p className="text-sm text-cyber-muted leading-relaxed">
-                Sesi bersifat temporer tanpa penyimpanan akun atau riwayat nilai permanen. Seluruh data room akan dibersihkan setelah pertandingan berakhir.
-              </p>
-            </div>
+                <div className="pt-4 border-t border-cyber-border/80 mt-6 flex items-center justify-between text-xs text-cyber-muted group-hover:text-white transition-colors">
+                  <span>Kunjungi Profil / Website</span>
+                  <ArrowRight className="h-3.5 w-3.5 text-cyber-primary" />
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>

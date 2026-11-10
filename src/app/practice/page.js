@@ -239,7 +239,7 @@ function PracticeForm() {
           <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
             <label className="block text-sm font-semibold text-white">Jumlah Butir Soal</label>
             <div className="grid grid-cols-3 gap-2">
-              {[5, 10, 15, 20, 30, 50].map((num) => (
+              {[5, 10, 20, 30, 50, 100].map((num) => (
                 <button
                   key={num}
                   type="button"
@@ -264,7 +264,7 @@ function PracticeForm() {
             <span className="text-xs tabular-nums text-cyber-primary font-semibold">{durationMinutes} Menit</span>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-            {[5, 10, 15, 20, 30, 45].map((mins) => (
+            {[5, 15, 30, 45, 60, 100].map((mins) => (
               <button
                 key={mins}
                 type="button"

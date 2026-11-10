@@ -3,9 +3,13 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 export const metadata = {
-  title: 'Cyber Security MCQ Platform — Latihan & Simulasi Ujian',
+  title: 'MCQCyber - Platform Ujian & Simulasi Cyber Security',
   description:
     'Platform latihan dan simulasi ujian Cyber Security berbasis MCQ tanpa akun permanen. Mendukung Solo Practice dan Team Challenge multiplayer.',
+  icons: {
+    icon: '/assets/logo.jpg',
+    apple: '/assets/logo.jpg',
+  },
 };
 
 export const viewport = {

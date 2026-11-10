@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Shield, Users, User, Compass, Info } from 'lucide-react';
+import { Users, User, Info } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -11,7 +12,6 @@ export default function Navbar() {
     { href: '/', label: 'Beranda' },
     { href: '/practice', label: 'Solo Practice', icon: User },
     { href: '/team', label: 'Team Challenge', icon: Users },
-    { href: '/categories', label: 'Kategori Soal', icon: Compass },
     { href: '/about', label: 'Tentang & Aturan', icon: Info },
   ];
 
@@ -19,8 +19,15 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-cyber-border bg-cyber-secondary">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-cyber-field text-white">
-            <Shield className="h-5 w-5" />
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-sm overflow-hidden border border-cyber-border bg-cyber-card">
+            <Image
+              src="/assets/logo.jpg"
+              alt="MCQCyber Logo"
+              width={36}
+              height={36}
+              className="object-cover"
+              priority
+            />
           </div>
           <div>
             <div className="flex items-center gap-2">

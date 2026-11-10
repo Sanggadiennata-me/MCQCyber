@@ -34,8 +34,8 @@ export async function POST(request) {
       return NextResponse.json({ error: nicknameVal.error }, { status: 400 });
     }
 
-    const limit = Math.max(5, Math.min(30, parseInt(questionCount, 10) || 10));
-    const duration = Math.max(5, Math.min(60, parseInt(durationMinutes, 10) || 15));
+    const limit = Math.max(5, Math.min(100, parseInt(questionCount, 10) || 10));
+    const duration = Math.max(5, Math.min(120, parseInt(durationMinutes, 10) || 15));
 
     const configuration = {
       categoryMode,

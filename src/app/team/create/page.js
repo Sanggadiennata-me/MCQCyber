@@ -224,12 +224,12 @@ export default function CreateRoomPage() {
           <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
             <label className="block text-sm font-semibold text-white">Soal Per Anggota</label>
             <div className="grid grid-cols-3 gap-2">
-              {[5, 10, 15, 20, 25, 30].map((num) => (
+              {[5, 10, 20, 30, 50, 100].map((num) => (
                 <button
                   key={num}
                   type="button"
                   onClick={() => setQuestionCount(num)}
-                  className={`py-2 px-2 rounded-sm border text-xs font-semibold font-mono tabular-nums transition-colors ${
+                  className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                     questionCount === num
                       ? 'border-cyber-primary bg-cyber-primary text-white'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
@@ -247,12 +247,12 @@ export default function CreateRoomPage() {
           <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
             <label className="block text-sm font-semibold text-white">Durasi Individual</label>
             <div className="grid grid-cols-3 gap-2">
-              {[5, 10, 15, 20, 30, 45].map((mins) => (
+              {[5, 15, 30, 45, 60, 100].map((mins) => (
                 <button
                   key={mins}
                   type="button"
                   onClick={() => setDurationMinutes(mins)}
-                  className={`py-2 px-2 rounded-sm border text-xs font-semibold font-mono tabular-nums transition-colors ${
+                  className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                     durationMinutes === mins
                       ? 'border-cyber-primary bg-cyber-primary text-white'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'

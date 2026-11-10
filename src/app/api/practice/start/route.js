@@ -24,8 +24,8 @@ export async function POST(request) {
       );
     }
 
-    const limit = Math.max(5, Math.min(50, parseInt(questionCount, 10) || 10));
-    const duration = Math.max(5, Math.min(60, parseInt(durationMinutes, 10) || 15));
+    const limit = Math.max(5, Math.min(100, parseInt(questionCount, 10) || 10));
+    const duration = Math.max(5, Math.min(120, parseInt(durationMinutes, 10) || 15));
 
     const selectedQuestions = getFilteredQuestions({
       categories,
