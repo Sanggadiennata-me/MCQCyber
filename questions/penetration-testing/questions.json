@@ -1,0 +1,164 @@
+{
+  "category": "Penetration Testing",
+  "slug": "penetration-testing",
+  "description": "Reconnaissance, Active Directory attacks, pivoting, Metasploit, web/network penetration testing.",
+  "questions": [
+    {
+      "id": "PENTEST-001",
+      "difficulty": "easy",
+      "question": "Fase pertama dalam metodologi pengujian penetrasi standar (PTES) yang berfokus pada pengumpulan informasi target tanpa mengirim paket mencurigakan disebut:",
+      "options": [
+        { "id": "A", "text": "Passive Reconnaissance (OSINT)" },
+        { "id": "B", "text": "Exploitation" },
+        { "id": "C", "text": "Post-Exploitation" },
+        { "id": "D", "text": "Reporting" }
+      ],
+      "answer": "A",
+      "explanation": "Passive Reconnaissance mengumpulkan informasi target (domain, email, IP range, ASN, teknologi) melalui sumber terbuka (OSINT, WHOIS, DNS records) tanpa berinteraksi langsung secara agresif dengan sistem target."
+    },
+    {
+      "id": "PENTEST-002",
+      "difficulty": "easy",
+      "question": "Perintah Nmap manakah yang melakukan TCP SYN Scan (Stealth Scan) tanpa menyelesaikan 3-way handshake secara penuh?",
+      "options": [
+        { "id": "A", "text": "nmap -sS <target>" },
+        { "id": "B", "text": "nmap -sT <target>" },
+        { "id": "C", "text": "nmap -sU <target>" },
+        { "id": "D", "text": "nmap -sA <target>" },
+        { "id": "E", "text": "nmap -sn <target>" }
+      ],
+      "answer": "A",
+      "explanation": "Flag -sS mengaktifkan TCP SYN scan (half-open scan). Nmap mengirim SYN; jika target merespons SYN-ACK, port dinyatakan OPEN dan Nmap langsung mengirim RST agar koneksi tidak dicatat secara penuh oleh sistem target."
+    },
+    {
+      "id": "PENTEST-003",
+      "difficulty": "easy",
+      "question": "Metasploit payload tipe 'Staged' (seperti windows/meterpreter/reverse_tcp) memiliki karakteristik utama:",
+      "options": [
+        { "id": "A", "text": "Payload kecil (stager) dikirim terlebih dahulu untuk mengalokasikan memori dan mendownload payload utama yang lebih besar (stage)" },
+        { "id": "B", "text": "Seluruh binary Meterpreter dikemas dalam satu paket utuh tanpa koneksi kedua" },
+        { "id": "C", "text": "Hanya dapat dieksekusi secara offline" },
+        { "id": "D", "text": "Tidak mendukung reverse connection" }
+      ],
+      "answer": "A",
+      "explanation": "Staged payload mengirim stub kecil (stager) yang pas di dalam buffer rentan terbatas. Stager ini menginisiasi koneksi jaringan untuk mengunduh keseluruhan stage payload yang lebih kompleks."
+    },
+    {
+      "id": "PENTEST-004",
+      "difficulty": "easy",
+      "question": "Jenis reverse shell apa yang menghubungkan kembali terminal interaktif dari korban ke listener (seperti Netcat) di mesin penyerang?",
+      "options": [
+        { "id": "A", "text": "Reverse Shell" },
+        { "id": "B", "text": "Bind Shell" },
+        { "id": "C", "text": "Web Shell" },
+        { "id": "D", "text": "SSH Tunneling" }
+      ],
+      "answer": "A",
+      "explanation": "Reverse Shell memaksa target membuat koneksi outbound ke IP penyerang, sangat efektif menembus firewall NAT yang umumnya memblokir koneksi inbound namun mengizinkan koneksi outbound."
+    },
+    {
+      "id": "PENTEST-005",
+      "difficulty": "medium",
+      "question": "Serangan Active Directory 'Kerberoasting' mengeksploitasi tiket Kerberos mana untuk di-crack secara offline dengan Hashcat?",
+      "options": [
+        { "id": "A", "text": "TGS (Ticket Granting Service) yang dienkripsi menggunakan NTLM hash akun Service Principal Name (SPN)" },
+        { "id": "B", "text": "TGT (Ticket Granting Ticket) milik krbtgt" },
+        { "id": "C", "text": "NTLMv1 challenge response" },
+        { "id": "D", "text": "DACL pada Domain Controller" }
+      ],
+      "answer": "A",
+      "explanation": "Setiap domain user yang terautentikasi sah dapat meminta TGS untuk service akun apa saja yang memiliki SPN. Bagian dari tiket TGS dienkripsi menggunakan hash password akun layanan tersebut, sehingga dapat di-crack offline."
+    },
+    {
+      "id": "PENTEST-006",
+      "difficulty": "medium",
+      "question": "Tool grafis populer berbasis graph database Neo4j yang digunakan oleh pentester untuk memetakan jalur privilege escalation (Attack Paths) pada Active Directory adalah:",
+      "options": [
+        { "id": "A", "text": "BloodHound" },
+        { "id": "B", "text": "Burp Suite" },
+        { "id": "C", "text": "Mimikatz" },
+        { "id": "D", "text": "Wireshark" }
+      ],
+      "answer": "A",
+      "explanation": "BloodHound mengolah relasi objek Active Directory (DACL, group membership, sessions, local admin rights) menjadi graf visual untuk menemukan jalur terpendek menuju Domain Admin."
+    },
+    {
+      "id": "PENTEST-007",
+      "difficulty": "medium",
+      "question": "Teknik 'Pass-the-Hash' (PtH) memungkinkan penyerang untuk melakukan autentikasi ke server Windows remote tanpa harus:",
+      "options": [
+        { "id": "A", "text": "Mengetahui plaintext password pengguna aslinya (cukup menggunakan NTLM hash langsung)" },
+        { "id": "B", "text": "Mengetahui username korban" },
+        { "id": "C", "text": "Terhubung ke jaringan internal" },
+        { "id": "D", "text": "Memiliki koneksi port 445 SMB" }
+      ],
+      "answer": "A",
+      "explanation": "Protokol autentikasi NTLM menggunakan hash NTLM sebagai input langsung dalam proses response generation. Oleh karena itu, jika penyerang mencuri hash NTLM dari memori LSASS, mereka dapat langsung mengotentikasi diri tanpa perlu crack password ke plaintext."
+    },
+    {
+      "id": "PENTEST-008",
+      "difficulty": "medium",
+      "question": "Teknik 'Pivoting' dalam penetration testing jaringan internal mengacu pada aktivitas:",
+      "options": [
+        { "id": "A", "text": "Menggunakan mesin yang telah dikompromikan sebagai batu loncatan (proxy/tunnel) untuk mengakses subnet internal yang sebelumnya tidak dapat dijangkau" },
+        { "id": "B", "text": "Mengubah target pengujian ke perusahaan lain" },
+        { "id": "C", "text": "Melakukan rotasi password secara acak" },
+        { "id": "D", "text": "Menghapus log peristiwa di Event Viewer" }
+      ],
+      "answer": "A",
+      "explanation": "Pivoting (menggunakan tool seperti Chisel, Ligolo-ng, SSH port forwarding, atau SOCKS proxy Metasploit) merutekan paket pengujian melalui host yang sudah breached untuk menjangkau segmen jaringan terisolasi di belakang firewall."
+    },
+    {
+      "id": "PENTEST-009",
+      "difficulty": "hard",
+      "question": "Serangan Active Directory 'AS-REP Roasting' dapat dilancarkan terhadap akun pengguna yang memiliki properti akun apa diaktifkan?",
+      "options": [
+        { "id": "A", "text": "DONT_REQ_PREAUTH (Do not require Kerberos preauthentication)" },
+        { "id": "B", "text": "PASSWORD_NEVER_EXPIRES" },
+        { "id": "C", "text": "TRUSTED_FOR_DELEGATION" },
+        { "id": "D", "text": "ACCOUNTDISABLE" }
+      ],
+      "answer": "A",
+      "explanation": "Jika akun memiliki flag DONT_REQ_PREAUTH, penyerang dapat meminta tiket AS-REP dari KDC tanpa perlu memasukkan password terlebih dahulu. Respons AS-REP berisi komponen yang dienkripsi dengan hash password user dan dapat di-crack offline."
+    },
+    {
+      "id": "PENTEST-010",
+      "difficulty": "hard",
+      "question": "Serangan 'Golden Ticket' pada Active Directory melibatkan pembuatan tiket TGT palsu yang ditandatangani menggunakan hash kunci rahasia akun:",
+      "options": [
+        { "id": "A", "text": "krbtgt" },
+        { "id": "B", "text": "Administrator" },
+        { "id": "C", "text": "SYSTEM" },
+        { "id": "D", "text": "Guest" }
+      ],
+      "answer": "A",
+      "explanation": "Akun 'krbtgt' bertindak sebagai Key Distribution Center (KDC) di domain Active Directory. Mengetahui hash NTLM atau kunci AES krbtgt memungkinkan pembuatan Golden Ticket TGT valid sewenang-wenang dengan hak Domain Admin permanen."
+    },
+    {
+      "id": "PENTEST-011",
+      "difficulty": "hard",
+      "question": "Vulnerabilitas 'ZeroLogon' (CVE-2020-1472) pada protokol Netlogon Active Directory disebabkan oleh kelemahan implementasi kriptografi apa?",
+      "options": [
+        { "id": "A", "text": "Penggunaan Initialization Vector (IV) yang selalu bernilai 16 byte nol (all-zero IV) pada mode AES-CFB8" },
+        { "id": "B", "text": "Penggunaan kunci RSA 512-bit" },
+        { "id": "C", "text": "Bypass NTLM signing via SMBv1" },
+        { "id": "D", "text": "Ketiadaan enkripsi pada query LDAP" }
+      ],
+      "answer": "A",
+      "explanation": "ComputeNetlogonCredential menggunakan AES-CFB8 dengan IV 16 byte nol secara statis. Secara matematis, ada probabilitas 1 dari 256 di mana ciphertext dari input nol juga menghasilkan ciphertext nol, memungkinkan autentikasi spoofed tanpa kredensial sah."
+    },
+    {
+      "id": "PENTEST-012",
+      "difficulty": "hard",
+      "question": "Dalam konteks Windows privilege escalation, apa itu serangan 'Potato' (seperti RottenPotato, JuicyPotato, SweetPotato)?",
+      "options": [
+        { "id": "A", "text": "Penyalahgunaan hak SeImpersonatePrivilege / SeAssignPrimaryTokenPrivilege dengan memaksa SYSTEM berautentikasi ke NTLM relay lokal via DCOM/OXID RPC" },
+        { "id": "B", "text": "Brute force hash SAM secara lokal" },
+        { "id": "C", "text": "Injeksi kernel driver palsu" },
+        { "id": "D", "text": "Eksploitasi buffer overflow pada winlogon.exe" }
+      ],
+      "answer": "A",
+      "explanation": "Keluarga exploit Potato memicu objek DCOM/COM lokal untuk berautentikasi ke port lokal penyerang. Menggunakan hak istimewa impersonasi (SeImpersonatePrivilege yang lazim dimiliki akun layanan web IIS), token SYSTEM berhasil disalin untuk meluncurkan proses dengan hak tertinggi."
+    }
+  ]
+}

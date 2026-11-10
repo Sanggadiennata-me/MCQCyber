@@ -1,0 +1,163 @@
+{
+  "category": "Linux System Security",
+  "slug": "linux-system",
+  "description": "Linux permissions, kernel hardening, SUID/SGID binaries, AppArmor/SELinux, and privilege escalation.",
+  "questions": [
+    {
+      "id": "LINUX-001",
+      "difficulty": "easy",
+      "question": "File manakah di sistem Linux yang menyimpan hash kata sandi pengguna terenkripsi dan hanya dapat dibaca oleh user root?",
+      "options": [
+        { "id": "A", "text": "/etc/shadow" },
+        { "id": "B", "text": "/etc/passwd" },
+        { "id": "C", "text": "/etc/group" },
+        { "id": "D", "text": "/etc/security/limits.conf" }
+      ],
+      "answer": "A",
+      "explanation": "/etc/shadow menyimpan hash password pengguna dengan permission ketat (hanya root). Sedangkan /etc/passwd dapat dibaca oleh semua user dan hanya menyimpan metadata akun (UID, GID, home directory, shell)."
+    },
+    {
+      "id": "LINUX-002",
+      "difficulty": "easy",
+      "question": "Izin khusus (special permission) apa yang memungkinkan file binary dijalankan dengan hak akses pemilik file (file owner), bukan hak pengguna yang mengeksekusinya?",
+      "options": [
+        { "id": "A", "text": "SUID (Set User ID)" },
+        { "id": "B", "text": "SGID (Set Group ID)" },
+        { "id": "C", "text": "Sticky Bit" },
+        { "id": "D", "text": "Immutable Bit (chattr +i)" }
+      ],
+      "answer": "A",
+      "explanation": "SUID (chmod u+s / 4000) menjalankan executable dengan hak kepemilikan file tersebut (misal binary /usr/bin/passwd yang dimiliki root). Jika binary SUID rentan eksploitasi, ini menjadi celah eskalasi hak akses."
+    },
+    {
+      "id": "LINUX-003",
+      "difficulty": "easy",
+      "question": "Perintah Linux apa yang digunakan untuk menampilkan daftar socket jaringan yang sedang mendengarkan (listening) beserta process ID (PID) terkait?",
+      "options": [
+        { "id": "A", "text": "ss -tulpn" },
+        { "id": "B", "text": "ifconfig -a" },
+        { "id": "C", "text": "traceroute -n" },
+        { "id": "D", "text": "iptables -L" }
+      ],
+      "answer": "A",
+      "explanation": "Perintah 'ss -tulpn' (atau netstat -tulpn) menampilkan TCP (-t), UDP (-u), listening sockets (-l), nomor port numerik (-n), dan nama proses beserta PID-nya (-p)."
+    },
+    {
+      "id": "LINUX-004",
+      "difficulty": "easy",
+      "question": "Dalam representasi hak akses oktal Linux, izin numerik '750' pada sebuah direktori berarti:",
+      "options": [
+        { "id": "A", "text": "Owner: rwx, Group: r-x, Others: ---" },
+        { "id": "B", "text": "Owner: r-x, Group: rwx, Others: r--" },
+        { "id": "C", "text": "Owner: rwx, Group: rw-, Others: r--" },
+        { "id": "D", "text": "Owner: rw-, Group: r--, Others: ---" }
+      ],
+      "answer": "A",
+      "explanation": "Nilai 7 = 4+2+1 (rwx), nilai 5 = 4+0+1 (r-x), nilai 0 = --- (tidak ada akses sama sekali bagi others)."
+    },
+    {
+      "id": "LINUX-005",
+      "difficulty": "medium",
+      "question": "Mekanisme kernel Linux apa yang membatasi hak istimewa 'root' menjadi unit-unit hak terpisah (seperti CAP_NET_BIND_SERVICE, CAP_SYS_ADMIN, CAP_SYS_PTRACE)?",
+      "options": [
+        { "id": "A", "text": "Linux Capabilities" },
+        { "id": "B", "text": "POSIX ACLs" },
+        { "id": "C", "text": "Cgroups (Control Groups)" },
+        { "id": "D", "text": "Namespaces" }
+      ],
+      "answer": "A",
+      "explanation": "Linux Capabilities membagi kekuasaan absolut superuser (UID 0) ke dalam hak istimewa diskret (granular), memungkinkan proses non-root mengikat port < 1024 tanpa harus memiliki akses root penuh."
+    },
+    {
+      "id": "LINUX-006",
+      "difficulty": "medium",
+      "question": "Situs referensi kurasi keamanan manakah yang mendokumentasikan binary bawaan Unix/Linux yang dapat disalahgunakan untuk bypass security restrictions atau eskalasi hak akses (Living off the Land)?",
+      "options": [
+        { "id": "A", "text": "GTFOBins" },
+        { "id": "B", "text": "LOLBAS" },
+        { "id": "C", "text": "OWASP Juice Shop" },
+        { "id": "D", "text": "Exploit-DB Paper" }
+      ],
+      "answer": "A",
+      "explanation": "GTFOBins adalah proyek open-source terkurasi yang mencatat binary sistem Unix/Linux sah (seperti find, vim, awk, nmap) yang memiliki fungsi eksekusi shell ketika dikonfigurasi dengan SUID atau sudo nopasswd."
+    },
+    {
+      "id": "LINUX-007",
+      "difficulty": "medium",
+      "question": "Modul keamanan Linux (LSM) yang menerapkan Mandatory Access Control (MAC) berbasis label konteks (User:Role:Type:Level) yang dikembangkan oleh NSA dan Red Hat adalah:",
+      "options": [
+        { "id": "A", "text": "SELinux (Security-Enhanced Linux)" },
+        { "id": "B", "text": "AppArmor" },
+        { "id": "C", "text": "TOMOYO Linux" },
+        { "id": "D", "text": "SMACK" }
+      ],
+      "answer": "A",
+      "explanation": "SELinux menggunakan Type Enforcement dan MLS/MCS berbasis label untuk mengatur setiap interaksi antara subject (proses) dan object (file, socket), menolak akses bahkan jika pengguna berstatus root (Discretionary Access Control diabaikan)."
+    },
+    {
+      "id": "LINUX-008",
+      "difficulty": "medium",
+      "question": "Fitur kernel Linux apa yang membatasi panggilan sistem (system calls) yang diizinkan untuk dipanggil oleh sebuah proses, sering digunakan dalam container Docker dan browser sandbox?",
+      "options": [
+        { "id": "A", "text": "seccomp (Secure Computing Mode / seccomp-bpf)" },
+        { "id": "B", "text": "eBPF tracepoint" },
+        { "id": "C", "text": "kptr_restrict" },
+        { "id": "D", "text": "kernel ASLR" }
+      ],
+      "answer": "A",
+      "explanation": "Seccomp-BPF memungkinkan proses menginstal filter Berkeley Packet Filter (BPF) untuk mencegat dan memblokir syscall berbahaya (seperti ptrace, unshare, reboot), membatasi permukaan serangan kernel."
+    },
+    {
+      "id": "LINUX-009",
+      "difficulty": "hard",
+      "question": "Parameter sysctl kernel Linux manakah yang harus diatur ke nilai '2' untuk mencegah proses non-root melakukan ptrace (debugging/code injection) pada proses lain yang bukan anaknya (Classic ptrace restrictions)?",
+      "options": [
+        { "id": "A", "text": "kernel.yama.ptrace_scope = 2" },
+        { "id": "B", "text": "kernel.randomize_va_space = 0" },
+        { "id": "C", "text": "fs.protected_symlinks = 0" },
+        { "id": "D", "text": "net.ipv4.ip_forward = 1" }
+      ],
+      "answer": "A",
+      "explanation": "Yama LSM menyediakan ptrace_scope. Nilai 2 (Admin-only attach) membatasi ptrace hanya untuk proses dengan hak CAP_SYS_PTRACE, mencegah malware menginjeksi memori proses user lain."
+    },
+    {
+      "id": "LINUX-010",
+      "difficulty": "hard",
+      "question": "Ketika binary C dikompilasi dengan proteksi 'Full RELRO' (Relocation Read-Only), mekanisme apa yang dicegah pada saat eksploitasi binary?",
+      "options": [
+        { "id": "A", "text": "Penulisan atau pembajakan entri Global Offset Table (GOT overwrite)" },
+        { "id": "B", "text": "Eksekusi kode di stack" },
+        { "id": "C", "text": "Buffer overflow pada variabel lokal" },
+        { "id": "D", "text": "Integer overflow" }
+      ],
+      "answer": "A",
+      "explanation": "Full RELRO memaksa dynamic linker menyelesaikan semua simbol saat program dimulai (bind now) dan menandai tabel GOT sebagai read-only (.got.plt diproteksi), menggagalkan teknik exploit GOT hijacking."
+    },
+    {
+      "id": "LINUX-011",
+      "difficulty": "hard",
+      "question": "Vulnerabilitas kernel Linux 'Dirty COW' (CVE-2016-5195) terjadi akibat kondisi race condition pada subsistem:",
+      "options": [
+        { "id": "A", "text": "Copy-On-Write (COW) memory management saat menangani madvise(MADV_DONTNEED)" },
+        { "id": "B", "text": "Netfilter IP packet queue" },
+        { "id": "C", "text": "Ext4 journaling block allocator" },
+        { "id": "D", "text": "Bluetooth BlueZ stack" }
+      ],
+      "answer": "A",
+      "explanation": "Dirty COW adalah race condition di kernel memory subsystem saat memecah salinan Copy-On-Write via madvise, memungkinkan penyerang lokal menulis ke file read-only sistem (seperti /etc/passwd) untuk privilege escalation."
+    },
+    {
+      "id": "LINUX-012",
+      "difficulty": "hard",
+      "question": "Konfigurasi PAM (Pluggable Authentication Modules) mana yang memastikan akun pengguna dikunci sementara setelah 5 kali gagal memasukkan password?",
+      "options": [
+        { "id": "A", "text": "pam_faillock.so (atau pam_tally2 pada sistem legacy)" },
+        { "id": "B", "text": "pam_unix.so" },
+        { "id": "C", "text": "pam_env.so" },
+        { "id": "D", "text": "pam_permit.so" }
+      ],
+      "answer": "A",
+      "explanation": "pam_faillock mencatat kegagalan autentikasi per-user dan memblokir percobaan login baru selama jangka waktu tertentu (deny=5 unlock_time=900) untuk mencegah brute-force login lokal/SSH."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "category": "Network Security",
+  "slug": "network-security",
+  "description": "TCP/IP protocols, firewalls, network attacks, DNS security, Wi-Fi security, and packet analysis.",
+  "questions": [
+    {
+      "id": "NET-001",
+      "difficulty": "easy",
+      "question": "Protokol keamanan apa yang digunakan untuk mengenkripsi lalu lintas DNS sehingga tidak dapat diintip oleh penyedia layanan internet (ISP)?",
+      "options": [
+        { "id": "A", "text": "DNS over HTTPS (DoH) / DNS over TLS (DoT)" },
+        { "id": "B", "text": "SNMPv1" },
+        { "id": "C", "text": "RIPv2" },
+        { "id": "D", "text": "FTP Passive Mode" }
+      ],
+      "answer": "A",
+      "explanation": "DNS over HTTPS (DoH) dan DNS over TLS (DoT) mengenkripsi kueri DNS biasa (port 53 UDP) menggunakan TLS/HTTPS untuk melindungi privasi kueri dari pengintaian pihak ketiga dan manipulasi MITM."
+    },
+    {
+      "id": "NET-002",
+      "difficulty": "easy",
+      "question": "Port default manakah yang digunakan oleh protokol SSH (Secure Shell) untuk koneksi remote terenkripsi?",
+      "options": [
+        { "id": "A", "text": "22" },
+        { "id": "B", "text": "23" },
+        { "id": "C", "text": "80" },
+        { "id": "D", "text": "443" }
+      ],
+      "answer": "A",
+      "explanation": "SSH berjalan pada port TCP 22 secara default. Port 23 adalah Telnet (tidak terenkripsi), port 80 adalah HTTP, dan port 443 adalah HTTPS."
+    },
+    {
+      "id": "NET-003",
+      "difficulty": "easy",
+      "question": "Pada protokol TCP, bendera (flags) apa saja yang dikirimkan dalam proses 3-Way Handshake untuk membangun koneksi baru?",
+      "options": [
+        { "id": "A", "text": "SYN -> SYN-ACK -> ACK" },
+        { "id": "B", "text": "ACK -> SYN -> FIN" },
+        { "id": "C", "text": "RST -> SYN -> ACK" },
+        { "id": "D", "text": "URG -> PSH -> SYN" }
+      ],
+      "answer": "A",
+      "explanation": "Proses 3-Way Handshake TCP diawali dengan client mengirim paket SYN, server membalas dengan SYN-ACK, dan client mengonfirmasi dengan ACK sebelum data ditransfer."
+    },
+    {
+      "id": "NET-004",
+      "difficulty": "easy",
+      "question": "Teknik penyerangan jaringan lokal di mana penyerang mengirimkan frame ARP palsu untuk memetakan IP gateway ke MAC address penyerang disebut:",
+      "options": [
+        { "id": "A", "text": "ARP Spoofing / ARP Poisoning" },
+        { "id": "B", "text": "Smurf Attack" },
+        { "id": "C", "text": "BGP Hijacking" },
+        { "id": "D", "text": "DNS Amplification" }
+      ],
+      "answer": "A",
+      "explanation": "ARP Spoofing memanfaatkan ketiadaan autentikasi dalam protokol ARP untuk meracuni ARP cache korban, sehingga seluruh lalu lintas jaringan dialihkan melalui mesin penyerang (Man-in-the-Middle)."
+    },
+    {
+      "id": "NET-005",
+      "difficulty": "medium",
+      "question": "Protokol apa yang digunakan oleh switch untuk mencegah terjadinya layer 2 loop atau broadcast storm pada topologi jaringan yang redundan?",
+      "options": [
+        { "id": "A", "text": "Spanning Tree Protocol (STP)" },
+        { "id": "B", "text": "Border Gateway Protocol (BGP)" },
+        { "id": "C", "text": "Address Resolution Protocol (ARP)" },
+        { "id": "D", "text": "Dynamic Host Configuration Protocol (DHCP)" }
+      ],
+      "answer": "A",
+      "explanation": "Spanning Tree Protocol (STP - IEEE 802.1D) memblokir port cadangan secara logis untuk mencegah terjadinya switching loop dan broadcast storm pada jaringan LAN berkecepatan tinggi."
+    },
+    {
+      "id": "NET-006",
+      "difficulty": "medium",
+      "question": "Bagaimana serangan SYN Flood bekerja untuk menghabiskan sumber daya server korban?",
+      "options": [
+        { "id": "A", "text": "Mengirim banjir paket SYN dengan spoofed IP dan tidak membalas dengan paket ACK terakhir, memenuhi SYN backlog queue server" },
+        { "id": "B", "text": "Membanjiri port UDP 53 dengan query DNS rekursif besar" },
+        { "id": "C", "text": "Mengirim paket FIN-RST palsu untuk memutuskan koneksi aktif" },
+        { "id": "D", "text": "Mengirimkan frame ethernet dengan ukuran melebihi MTU 1500 byte" }
+      ],
+      "answer": "A",
+      "explanation": "SYN Flood membiarkan koneksi TCP dalam status HALF-OPEN (SYN_RECV) hingga kapasitas antrean backlog server habis dan menolak koneksi sah baru. SYN Cookies adalah salah satu mitigasinya."
+    },
+    {
+      "id": "NET-007",
+      "difficulty": "medium",
+      "question": "Fitur keamanan switch (Switch Port Security) manakah yang membatasi pengiriman DHCP Offer palsu dari rogue DHCP server di jaringan lokal?",
+      "options": [
+        { "id": "A", "text": "DHCP Snooping" },
+        { "id": "B", "text": "BPDU Guard" },
+        { "id": "C", "text": "Dynamic ARP Inspection (DAI)" },
+        { "id": "D", "text": "Port Mirroring / SPAN" }
+      ],
+      "answer": "A",
+      "explanation": "DHCP Snooping membedakan port switch menjadi 'trusted' (terhubung ke server DHCP resmi) dan 'untrusted'. Paket balasan DHCP DHCPOFFER dari port untrusted akan otomatis di-drop oleh switch."
+    },
+    {
+      "id": "NET-008",
+      "difficulty": "medium",
+      "question": "Serangan 'DNS Amplification' memanfaatkan karakteristik protokol apa untuk menghasilkan volume lalu lintas serangan DDoS yang berlipat ganda?",
+      "options": [
+        { "id": "A", "text": "UDP (User Datagram Protocol) yang bersifat connectionless dengan spoofing IP sumber dan query EDNS0 berukuran besar" },
+        { "id": "B", "text": "TCP Handshake 3 arah dengan window size 0" },
+        { "id": "C", "text": "ICMP Echo Reply tanpa validasi sequence number" },
+        { "id": "D", "text": "BGP Keepalive packets" }
+      ],
+      "answer": "A",
+      "explanation": "DNS Amplification mengeksploitasi UDP yang tidak memverifikasi IP pengirim. Penyerang memalsukan IP sumber menjadi IP korban dan mengirim query 'ANY' ke Open Resolvers yang menghasilkan jawaban berukuran hingga 50x lebih besar dari query."
+    },
+    {
+      "id": "NET-009",
+      "difficulty": "hard",
+      "question": "Dalam protokol TLS 1.3, fitur apa yang dihilangkan secara permanen dari versi TLS sebelumnya untuk menjamin Perfect Forward Secrecy (PFS)?",
+      "options": [
+        { "id": "A", "text": "RSA key transport / static key exchange" },
+        { "id": "B", "text": "Elliptic Curve Diffie-Hellman Ephemeral (ECDHE)" },
+        { "id": "C", "text": "AEAD cipher suites" },
+        { "id": "D", "text": "Server Name Indication (SNI)" }
+      ],
+      "answer": "A",
+      "explanation": "TLS 1.3 menghapus static RSA key exchange (di mana pre-master secret dienkripsi dengan public key server). TLS 1.3 mewajibkan ephemeral Diffie-Hellman (ECDHE/DHE) agar kunci sesi masa lalu tidak dapat didekripsi jika private key server bocor di kemudian hari (PFS)."
+    },
+    {
+      "id": "NET-010",
+      "difficulty": "hard",
+      "question": "Mekanisme apa pada protokol BGP yang dirancang untuk mencegah BGP Route Hijacking dengan memvalidasi kepemilikan Autonomous System (AS) atas alokasi IP prefix melalui Route Origin Authorization (ROA)?",
+      "options": [
+        { "id": "A", "text": "RPKI (Resource Public Key Infrastructure)" },
+        { "id": "B", "text": "OSPF Cryptographic Authentication" },
+        { "id": "C", "text": "BGP Dampening" },
+        { "id": "D", "text": "MPLS Label Switching" }
+      ],
+      "answer": "A",
+      "explanation": "RPKI (Resource Public Key Infrastructure) menggunakan sertifikat X.509 berjenjang untuk membuat objek ROA (Route Origin Authorization) yang membuktikan AS mana yang sah meng-advertise suatu subnet IP prefix di Internet."
+    },
+    {
+      "id": "NET-011",
+      "difficulty": "hard",
+      "question": "Serangan 'KRACK' (Key Reinstallation Attack) pada WPA2 mengeksploitasi kelemahan pada tahap apa?",
+      "options": [
+        { "id": "A", "text": "Pesan ketiga (Message 3) pada 4-Way Handshake saat penginstalan Pairwise Transient Key (PTK)" },
+        { "id": "B", "text": "Algoritma enkripsi AES-CCMP secara matematis" },
+        { "id": "C", "text": "Hashing PBKDF2 pada Pre-Shared Key (PSK)" },
+        { "id": "D", "text": "Beacon frame management pada Access Point" }
+      ],
+      "answer": "A",
+      "explanation": "KRACK memaksa klien WPA2 menginstal ulang kunci PTK yang sama dengan cara memanipulasi pengiriman ulang Message 3 pada 4-way handshake, mereset counter nonces/replay ke 0 sehingga paket dapat didekripsi atau diputar ulang."
+    },
+    {
+      "id": "NET-012",
+      "difficulty": "hard",
+      "question": "Dalam enkripsi IPsec, perbedaan mendasar antara mode 'Tunnel' dan mode 'Transport' adalah:",
+      "options": [
+        { "id": "A", "text": "Mode Tunnel mengenkripsi seluruh paket IP asli dan menambahkan header IP baru, sedangkan Transport hanya mengenkripsi payload paket IP" },
+        { "id": "B", "text": "Mode Transport digunakan untuk site-to-site VPN saja" },
+        { "id": "C", "text": "Mode Tunnel tidak mendukung protokol ESP" },
+        { "id": "D", "text": "Mode Transport mengenkripsi IP header publik" }
+      ],
+      "answer": "A",
+      "explanation": "IPsec Tunnel Mode membungkus seluruh paket IP asli (termasuk header aslinya) di dalam payload paket IP baru, ideal untuk gateway VPN. Transport Mode hanya mengenkripsi layer 4 payload (misal TCP/UDP) dengan mempertahankan header IP asli, ideal untuk host-to-host."
+    }
+  ]
+}

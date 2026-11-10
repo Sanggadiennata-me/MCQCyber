@@ -1,0 +1,163 @@
+{
+  "category": "General Cybersecurity",
+  "slug": "general-cybersecurity",
+  "description": "Information security fundamentals, CIA triad, security models, compliance, and social engineering.",
+  "questions": [
+    {
+      "id": "GEN-001",
+      "difficulty": "easy",
+      "question": "Tiga pilar utama dalam keamanan informasi yang dikenal dengan CIA Triad adalah:",
+      "options": [
+        { "id": "A", "text": "Confidentiality, Integrity, Availability" },
+        { "id": "B", "text": "Control, Identification, Authentication" },
+        { "id": "C", "text": "Cryptography, Inspection, Authorization" },
+        { "id": "D", "text": "Compliance, Isolation, Audit" }
+      ],
+      "answer": "A",
+      "explanation": "CIA Triad adalah model dasar keamanan informasi yang terdiri dari Confidentiality (kerahasiaan data), Integrity (keutuhan data tanpa manipulasi ilegal), dan Availability (ketersediaan layanan saat dibutuhkan pengguna sah)."
+    },
+    {
+      "id": "GEN-002",
+      "difficulty": "easy",
+      "question": "Metode penipuan di mana penyerang menyamar sebagai entitas terpercaya melalui email untuk memancing korban memasukkan kredensial atau mengklik tautan berbahaya disebut:",
+      "options": [
+        { "id": "A", "text": "Phishing" },
+        { "id": "B", "text": "Vishing" },
+        { "id": "C", "text": "Smishing" },
+        { "id": "D", "text": "Baiting" }
+      ],
+      "answer": "A",
+      "explanation": "Phishing adalah bentuk social engineering melalui media komunikasi (terutama email) yang menipu penerima agar mengungkapkan informasi sensitif atau mengunduh malware."
+    },
+    {
+      "id": "GEN-003",
+      "difficulty": "easy",
+      "question": "Tiga faktor autentikasi utama dalam Multi-Factor Authentication (MFA) meliputi:",
+      "options": [
+        { "id": "A", "text": "Something you know (password), Something you have (OTP/token), Something you are (biometrik)" },
+        { "id": "B", "text": "Email, Username, PIN" },
+        { "id": "C", "text": "IP address, MAC address, GPS" },
+        { "id": "D", "text": "Password lama, Password baru, Konfirmasi password" }
+      ],
+      "answer": "A",
+      "explanation": "Faktor autentikasi yang valid harus berasal dari kategori berbeda: pengetahuan (knowledge: password/PIN), kepemilikan (possession: hardware key/authenticator app), atau biometrik (inherence: sidik jari/pemindai wajah)."
+    },
+    {
+      "id": "GEN-004",
+      "difficulty": "easy",
+      "question": "Prinsip keamanan 'Principle of Least Privilege' (PoLP) menegaskan bahwa:",
+      "options": [
+        { "id": "A", "text": "Pengguna atau proses hanya boleh diberikan hak akses minimum yang benar-benar dibutuhkan untuk menyelesaikan tugas pekerjaannya" },
+        { "id": "B", "text": "Semua karyawan baru harus diberikan hak administrator untuk mempermudah onboarding" },
+        { "id": "C", "text": "Akses root harus dibagikan kepada seluruh anggota tim pengembang" },
+        { "id": "D", "text": "Setiap file sistem harus memiliki izin 777" }
+      ],
+      "answer": "A",
+      "explanation": "Principle of Least Privilege meminimalkan dampak kerusakan jika suatu akun atau proses mengalami kompromi dengan cara membatasi hak akses ke tingkat minimum mutlak."
+    },
+    {
+      "id": "GEN-005",
+      "difficulty": "medium",
+      "question": "Model keamanan 'Bell-LaPadula' berfokus pada kerahasiaan (Confidentiality) data dengan menerapkan dua aturan utama, yaitu:",
+      "options": [
+        { "id": "A", "text": "No Read Up (Simple Security Property) dan No Write Down (*-Property)" },
+        { "id": "B", "text": "No Read Down dan No Write Up" },
+        { "id": "C", "text": "Separation of Duties dan Dual Control" },
+        { "id": "D", "text": "Discretionary Access Control dan Mandatory Logging" }
+      ],
+      "answer": "A",
+      "explanation": "Model Bell-LaPadula mencegah kebocoran informasi rahasia: pengguna tidak dapat membaca data di tingkat klasifikasi lebih tinggi (No Read Up), dan tidak dapat menulis/menyalin data rahasia ke tingkat klasifikasi lebih rendah (No Write Down)."
+    },
+    {
+      "id": "GEN-006",
+      "difficulty": "medium",
+      "question": "Model keamanan manakah yang secara khusus dirancang untuk menjaga Integritas (Integrity) data komersial dan mencegah penipuan dengan aturan 'No Read Down, No Write Up'?",
+      "options": [
+        { "id": "A", "text": "Biba Model" },
+        { "id": "B", "text": "Bell-LaPadula Model" },
+        { "id": "C", "text": "Clark-Wilson Model" },
+        { "id": "D", "text": "Brewer-Nash (Chinese Wall) Model" }
+      ],
+      "answer": "A",
+      "explanation": "Model Biba adalah kebalikan dari Bell-LaPadula yang berorientasi pada integritas: mencegah subjek dipengaruhi oleh objek dengan integritas rendah (No Read Down) dan mencegah subjek merusak objek dengan integritas tinggi (No Write Up)."
+    },
+    {
+      "id": "GEN-007",
+      "difficulty": "medium",
+      "question": "Model keamanan apa yang dirancang untuk mencegah konflik kepentingan (Conflict of Interest) dalam lingkungan konsultasi keuangan atau hukum?",
+      "options": [
+        { "id": "A", "text": "Brewer-Nash (Chinese Wall) Model" },
+        { "id": "B", "text": "Graham-Denning Model" },
+        { "id": "C", "text": "Harrison-Ruzzo-Ullman (HRU) Model" },
+        { "id": "D", "text": "Take-Grant Protection Model" }
+      ],
+      "answer": "A",
+      "explanation": "Brewer-Nash Model (Chinese Wall) secara dinamis membatasi akses seorang konsultan terhadap data perusahaan pesaing jika konsultan tersebut telah membaca data rahasia dari klien dalam kelompok industri yang sama."
+    },
+    {
+      "id": "GEN-008",
+      "difficulty": "medium",
+      "question": "Standar internasional manakah yang menyediakan spesifikasi dan sertifikasi resmi untuk Information Security Management System (ISMS)?",
+      "options": [
+        { "id": "A", "text": "ISO/IEC 27001" },
+        { "id": "B", "text": "ISO 9001" },
+        { "id": "C", "text": "RFC 1918" },
+        { "id": "D", "text": "IEEE 802.11" }
+      ],
+      "answer": "A",
+      "explanation": "ISO/IEC 27001 adalah standar internasional terkemuka untuk membangun, menerapkan, mengoperasikan, memantau, mengkaji, memelihara, dan meningkatkan Sistem Manajemen Keamanan Informasi (SMKI)."
+    },
+    {
+      "id": "GEN-009",
+      "difficulty": "hard",
+      "question": "Dalam konteks Disaster Recovery Planning (DRP), perbedaan mendasar antara RTO (Recovery Time Objective) dan RPO (Recovery Point Objective) adalah:",
+      "options": [
+        { "id": "A", "text": "RTO adalah batas waktu maksimal sistem harus pulih beroperasi, sedangkan RPO adalah batas maksimal kehilangan data yang dapat ditoleransi (diukur dalam durasi waktu sebelum bencana)" },
+        { "id": "B", "text": "RPO mengukur biaya pemulihan sedangkan RTO mengukur jumlah server" },
+        { "id": "C", "text": "RTO berfokus pada integritas data sedangkan RPO pada ketersediaan listrik" },
+        { "id": "D", "text": "RPO dan RTO adalah istilah yang identik dan dapat dipertukarkan" }
+      ],
+      "answer": "A",
+      "explanation": "RTO (Recovery Time Objective) adalah durasi waktu target sistem boleh offline sebelum pulih kembali. RPO (Recovery Point Objective) adalah usia data cadangan maksimum yang diizinkan hilang (misal data 1 jam terakhir)."
+    },
+    {
+      "id": "GEN-010",
+      "difficulty": "hard",
+      "question": "Sistem skoring kerentanan CVSS v3.1 (Common Vulnerability Scoring System) menghitung skor dasar (Base Score) menggunakan metrik Exploitability dan Impact. Manakah yang termasuk dalam metrik Exploitability?",
+      "options": [
+        { "id": "A", "text": "Attack Vector (AV), Attack Complexity (AC), Privileges Required (PR), User Interaction (UI)" },
+        { "id": "B", "text": "Confidentiality (C), Integrity (I), Availability (A)" },
+        { "id": "C", "text": "Exploit Code Maturity (E), Remediation Level (RL)" },
+        { "id": "D", "text": "Target Distribution (TD), Vulnerability Age (VA)" }
+      ],
+      "answer": "A",
+      "explanation": "Metrik Exploitability CVSS v3.1 menilai kemudahan eksploitasi: AV (Network/Adjacent/Local/Physical), AC (Low/High), PR (None/Low/High), UI (None/Required). Metrik Impact mengukur dampak pada CIA dan Scope (S)."
+    },
+    {
+      "id": "GEN-011",
+      "difficulty": "hard",
+      "question": "Strategi pertahanan keamanan siber 'Defense-in-Depth' (DiD) menekankan pada pendekatan:",
+      "options": [
+        { "id": "A", "text": "Penerapan lapisan kontrol keamanan berlapis (perimeter, jaringan, host, aplikasi, dan data) sehingga kegagalan satu kontrol tidak menyebabkan kompromi menyeluruh" },
+        { "id": "B", "text": "Penggunaan satu antivirus terbaik untuk melindungi seluruh jaringan" },
+        { "id": "C", "text": "Penyimpanan data hanya pada satu server tersembunyi" },
+        { "id": "D", "text": "Penutupan seluruh koneksi internet perusahaan secara permanen" }
+      ],
+      "answer": "A",
+      "explanation": "Defense-in-Depth menerapkan konsep benteng berlapis di mana penyerang harus menembus firewall, IDS/IPS, segmen jaringan, access control, EDR, dan enkripsi data; jika satu layer jebol, layer berikutnya tetap melindungi aset kritis."
+    },
+    {
+      "id": "GEN-012",
+      "difficulty": "hard",
+      "question": "Mekanisme apa pada konsep Security by Design yang memastikan integritas transaksi bisnis dengan mengharuskan persetujuan dari minimal dua entitas independen yang berbeda?",
+      "options": [
+        { "id": "A", "text": "Dual Control / Two-Man Rule (bagian dari Separation of Duties)" },
+        { "id": "B", "text": "Single Sign-On (SSO)" },
+        { "id": "C", "text": "Symmetric encryption" },
+        { "id": "D", "text": "Continuous Integration" }
+      ],
+      "answer": "A",
+      "explanation": "Dual Control (atau Two-Person Integrity) mengharuskan dua orang yang berbeda secara bersamaan menyetujui atau mengeksekusi operasi berisiko tinggi (misal transfer dana miliaran rupiah atau peluncuran sistem kritis) untuk mencegah kecurangan internal (fraud)."
+    }
+  ]
+}

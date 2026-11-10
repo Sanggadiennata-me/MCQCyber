@@ -1,0 +1,163 @@
+{
+  "category": "Cryptography",
+  "slug": "cryptography",
+  "description": "Symmetric/Asymmetric encryption, Hash functions, Digital signatures, PKI, and cryptographic attacks.",
+  "questions": [
+    {
+      "id": "CRYPTO-001",
+      "difficulty": "easy",
+      "question": "Manakah dari algoritma berikut yang merupakan algoritma enkripsi simetris (symmetric cipher)?",
+      "options": [
+        { "id": "A", "text": "AES (Advanced Encryption Standard)" },
+        { "id": "B", "text": "RSA (Rivest-Shamir-Adleman)" },
+        { "id": "C", "text": "ECC (Elliptic Curve Cryptography)" },
+        { "id": "D", "text": "Diffie-Hellman" }
+      ],
+      "answer": "A",
+      "explanation": "AES (Rijndael) adalah block cipher simetris yang menggunakan kunci yang sama untuk enkripsi dan dekripsi. RSA, ECC, dan Diffie-Hellman merupakan algoritma asimetris/public-key."
+    },
+    {
+      "id": "CRYPTO-002",
+      "difficulty": "easy",
+      "question": "Sifat fungsi hash kriptografi di mana perubahan 1 bit kecil pada input akan menghasilkan perubahan drastis pada nilai hash output disebut:",
+      "options": [
+        { "id": "A", "text": "Avalanche Effect" },
+        { "id": "B", "text": "Collision Resistance" },
+        { "id": "C", "text": "Pre-image Resistance" },
+        { "id": "D", "text": "Birthday Paradox" }
+      ],
+      "answer": "A",
+      "explanation": "Avalanche Effect (Efek Longsor) adalah properti penting fungsi hash kriptografi dan block cipher di mana flip 1 bit input mengubah setidaknya 50% bit output secara acak."
+    },
+    {
+      "id": "CRYPTO-003",
+      "difficulty": "easy",
+      "question": "Panjang digest (output hash) yang dihasilkan oleh algoritma SHA-256 adalah:",
+      "options": [
+        { "id": "A", "text": "256 bit (32 byte / 64 karakter heksadesimal)" },
+        { "id": "B", "text": "128 bit" },
+        { "id": "C", "text": "512 bit" },
+        { "id": "D", "text": "160 bit" }
+      ],
+      "answer": "A",
+      "explanation": "SHA-256 dari keluarga SHA-2 selalu menghasilkan output tepat 256 bit atau 32 byte, yang lazim direpresentasikan sebagai 64 karakter heksadesimal."
+    },
+    {
+      "id": "CRYPTO-004",
+      "difficulty": "easy",
+      "question": "Ketika Alice ingin mengirim pesan rahasia kepada Bob menggunakan kriptografi asimetris, kunci manakah yang harus digunakan Alice untuk mengenkripsi pesan tersebut?",
+      "options": [
+        { "id": "A", "text": "Public Key milik Bob" },
+        { "id": "B", "text": "Private Key milik Bob" },
+        { "id": "C", "text": "Private Key milik Alice" },
+        { "id": "D", "text": "Public Key milik Alice" }
+      ],
+      "answer": "A",
+      "explanation": "Untuk kerahasiaan (confidentiality), pengirim mengenkripsi pesan dengan Public Key penerima (Bob). Hanya Bob yang memiliki Private Key pasangannya yang dapat mendekripsi pesan tersebut."
+    },
+    {
+      "id": "CRYPTO-005",
+      "difficulty": "medium",
+      "question": "Mengapa mode operasi block cipher Electronic Codebook (ECB) sangat tidak disarankan untuk mengenkripsi data seperti gambar atau pesan terstruktur?",
+      "options": [
+        { "id": "A", "text": "Blok plaintext yang identik akan selalu menghasilkan blok ciphertext yang identik, sehingga pola data tidak tersembunyi" },
+        { "id": "B", "text": "ECB membutuhkan Initialization Vector (IV) yang terlalu panjang" },
+        { "id": "C", "text": "ECB lebih lambat daripada mode CBC" },
+        { "id": "D", "text": "ECB rentan terhadap serangan timing attack pada CPU" }
+      ],
+      "answer": "A",
+      "explanation": "Pada mode ECB, setiap blok 128-bit dienkripsi secara independen tanpa chaining. Akibatnya, pola data (seperti bitmap Tux Penguin) tetap terlihat jelas pada ciphertext."
+    },
+    {
+      "id": "CRYPTO-006",
+      "difficulty": "medium",
+      "question": "Fungsi hashing password modern seperti Argon2, bcrypt, dan scrypt sengaja dirancang memiliki sifat 'memory-hard'. Apa tujuannya?",
+      "options": [
+        { "id": "A", "text": "Menghambat serangan brute-force berbasis akselerator perangkat keras paralel seperti ASIC dan GPU" },
+        { "id": "B", "text": "Mempercepat waktu verifikasi login di server" },
+        { "id": "C", "text": "Mencegah serangan SQL Injection pada database" },
+        { "id": "D", "text": "Menghemat kapasitas memori RAM server produksi" }
+      ],
+      "answer": "A",
+      "explanation": "Memory-hard functions memaksa komputasi membutuhkan alokasi RAM yang besar dan akses acak, sehingga perangkat keras ASIC atau GPU yang memiliki core ribuan namun memori terbatas per core menjadi sangat tidak efisien untuk brute-force."
+    },
+    {
+      "id": "CRYPTO-007",
+      "difficulty": "medium",
+      "question": "Dalam enkripsi AES-GCM (Galois/Counter Mode), selain kerahasiaan (confidentiality), fitur keamanan apa yang disediakan secara bawaan (AEAD)?",
+      "options": [
+        { "id": "A", "text": "Integritas data dan autentisitas (Authentication Tag)" },
+        { "id": "B", "text": "Quantum-resistance" },
+        { "id": "C", "text": "Zero-Knowledge Proof" },
+        { "id": "D", "text": "Homomorphic computation" }
+      ],
+      "answer": "A",
+      "explanation": "GCM adalah skema Authenticated Encryption with Associated Data (AEAD) yang menghasilkan ciphertext sekaligus Authentication Tag (GMAC) untuk mendeteksi manipulasi atau tampering data."
+    },
+    {
+      "id": "CRYPTO-008",
+      "difficulty": "medium",
+      "question": "Apa fungsi dari 'Salt' saat menyimpan hash kata sandi pengguna di database?",
+      "options": [
+        { "id": "A", "text": "Mencegah penggunaan tabel pra-komputasi (Rainbow Table) dan memastikan dua user dengan password sama menghasilkan hash berbeda" },
+        { "id": "B", "text": "Mendekripsi password secara instan saat lupa password" },
+        { "id": "C", "text": "Mengompres ukuran hash agar lebih hemat byte" },
+        { "id": "D", "text": "Mengenkripsi saluran komunikasi HTTPS" }
+      ],
+      "answer": "A",
+      "explanation": "Salt adalah nilai acak unik yang digabungkan ke password sebelum di-hash. Salt menggagalkan serangan Rainbow Table dan menjamin bahwa password identik dari pengguna berbeda memiliki digest yang berbeda."
+    },
+    {
+      "id": "CRYPTO-009",
+      "difficulty": "hard",
+      "question": "Serangan 'Padding Oracle Attack' pada mode cipher CBC (Cipher Block Chaining) mengeksploitasi informasi apa yang dibocorkan oleh server?",
+      "options": [
+        { "id": "A", "text": "Perbedaan pesan error atau waktu respon saat validasi PKCS#7 padding dekripsi gagal vs berhasil" },
+        { "id": "B", "text": "Panjang kunci AES pada memori" },
+        { "id": "C", "text": "Nilai nonce yang berulang pada GCM" },
+        { "id": "D", "text": "Karakteristik S-Box AES pada instruksi CPU" }
+      ],
+      "answer": "A",
+      "explanation": "Padding Oracle memanfaatkan respon error server yang membedakan kegagalan format padding (seperti 'Invalid PKCS#7 Padding') dari kegagalan logika aplikasi lainnya, memungkinkan pemulihan plaintext byte-demi-byte tanpa mengetahui kunci rahasia."
+    },
+    {
+      "id": "CRYPTO-010",
+      "difficulty": "hard",
+      "question": "Kelemahan matematis apa yang mendasari serangan 'Length Extension Attack' pada fungsi hash seperti MD5, SHA-1, dan SHA-256?",
+      "options": [
+        { "id": "A", "text": "Konstruksi Merkle-Damgård di mana internal state output hash dapat langsung digunakan sebagai state awal untuk memproses blok data tambahan" },
+        { "id": "B", "text": "Sifat Sponge Construction pada Keccak" },
+        { "id": "C", "text": "Kerentanan terhadap algoritma Shor pada komputer kuantum" },
+        { "id": "D", "text": "Kurangnya bit padding pada kelipatan 512 bit" }
+      ],
+      "answer": "A",
+      "explanation": "Pada konstruksi Merkle-Damgård, output hash adalah state register internal akhir. Jika MAC dihitung secara naif sebagai Hash(Secret || Message), penyerang yang mengetahui hash dan panjang secret dapat menghitung Hash(Secret || Message || Padding || NewData) tanpa tahu nilai Secret."
+    },
+    {
+      "id": "CRYPTO-011",
+      "difficulty": "hard",
+      "question": "Apa dampak keamanan paling fatal jika sebuah Nonce (Number Used Once) digunakan kembali (nonce reuse) pada algoritma AES-GCM dengan kunci rahasia yang sama?",
+      "options": [
+        { "id": "A", "text": "Penyerang dapat merekonstruksi authentication key GHASH (H) dan memalsukan tag autentikasi pada pesan baru" },
+        { "id": "B", "text": "Server akan mengalami crash denial of service" },
+        { "id": "C", "text": "Panjang kunci AES otomatis terpotong menjadi 64 bit" },
+        { "id": "D", "text": "Ciphertext langsung berubah menjadi plaintext" }
+      ],
+      "answer": "A",
+      "explanation": "Nonce reuse pada AES-GCM mengekspos XOR dari dua plaintext (seperti One-Time Pad reuse) dan memungkinkan penyerang menyelesaikan persamaan polinomial atas Galois Field GF(2^128) untuk menemukan GHASH subkey H, menghancurkan integritas secara total."
+    },
+    {
+      "id": "CRYPTO-012",
+      "difficulty": "hard",
+      "question": "Serangan 'Bleichenbacher Attack' (Million Message Attack) mengeksploitasi skema padding enkripsi RSA mana?",
+      "options": [
+        { "id": "A", "text": "PKCS#1 v1.5 padding untuk enkripsi" },
+        { "id": "B", "text": "RSA-OAEP (Optimal Asymmetric Encryption Padding)" },
+        { "id": "C", "text": "RSA-PSS untuk digital signature" },
+        { "id": "D", "text": "X.509 ASN.1 DER encoding" }
+      ],
+      "answer": "A",
+      "explanation": "Bleichenbacher (1998) membuktikan bahwa jika server membocorkan apakah ciphertext RSA didekripsi dengan byte awalan 0x00 0x02 yang benar (PKCS#1 v1.5), penyerang dapat mendekripsi ciphertext melalui kueri adaptif. Solusinya adalah beralih ke RSA-OAEP."
+    }
+  ]
+}
