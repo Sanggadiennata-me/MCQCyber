@@ -30,7 +30,6 @@ const categoryIcons = {
 
 export default function HomePage() {
   const categories = getCategories();
-  const totalQuestions = categories.reduce((sum, c) => sum + (c.questionsCount || 0), 0);
 
   const ecosystemMembers = [
     {
@@ -91,26 +90,6 @@ export default function HomePage() {
                 <Users className="h-4 w-4 text-cyber-primary" />
                 <span>Buka Team Challenge</span>
               </Link>
-            </div>
-
-            {/* KEY METRICS POSTER STRIP */}
-            <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left border-t border-cyber-border/70 mt-8">
-              <div className="p-4 bg-cyber-card border border-cyber-border rounded-sm">
-                <div className="text-3xl font-bold text-white tabular-nums">{totalQuestions}</div>
-                <div className="text-sm text-cyber-muted mt-1">Soal Terverifikasi</div>
-              </div>
-              <div className="p-4 bg-cyber-card border border-cyber-border rounded-sm">
-                <div className="text-3xl font-bold text-cyber-primary tabular-nums">9</div>
-                <div className="text-sm text-cyber-muted mt-1">Kategori Cyber</div>
-              </div>
-              <div className="p-4 bg-cyber-card border border-cyber-border rounded-sm">
-                <div className="text-3xl font-bold text-white tabular-nums">3</div>
-                <div className="text-sm text-cyber-muted mt-1">Peserta Per Tim</div>
-              </div>
-              <div className="p-4 bg-cyber-card border border-cyber-border rounded-sm">
-                <div className="text-3xl font-bold text-cyber-primary tabular-nums">0</div>
-                <div className="text-sm text-cyber-muted mt-1">Data Permanen</div>
-              </div>
             </div>
           </div>
         </div>
