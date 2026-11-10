@@ -4,10 +4,8 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Zap,
-  Sliders,
   Clock,
   Layers,
-  HelpCircle,
   AlertTriangle,
   ArrowRight,
   Shuffle,
@@ -43,7 +41,6 @@ function PracticeForm() {
         if (data.success && Array.isArray(data.categories)) {
           setCategories(data.categories);
 
-          // If category preselected in query param
           const preselected = searchParams.get('category');
           if (preselected && data.categories.some((c) => c.slug === preselected)) {
             setSelectedCategories([preselected]);
@@ -124,31 +121,29 @@ function PracticeForm() {
     }
   };
 
+  const totalAvailable = categories.reduce((sum, c) => sum + (c.questionsCount || 0), 0);
+
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
-      <div className="mb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyber-border bg-cyber-secondary px-3 py-1 text-xs font-semibold text-cyber-electric mb-3 shadow-glow">
-          <Zap className="h-3.5 w-3.5" />
-          <span>Solo Practice Mode</span>
-        </div>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight">Konfigurasi Latihan Mandiri</h1>
-        <p className="text-sm text-cyber-muted mt-1">
-          Sesuaikan materi, durasi pengerjaan, dan tingkat kesulitan sebelum memulai simulasi.
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14">
+      <div className="mb-10">
+        <h1 className="text-3xl font-bold text-white tracking-tight">Konfigurasi Solo Practice</h1>
+        <p className="text-sm text-cyber-muted mt-2">
+          Pilih materi ujian, batas waktu, dan tingkat kesulitan sebelum memulai simulasi mandiri.
         </p>
       </div>
 
       {errorMessage && (
-        <div className="mb-6 flex items-start gap-3 rounded-xl border border-cyber-danger/50 bg-cyber-danger/10 p-4 text-xs text-cyber-text">
+        <div className="mb-6 flex items-start gap-3 rounded-sm border border-cyber-danger bg-cyber-field p-4 text-xs text-cyber-text">
           <AlertTriangle className="h-4 w-4 text-cyber-danger shrink-0 mt-0.5" />
           <span>{errorMessage}</span>
         </div>
       )}
 
-      <form onSubmit={handleStartPractice} className="space-y-8">
+      <form onSubmit={handleStartPractice} className="space-y-6">
         {/* NICKNAME */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
           <label className="block text-sm font-semibold text-white">
-            Nickname Peserta <span className="text-cyber-danger">*</span>
+            Nickname Peserta <span className="text-cyber-primary">*</span>
           </label>
           <input
             type="text"
@@ -157,39 +152,39 @@ function PracticeForm() {
             placeholder="Contoh: cyber_ninja, rev_hacker"
             maxLength={25}
             required
-            className="w-full rounded-xl border border-cyber-border bg-cyber-bg px-4 py-3 text-sm text-white placeholder-cyber-darkMuted focus:border-cyber-electric focus:outline-none focus:ring-1 focus:ring-cyber-electric transition-colors"
+            className="w-full rounded-sm border border-cyber-border bg-cyber-bg px-4 py-3 text-sm text-white placeholder-cyber-muted focus:border-cyber-primary focus:outline-none transition-colors"
           />
-          <p className="text-[11px] text-cyber-muted">
-            Nickname hanya digunakan selama sesi berlangsung dan tidak disimpan secara permanen.
+          <p className="text-xs text-cyber-muted">
+            Nickname hanya digunakan selama sesi berlangsung dan tidak disimpan permanen.
           </p>
         </div>
 
         {/* KATEGORI SOAL */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-4">
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-4">
           <div className="flex items-center justify-between">
-            <label className="block text-sm font-semibold text-white">Pilih Kategori Soal</label>
+            <label className="block text-sm font-semibold text-white">Kategori Materi</label>
             <span className="text-xs text-cyber-muted">
-              {selectedCategories.includes('all') ? 'Semua Kategori' : `${selectedCategories.length} Dipilih`}
+              {selectedCategories.includes('all') ? 'Semua Kategori' : `${selectedCategories.length} Kategori Terpilih`}
             </span>
           </div>
 
           {loadingCategories ? (
-            <div className="py-6 text-center text-xs text-cyber-muted animate-pulse">
-              Memuat kategori soal...
+            <div className="py-6 text-center text-xs text-cyber-muted">
+              Memuat data kategori...
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               <button
                 type="button"
                 onClick={() => toggleCategory('all')}
-                className={`flex items-center justify-between p-3 rounded-xl border text-left text-xs font-medium transition-all ${
+                className={`flex items-center justify-between p-3 rounded-sm border text-left text-xs font-medium transition-colors ${
                   selectedCategories.includes('all')
-                    ? 'border-cyber-electric bg-cyber-primary/20 text-white shadow-glow'
-                    : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-border/80'
+                    ? 'border-cyber-primary bg-cyber-field text-white'
+                    : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                 }`}
               >
                 <span>Semua Kategori (Campuran)</span>
-                <span className="text-[11px] opacity-75">108 Soal</span>
+                <span className="text-xs tabular-nums opacity-80">{totalAvailable} Soal</span>
               </button>
 
               {categories.map((cat) => {
@@ -199,14 +194,14 @@ function PracticeForm() {
                     key={cat.slug}
                     type="button"
                     onClick={() => toggleCategory(cat.slug)}
-                    className={`flex items-center justify-between p-3 rounded-xl border text-left text-xs font-medium transition-all ${
+                    className={`flex items-center justify-between p-3 rounded-sm border text-left text-xs font-medium transition-colors ${
                       isSelected
-                        ? 'border-cyber-electric bg-cyber-primary/20 text-white shadow-glow'
-                        : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-border/80'
+                        ? 'border-cyber-primary bg-cyber-field text-white'
+                        : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                     }`}
                   >
                     <span className="truncate pr-2">{cat.name}</span>
-                    <span className="text-[11px] opacity-75 shrink-0">{cat.questionsCount}</span>
+                    <span className="text-xs tabular-nums opacity-80 shrink-0">{cat.questionsCount}</span>
                   </button>
                 );
               })}
@@ -216,23 +211,23 @@ function PracticeForm() {
 
         {/* TINGKAT KESULITAN & JUMLAH SOAL */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
+          <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
             <label className="block text-sm font-semibold text-white">Tingkat Kesulitan</label>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'mixed', label: 'Campuran' },
-                { id: 'easy', label: 'Easy' },
-                { id: 'medium', label: 'Medium' },
-                { id: 'hard', label: 'Hard' },
+                { id: 'easy', label: 'Mudah' },
+                { id: 'medium', label: 'Sedang' },
+                { id: 'hard', label: 'Sulit' },
               ].map((item) => (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => setDifficulty(item.id)}
-                  className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`py-2 px-3 rounded-sm border text-xs font-semibold transition-colors ${
                     difficulty === item.id
-                      ? 'border-cyber-electric bg-cyber-primary text-white shadow-glow'
-                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
                   {item.label}
@@ -241,18 +236,18 @@ function PracticeForm() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
-            <label className="block text-sm font-semibold text-white">Jumlah Soal</label>
+          <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
+            <label className="block text-sm font-semibold text-white">Jumlah Butir Soal</label>
             <div className="grid grid-cols-3 gap-2">
               {[5, 10, 15, 20, 30, 50].map((num) => (
                 <button
                   key={num}
                   type="button"
                   onClick={() => setQuestionCount(num)}
-                  className={`py-2 px-2 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                     questionCount === num
-                      ? 'border-cyber-electric bg-cyber-primary text-white shadow-glow'
-                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
                   {num} Soal
@@ -263,10 +258,10 @@ function PracticeForm() {
         </div>
 
         {/* DURASI PENGERJAAN */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
           <div className="flex items-center justify-between">
             <label className="block text-sm font-semibold text-white">Durasi Pengerjaan</label>
-            <span className="text-xs text-cyber-electric font-semibold">{durationMinutes} Menit</span>
+            <span className="text-xs tabular-nums text-cyber-primary font-semibold">{durationMinutes} Menit</span>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {[5, 10, 15, 20, 30, 45].map((mins) => (
@@ -274,10 +269,10 @@ function PracticeForm() {
                 key={mins}
                 type="button"
                 onClick={() => setDurationMinutes(mins)}
-                className={`py-2 px-2 rounded-xl border text-xs font-semibold transition-all ${
+                className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                   durationMinutes === mins
-                    ? 'border-cyber-electric bg-cyber-primary text-white shadow-glow'
-                    : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                    ? 'border-cyber-primary bg-cyber-primary text-white'
+                    : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                 }`}
               >
                 {mins} mnt
@@ -286,60 +281,57 @@ function PracticeForm() {
           </div>
         </div>
 
-        {/* OPSIONAL TOGGLES */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-4">
+        {/* OPSI TAMBAHAN */}
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-4">
           <h3 className="text-sm font-semibold text-white">Opsi Tambahan</h3>
 
           <div className="space-y-3">
-            <label className="flex items-center justify-between cursor-pointer p-3 rounded-xl bg-cyber-secondary border border-cyber-border/60 hover:border-cyber-border transition-colors">
+            <label className="flex items-center justify-between cursor-pointer p-3.5 rounded-sm bg-cyber-secondary border border-cyber-border hover:border-cyber-primary/60 transition-colors">
               <div className="flex items-center gap-3">
-                <Shuffle className="h-4 w-4 text-cyber-electric" />
+                <Shuffle className="h-4 w-4 text-cyber-primary" />
                 <div>
                   <div className="text-xs font-semibold text-white">Acak Urutan Soal</div>
-                  <div className="text-[11px] text-cyber-muted">Soal disajikan dalam urutan acak</div>
+                  <div className="text-[11px] text-cyber-muted">Soal disajikan dalam urutan acak setiap sesi</div>
                 </div>
               </div>
               <input
                 type="checkbox"
                 checked={randomizeQuestions}
                 onChange={(e) => setRandomizeQuestions(e.target.checked)}
-                className="h-4 w-4 rounded border-cyber-border text-cyber-primary focus:ring-0"
-              >
-              </input>
+                className="h-4 w-4 rounded-sm border-cyber-border accent-cyber-primary"
+              />
             </label>
 
-            <label className="flex items-center justify-between cursor-pointer p-3 rounded-xl bg-cyber-secondary border border-cyber-border/60 hover:border-cyber-border transition-colors">
+            <label className="flex items-center justify-between cursor-pointer p-3.5 rounded-sm bg-cyber-secondary border border-cyber-border hover:border-cyber-primary/60 transition-colors">
               <div className="flex items-center gap-3">
-                <Shuffle className="h-4 w-4 text-cyber-electric" />
+                <Shuffle className="h-4 w-4 text-cyber-primary" />
                 <div>
                   <div className="text-xs font-semibold text-white">Acak Pilihan Jawaban</div>
-                  <div className="text-[11px] text-cyber-muted">Opsi A, B, C, D diacak per butir soal</div>
+                  <div className="text-[11px] text-cyber-muted">Urutan opsi A, B, C, D diacak per butir soal</div>
                 </div>
               </div>
               <input
                 type="checkbox"
                 checked={randomizeOptions}
                 onChange={(e) => setRandomizeOptions(e.target.checked)}
-                className="h-4 w-4 rounded border-cyber-border text-cyber-primary focus:ring-0"
-              >
-              </input>
+                className="h-4 w-4 rounded-sm border-cyber-border accent-cyber-primary"
+              />
             </label>
 
-            <label className="flex items-center justify-between cursor-pointer p-3 rounded-xl bg-cyber-secondary border border-cyber-border/60 hover:border-cyber-border transition-colors">
+            <label className="flex items-center justify-between cursor-pointer p-3.5 rounded-sm bg-cyber-secondary border border-cyber-border hover:border-cyber-primary/60 transition-colors">
               <div className="flex items-center gap-3">
-                <ShieldAlert className="h-4 w-4 text-cyber-danger" />
+                <ShieldAlert className="h-4 w-4 text-cyber-primary" />
                 <div>
-                  <div className="text-xs font-semibold text-white">Negative Marking (Pengurangan Nilai)</div>
-                  <div className="text-[11px] text-cyber-muted">Benar: +50 poin, Salah: -15 poin (Default: nonaktif)</div>
+                  <div className="text-xs font-semibold text-white">Pengurangan Nilai (Negative Marking)</div>
+                  <div className="text-[11px] text-cyber-muted">Benar: +50 poin, Salah: -15 poin, Kosong: 0 poin</div>
                 </div>
               </div>
               <input
                 type="checkbox"
                 checked={negativeMarking}
                 onChange={(e) => setNegativeMarking(e.target.checked)}
-                className="h-4 w-4 rounded border-cyber-border text-cyber-primary focus:ring-0"
-              >
-              </input>
+                className="h-4 w-4 rounded-sm border-cyber-border accent-cyber-primary"
+              />
             </label>
           </div>
         </div>
@@ -348,7 +340,7 @@ function PracticeForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full flex items-center justify-center gap-2 rounded-xl bg-cyber-primary py-4 text-sm font-bold text-white shadow-glow hover:bg-cyber-electric transition-all disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
         >
           {submitting ? (
             <span>Mempersiapkan Soal...</span>
@@ -369,7 +361,7 @@ export default function PracticeConfigurePage() {
     <Suspense
       fallback={
         <div className="flex-1 flex items-center justify-center p-8">
-          <div className="text-cyber-electric text-sm animate-pulse">Memuat konfigurasi latihan...</div>
+          <div className="text-cyber-muted text-sm">Memuat konfigurasi latihan...</div>
         </div>
       }
     >

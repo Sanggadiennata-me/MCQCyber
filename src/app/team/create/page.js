@@ -6,19 +6,17 @@ import {
   Users,
   PlusCircle,
   Clock,
-  Layers,
   Shuffle,
   AlertTriangle,
   ArrowRight,
   ShieldAlert,
-  Compass,
 } from 'lucide-react';
 
 export default function CreateRoomPage() {
   const router = useRouter();
 
   const [nickname, setNickname] = useState('');
-  const [categoryMode, setCategoryMode] = useState('mixed'); // 'mixed', 'selected', 'random'
+  const [categoryMode, setCategoryMode] = useState('mixed');
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [difficulty, setDifficulty] = useState('mixed');
@@ -38,7 +36,6 @@ export default function CreateRoomPage() {
         const data = await res.json();
         if (data.success && Array.isArray(data.categories)) {
           setCategories(data.categories);
-          // Default select first 3 if in selected mode
           setSelectedCategories(data.categories.slice(0, 3).map((c) => c.slug));
         }
       } catch (err) {
@@ -52,7 +49,7 @@ export default function CreateRoomPage() {
 
   const toggleCategory = (slug) => {
     if (selectedCategories.includes(slug)) {
-      if (selectedCategories.length <= 1) return; // Keep at least 1
+      if (selectedCategories.length <= 1) return;
       setSelectedCategories(selectedCategories.filter((s) => s !== slug));
     } else {
       setSelectedCategories([...selectedCategories, slug]);
@@ -102,7 +99,6 @@ export default function CreateRoomPage() {
         return;
       }
 
-      // Store credentials in sessionStorage
       sessionStorage.setItem(`room_${data.roomCode}_host_token`, data.hostToken);
       sessionStorage.setItem(`room_${data.roomCode}_participant_token`, data.participantToken);
       sessionStorage.setItem(`room_${data.roomCode}_participant_id`, data.participantId);
@@ -117,30 +113,26 @@ export default function CreateRoomPage() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
-      <div className="mb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyber-border bg-cyber-secondary px-3 py-1 text-xs font-semibold text-cyber-electric mb-3 shadow-glow">
-          <PlusCircle className="h-3.5 w-3.5" />
-          <span>Host Setup</span>
-        </div>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight">Create Team Room</h1>
-        <p className="text-sm text-cyber-muted mt-1">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14">
+      <div className="mb-10">
+        <h1 className="text-3xl font-bold text-white tracking-tight">Buat Room Tim Baru</h1>
+        <p className="text-sm text-cyber-muted mt-2">
           Atur konfigurasi pertandingan tim sebelum membagikan Room Code kepada rekan Anda.
         </p>
       </div>
 
       {errorMessage && (
-        <div className="mb-6 flex items-start gap-3 rounded-xl border border-cyber-danger/50 bg-cyber-danger/10 p-4 text-xs text-cyber-text">
+        <div className="mb-6 flex items-start gap-3 rounded-sm border border-cyber-danger bg-cyber-field p-4 text-xs text-cyber-text">
           <AlertTriangle className="h-4 w-4 text-cyber-danger shrink-0 mt-0.5" />
           <span>{errorMessage}</span>
         </div>
       )}
 
-      <form onSubmit={handleCreateRoom} className="space-y-8">
+      <form onSubmit={handleCreateRoom} className="space-y-6">
         {/* NICKNAME HOST */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
           <label className="block text-sm font-semibold text-white">
-            Nickname Host (Anda) <span className="text-cyber-danger">*</span>
+            Nickname Host (Anda) <span className="text-cyber-primary">*</span>
           </label>
           <input
             type="text"
@@ -149,15 +141,15 @@ export default function CreateRoomPage() {
             placeholder="Contoh: TeamCaptain, SecLeader"
             maxLength={25}
             required
-            className="w-full rounded-xl border border-cyber-border bg-cyber-bg px-4 py-3 text-sm text-white placeholder-cyber-darkMuted focus:border-cyber-electric focus:outline-none focus:ring-1 focus:ring-cyber-electric transition-colors"
+            className="w-full rounded-sm border border-cyber-border bg-cyber-bg px-4 py-3 text-sm text-white placeholder-cyber-muted focus:border-cyber-primary focus:outline-none transition-colors"
           />
-          <p className="text-[11px] text-cyber-muted">
+          <p className="text-xs text-cyber-muted">
             Anda akan bertindak sebagai Host yang memiliki wewenang untuk memulai pertandingan.
           </p>
         </div>
 
         {/* MODE DISTRIBUSI SOAL */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-4">
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-4">
           <label className="block text-sm font-semibold text-white">Mode Distribusi Soal</label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
@@ -181,10 +173,10 @@ export default function CreateRoomPage() {
                 key={m.id}
                 type="button"
                 onClick={() => setCategoryMode(m.id)}
-                className={`p-4 rounded-xl border text-left transition-all ${
+                className={`p-4 rounded-sm border text-left transition-colors ${
                   categoryMode === m.id
-                    ? 'border-cyber-electric bg-cyber-primary/20 text-white shadow-glow'
-                    : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-border/80'
+                    ? 'border-cyber-primary bg-cyber-field text-white'
+                    : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                 }`}
               >
                 <div className="text-xs font-bold text-white mb-1">{m.title}</div>
@@ -195,12 +187,12 @@ export default function CreateRoomPage() {
 
           {/* IF SELECTED CATEGORIES, SHOW PICKER */}
           {categoryMode === 'selected' && (
-            <div className="pt-4 border-t border-cyber-border/60 space-y-3">
+            <div className="pt-4 border-t border-cyber-border space-y-3">
               <label className="block text-xs font-semibold text-cyber-muted">
                 Pilih Kategori untuk Pertandingan:
               </label>
               {loadingCategories ? (
-                <div className="text-xs text-cyber-muted animate-pulse">Memuat kategori...</div>
+                <div className="text-xs text-cyber-muted">Memuat kategori...</div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {categories.map((cat) => {
@@ -210,14 +202,14 @@ export default function CreateRoomPage() {
                         key={cat.slug}
                         type="button"
                         onClick={() => toggleCategory(cat.slug)}
-                        className={`flex items-center justify-between p-2.5 rounded-lg border text-xs font-medium transition-all ${
+                        className={`flex items-center justify-between p-2.5 rounded-sm border text-xs font-medium transition-colors ${
                           isSelected
-                            ? 'border-cyber-electric bg-cyber-primary text-white'
-                            : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                            ? 'border-cyber-primary bg-cyber-primary text-white'
+                            : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                         }`}
                       >
                         <span className="truncate pr-2">{cat.name}</span>
-                        <span className="text-[10px] opacity-75">{cat.questionsCount} soal</span>
+                        <span className="text-xs font-mono tabular-nums opacity-80">{cat.questionsCount} soal</span>
                       </button>
                     );
                   })}
@@ -229,7 +221,7 @@ export default function CreateRoomPage() {
 
         {/* JUMLAH SOAL PER PESERTA & DURASI */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
+          <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
             <label className="block text-sm font-semibold text-white">Soal Per Anggota</label>
             <div className="grid grid-cols-3 gap-2">
               {[5, 10, 15, 20, 25, 30].map((num) => (
@@ -237,22 +229,22 @@ export default function CreateRoomPage() {
                   key={num}
                   type="button"
                   onClick={() => setQuestionCount(num)}
-                  className={`py-2 px-2 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`py-2 px-2 rounded-sm border text-xs font-semibold font-mono tabular-nums transition-colors ${
                     questionCount === num
-                      ? 'border-cyber-electric bg-cyber-primary text-white shadow-glow'
-                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
                   {num} Soal
                 </button>
               ))}
             </div>
-            <p className="text-[10px] text-cyber-darkMuted pt-1">
+            <p className="text-xs text-cyber-muted pt-1">
               Setiap anggota menerima paket {questionCount} soal berbeda tanpa duplikasi.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-3">
+          <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-3">
             <label className="block text-sm font-semibold text-white">Durasi Individual</label>
             <div className="grid grid-cols-3 gap-2">
               {[5, 10, 15, 20, 30, 45].map((mins) => (
@@ -260,41 +252,41 @@ export default function CreateRoomPage() {
                   key={mins}
                   type="button"
                   onClick={() => setDurationMinutes(mins)}
-                  className={`py-2 px-2 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`py-2 px-2 rounded-sm border text-xs font-semibold font-mono tabular-nums transition-colors ${
                     durationMinutes === mins
-                      ? 'border-cyber-electric bg-cyber-primary text-white shadow-glow'
-                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
                   {mins} mnt
                 </button>
               ))}
             </div>
-            <p className="text-[10px] text-cyber-darkMuted pt-1">
-              Timer berjalan mandiri untuk tiap anggota (server-authoritative).
+            <p className="text-xs text-cyber-muted pt-1">
+              Timer berjalan mandiri untuk tiap anggota di sisi server.
             </p>
           </div>
         </div>
 
         {/* TINGKAT KESULITAN & NEGATIVE MARKING */}
-        <div className="rounded-2xl border border-cyber-border bg-cyber-card p-6 space-y-4">
+        <div className="rounded-sm border border-cyber-border bg-cyber-card p-6 space-y-4">
           <div className="space-y-3">
             <label className="block text-sm font-semibold text-white">Tingkat Kesulitan</label>
             <div className="grid grid-cols-4 gap-2">
               {[
                 { id: 'mixed', label: 'Campuran' },
-                { id: 'easy', label: 'Easy' },
-                { id: 'medium', label: 'Medium' },
-                { id: 'hard', label: 'Hard' },
+                { id: 'easy', label: 'Mudah' },
+                { id: 'medium', label: 'Sedang' },
+                { id: 'hard', label: 'Sulit' },
               ].map((d) => (
                 <button
                   key={d.id}
                   type="button"
                   onClick={() => setDifficulty(d.id)}
-                  className={`py-2 px-2 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`py-2 px-2 rounded-sm border text-xs font-semibold transition-colors ${
                     difficulty === d.id
-                      ? 'border-cyber-electric bg-cyber-primary text-white shadow-glow'
-                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:bg-cyber-hover'
+                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
                   {d.label}
@@ -303,10 +295,10 @@ export default function CreateRoomPage() {
             </div>
           </div>
 
-          <div className="border-t border-cyber-border/60 pt-4 space-y-3">
-            <label className="flex items-center justify-between cursor-pointer p-3 rounded-xl bg-cyber-secondary border border-cyber-border/60 hover:border-cyber-border transition-colors">
+          <div className="border-t border-cyber-border pt-4 space-y-3">
+            <label className="flex items-center justify-between cursor-pointer p-3.5 rounded-sm bg-cyber-secondary border border-cyber-border hover:border-cyber-primary/60 transition-colors">
               <div className="flex items-center gap-3">
-                <ShieldAlert className="h-4 w-4 text-cyber-danger" />
+                <ShieldAlert className="h-4 w-4 text-cyber-primary" />
                 <div>
                   <div className="text-xs font-semibold text-white">Negative Marking</div>
                   <div className="text-[11px] text-cyber-muted">Pengurangan nilai (-15 poin) jika jawaban salah</div>
@@ -316,7 +308,7 @@ export default function CreateRoomPage() {
                 type="checkbox"
                 checked={negativeMarking}
                 onChange={(e) => setNegativeMarking(e.target.checked)}
-                className="h-4 w-4 rounded border-cyber-border text-cyber-primary focus:ring-0"
+                className="h-4 w-4 rounded-sm border-cyber-border accent-cyber-primary"
               />
             </label>
           </div>
@@ -326,7 +318,7 @@ export default function CreateRoomPage() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full flex items-center justify-center gap-2 rounded-xl bg-cyber-primary py-4 text-sm font-bold text-white shadow-glow hover:bg-cyber-electric transition-all disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
         >
           {submitting ? (
             <span>Mempersiapkan Room...</span>
