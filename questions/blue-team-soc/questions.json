@@ -8,10 +8,22 @@
       "difficulty": "easy",
       "question": "Framework taksonomi standar industri yang mendokumentasikan taktik, teknik, dan prosedur (TTP) musuh siber berdasarkan observasi di dunia nyata adalah:",
       "options": [
-        { "id": "A", "text": "MITRE ATT&CK" },
-        { "id": "B", "text": "ISO 27001" },
-        { "id": "C", "text": "PCI-DSS" },
-        { "id": "D", "text": "COBIT 5" }
+        {
+          "id": "A",
+          "text": "MITRE ATT&CK"
+        },
+        {
+          "id": "B",
+          "text": "ISO 27001"
+        },
+        {
+          "id": "C",
+          "text": "PCI-DSS"
+        },
+        {
+          "id": "D",
+          "text": "COBIT 5"
+        }
       ],
       "answer": "A",
       "explanation": "MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) adalah basis pengetahuan global terkurasi yang memetakan fase penyerangan siber dari Reconnaissance hingga Impact."
@@ -21,10 +33,22 @@
       "difficulty": "easy",
       "question": "Sistem perangkat lunak yang berfungsi mengumpulkan, mengorelasikan, dan menganalisis data log keamanan dari berbagai perangkat jaringan dan server secara terpusat disebut:",
       "options": [
-        { "id": "A", "text": "SIEM (Security Information and Event Management)" },
-        { "id": "B", "text": "ERP (Enterprise Resource Planning)" },
-        { "id": "C", "text": "CRM (Customer Relationship Management)" },
-        { "id": "D", "text": "SCADA" }
+        {
+          "id": "A",
+          "text": "SIEM (Security Information and Event Management)"
+        },
+        {
+          "id": "B",
+          "text": "ERP (Enterprise Resource Planning)"
+        },
+        {
+          "id": "C",
+          "text": "CRM (Customer Relationship Management)"
+        },
+        {
+          "id": "D",
+          "text": "SCADA"
+        }
       ],
       "answer": "A",
       "explanation": "SIEM (seperti Splunk, Microsoft Sentinel, Elastic SIEM, QRadar) mengumpulkan log secara real-time, menerapkan aturan korelasi untuk mendeteksi ancaman, dan memicu alert bagi analis SOC."
@@ -34,10 +58,22 @@
       "difficulty": "easy",
       "question": "Windows Event ID manakah yang mencatat pembuatan proses baru (Process Creation) jika auditing atau Sysmon (Event ID 1) diaktifkan?",
       "options": [
-        { "id": "A", "text": "Event ID 4688" },
-        { "id": "B", "text": "Event ID 4624" },
-        { "id": "C", "text": "Event ID 4625" },
-        { "id": "D", "text": "Event ID 1102" }
+        {
+          "id": "A",
+          "text": "Event ID 4688"
+        },
+        {
+          "id": "B",
+          "text": "Event ID 4624"
+        },
+        {
+          "id": "C",
+          "text": "Event ID 4625"
+        },
+        {
+          "id": "D",
+          "text": "Event ID 1102"
+        }
       ],
       "answer": "A",
       "explanation": "Security Event ID 4688 mencatat setiap proses baru yang dibuat (New Process Name, Parent Process, CommandLine). Event ID 4624 mencatat logon berhasil, 4625 logon gagal, dan 1102 penghapusan audit log."
@@ -47,10 +83,22 @@
       "difficulty": "easy",
       "question": "Format aturan standar berbasis YAML yang independen dari vendor SIEM dan dapat dikonversi ke query Splunk, Elastic, atau Sentinel disebut:",
       "options": [
-        { "id": "A", "text": "Sigma Rules" },
-        { "id": "B", "text": "YARA Rules" },
-        { "id": "C", "text": "Snort Signatures" },
-        { "id": "D", "text": "ModSecurity CRS" }
+        {
+          "id": "A",
+          "text": "Sigma Rules"
+        },
+        {
+          "id": "B",
+          "text": "YARA Rules"
+        },
+        {
+          "id": "C",
+          "text": "Snort Signatures"
+        },
+        {
+          "id": "D",
+          "text": "ModSecurity CRS"
+        }
       ],
       "answer": "A",
       "explanation": "Sigma adalah format standar terbuka berbasis deskripsi log generik (logsource, detection, condition) yang memudahkan pertukaran aturan deteksi ancaman antar berbagai platform SIEM."
@@ -60,10 +108,22 @@
       "difficulty": "medium",
       "question": "Tindakan mitigasi pertama yang paling krusial dilakukan oleh tim incident response ketika sebuah workstation terbukti terinfeksi ransomware aktif adalah:",
       "options": [
-        { "id": "A", "text": "Mengisolasi host dari jaringan (Network Containment) tanpa mematikan daya mesin (menjaga volatile memory)" },
-        { "id": "B", "text": "Me-reboot mesin ke Safe Mode" },
-        { "id": "C", "text": "Memformat hard disk segera" },
-        { "id": "D", "text": "Membayar tebusan uang kripto secepatnya" }
+        {
+          "id": "A",
+          "text": "Mengisolasi host dari jaringan (Network Containment) tanpa mematikan daya mesin (menjaga volatile memory)"
+        },
+        {
+          "id": "B",
+          "text": "Me-reboot mesin ke Safe Mode"
+        },
+        {
+          "id": "C",
+          "text": "Memformat hard disk segera"
+        },
+        {
+          "id": "D",
+          "text": "Membayar tebusan uang kripto secepatnya"
+        }
       ],
       "answer": "A",
       "explanation": "Isolasi jaringan segera memotong komunikasi ke C2 dan mencegah penyebaran lateral ransomware ke host lain. Mesin tidak boleh dimatikan agar kunci enkripsi yang mungkin masih tersimpan di RAM tidak hilang sebelum analisis memori."
@@ -73,10 +133,22 @@
       "difficulty": "medium",
       "question": "Pada Piramida Rasa Sakit (Pyramid of Pain) rancangan David Bianco, Indicator of Compromise (IoC) manakah yang paling sulit dan paling menyakitkan bagi penyerang jika berhasil digagalkan oleh defender?",
       "options": [
-        { "id": "A", "text": "TTPs (Tactics, Techniques, and Procedures)" },
-        { "id": "B", "text": "Hash values (MD5/SHA256)" },
-        { "id": "C", "text": "IP Addresses" },
-        { "id": "D", "text": "Domain Names" }
+        {
+          "id": "A",
+          "text": "TTPs (Tactics, Techniques, and Procedures)"
+        },
+        {
+          "id": "B",
+          "text": "Hash values (MD5/SHA256)"
+        },
+        {
+          "id": "C",
+          "text": "IP Addresses"
+        },
+        {
+          "id": "D",
+          "text": "Domain Names"
+        }
       ],
       "answer": "A",
       "explanation": "Hash, IP, dan domain sangat murah dan mudah diubah oleh musuh. Menggagalkan TTPs (puncak piramida) memaksa musuh mendesain ulang strategi, pelatihan, dan teknik fundamental mereka, membutuhkan biaya dan waktu paling besar."
@@ -86,10 +158,22 @@
       "difficulty": "medium",
       "question": "Teknologi keamanan endpoint modern yang tidak hanya mengandalkan signature file, tetapi juga memonitor aktivitas proses, perilaku memory, dan memungkinkan respon otomatis isolasi host disebut:",
       "options": [
-        { "id": "A", "text": "EDR (Endpoint Detection and Response) / XDR" },
-        { "id": "B", "text": "Legacy Antivirus" },
-        { "id": "C", "text": "Stateful Firewall" },
-        { "id": "D", "text": "Web Application Firewall (WAF)" }
+        {
+          "id": "A",
+          "text": "EDR (Endpoint Detection and Response) / XDR"
+        },
+        {
+          "id": "B",
+          "text": "Legacy Antivirus"
+        },
+        {
+          "id": "C",
+          "text": "Stateful Firewall"
+        },
+        {
+          "id": "D",
+          "text": "Web Application Firewall (WAF)"
+        }
       ],
       "answer": "A",
       "explanation": "EDR/XDR (seperti CrowdStrike Falcon, Microsoft Defender for Endpoint, SentinelOne) mengumpulkan telemetry perilaku berkelanjutan di kernel level untuk mendeteksi anomali tanpa file (fileless malware) dan eksekusi living-off-the-land."
@@ -99,10 +183,22 @@
       "difficulty": "medium",
       "question": "Model keamanan 'Zero Trust Architecture' (ZTA) beroperasi di bawah prinsip fundamental:",
       "options": [
-        { "id": "A", "text": "'Never Trust, Always Verify' — tidak mempercayai entitas manapun di dalam maupun luar perimeter jaringan" },
-        { "id": "B", "text": "Mempercayai semua traffic di dalam LAN internal kantor" },
-        { "id": "C", "text": "Menghilangkan enkripsi pada VPN internal" },
-        { "id": "D", "text": "Memberikan hak administrator penuh ke seluruh karyawan" }
+        {
+          "id": "A",
+          "text": "'Never Trust, Always Verify' — tidak mempercayai entitas manapun di dalam maupun luar perimeter jaringan"
+        },
+        {
+          "id": "B",
+          "text": "Mempercayai semua traffic di dalam LAN internal kantor"
+        },
+        {
+          "id": "C",
+          "text": "Menghilangkan enkripsi pada VPN internal"
+        },
+        {
+          "id": "D",
+          "text": "Memberikan hak administrator penuh ke seluruh karyawan"
+        }
       ],
       "answer": "A",
       "explanation": "Zero Trust (NIST SP 800-207) membuang model kastil tradisional (perimeter-based). Setiap request akses harus diverifikasi konteks identitas, kesehatan perangkat, lokasi, dan hak akses least-privilege secara berkelanjutan."
@@ -112,10 +208,22 @@
       "difficulty": "hard",
       "question": "Perilaku proses mencurigakan apa di Windows yang menjadi tanda peringatan utama terjadinya credential dumping via LSASS?",
       "options": [
-        { "id": "A", "text": "Proses asing (seperti rundll32.exe, procdump.exe, atau powershell.exe) membuka handle ke lsass.exe dengan hak akses PROCESS_VM_READ atau PROCESS_ALL_ACCESS" },
-        { "id": "B", "text": "Explorer.exe membuka port 80 HTTP" },
-        { "id": "C", "text": "Taskmgr.exe menggunakan CPU 100%" },
-        { "id": "D", "text": "Svchost.exe mengakses printer" }
+        {
+          "id": "A",
+          "text": "Proses asing (seperti rundll32.exe, procdump.exe, atau powershell.exe) membuka handle ke lsass.exe dengan hak akses PROCESS_VM_READ atau PROCESS_ALL_ACCESS"
+        },
+        {
+          "id": "B",
+          "text": "Explorer.exe membuka port 80 HTTP"
+        },
+        {
+          "id": "C",
+          "text": "Taskmgr.exe menggunakan CPU 100%"
+        },
+        {
+          "id": "D",
+          "text": "Svchost.exe mengakses printer"
+        }
       ],
       "answer": "A",
       "explanation": "Sysmon Event ID 10 (ProcessAccess) mendeteksi saat binary memanggil OpenProcess() terhadap lsass.exe dengan akses baca memori (PROCESS_VM_READ 0x0010) untuk membaca NTLM hash atau tiket Kerberos di memori."
@@ -125,10 +233,22 @@
       "difficulty": "hard",
       "question": "Dalam arsitektur SOAR (Security Orchestration, Automation, and Response), istilah 'Playbook' mengacu pada:",
       "options": [
-        { "id": "A", "text": "Alur kerja terotomatisasi (workflow logic) yang mengeksekusi serangkaian aksi triage, pengayaan data (enrichment), dan respon insiden secara terprogram" },
-        { "id": "B", "text": "Dokumen fisik manual yang hanya dibaca manajemen" },
-        { "id": "C", "text": "Kumpulan password default switch" },
-        { "id": "D", "text": "Script kompilasi kernel Linux" }
+        {
+          "id": "A",
+          "text": "Alur kerja terotomatisasi (workflow logic) yang mengeksekusi serangkaian aksi triage, pengayaan data (enrichment), dan respon insiden secara terprogram"
+        },
+        {
+          "id": "B",
+          "text": "Dokumen fisik manual yang hanya dibaca manajemen"
+        },
+        {
+          "id": "C",
+          "text": "Kumpulan password default switch"
+        },
+        {
+          "id": "D",
+          "text": "Script kompilasi kernel Linux"
+        }
       ],
       "answer": "A",
       "explanation": "SOAR Playbook mendefinisikan langkah langkah otomatis seperti: memeriksa reputasi IP di VirusTotal, mengkarantina email phishing di O365, mengisolasi endpoint yang terinfeksi via EDR, dan membuat tiket Jira secara otomatis."
@@ -138,10 +258,22 @@
       "difficulty": "hard",
       "question": "Teknik threat hunting 'Beaconing Analysis' mendeteksi komunikasi Command & Control (C2) dengan mengidentifikasi pola lalu lintas jaringan yang:",
       "options": [
-        { "id": "A", "text": "Memiliki interval waktu koneksi berulang yang sangat teratur (atau dengan jitter persentase kecil) ke host eksternal yang sama" },
-        { "id": "B", "text": "Mengirim payload berukuran tepat 1 gigabyte" },
-        { "id": "C", "text": "Hanya terjadi saat komputer booting" },
-        { "id": "D", "text": "Menggunakan port ICMP type 8 saja" }
+        {
+          "id": "A",
+          "text": "Memiliki interval waktu koneksi berulang yang sangat teratur (atau dengan jitter persentase kecil) ke host eksternal yang sama"
+        },
+        {
+          "id": "B",
+          "text": "Mengirim payload berukuran tepat 1 gigabyte"
+        },
+        {
+          "id": "C",
+          "text": "Hanya terjadi saat komputer booting"
+        },
+        {
+          "id": "D",
+          "text": "Menggunakan port ICMP type 8 saja"
+        }
       ],
       "answer": "A",
       "explanation": "Malware C2 secara periodik melakukan heartbeat ('check-in') ke server penyerang. Analis memetakan delta waktu antar request (misal setiap 60 detik +/- jitter 10%) untuk mengungkap malware yang beroperasi di latar belakang."
@@ -151,13 +283,100 @@
       "difficulty": "hard",
       "question": "Pada Windows Event Log, Event ID 7045 di System Log mencatat kejadian kritis apa yang sering digunakan oleh penyerang untuk mempertahankan akses (Persistence)?",
       "options": [
-        { "id": "A", "text": "Instalasi layanan sistem baru (A new service was installed in the system)" },
-        { "id": "B", "text": "Perubahan konfigurasi firewall" },
-        { "id": "C", "text": "Koneksi RDP terputus" },
-        { "id": "D", "text": "Update otomatis Windows Update gagal" }
+        {
+          "id": "A",
+          "text": "Instalasi layanan sistem baru (A new service was installed in the system)"
+        },
+        {
+          "id": "B",
+          "text": "Perubahan konfigurasi firewall"
+        },
+        {
+          "id": "C",
+          "text": "Koneksi RDP terputus"
+        },
+        {
+          "id": "D",
+          "text": "Update otomatis Windows Update gagal"
+        }
       ],
       "answer": "A",
       "explanation": "Event ID 7045 mencatat saat Windows Service baru didaftarkan (Service Name, Service File Name/Binary Path, Service Type). Penyerang sering memasang malicious service agar payload berjalan otomatis dengan hak SYSTEM saat OS start."
+    },
+    {
+      "id": "SOC-013",
+      "difficulty": "easy",
+      "question": "Sistem Deteksi Intrusi (IDS) yang membandingkan paket lalu lintas jaringan yang lewat dengan basis data pola serangan yang telah diketahui sebelumnya menggunakan metode deteksi...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Berbasis Anomali (Anomaly-based)"
+        },
+        {
+          "id": "B",
+          "text": "Berbasis Tanda Tangan (Signature-based)"
+        },
+        {
+          "id": "C",
+          "text": "Berbasis Statistik"
+        },
+        {
+          "id": "D",
+          "text": "Berbasis Machine Learning"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Signature-based detection membandingkan pola byte atau header paket dengan tanda tangan serangan yang telah disimpan di database (seperti aturan Snort/Suricata). Sangat akurat untuk serangan yang telah dikenal namun tidak dapat mendeteksi zero-day."
+    },
+    {
+      "id": "SOC-014",
+      "difficulty": "medium",
+      "question": "Apa perbedaan paling mendasar dalam kapabilitas operasional antara Sistem Pencegahan Intrusi (IPS) dengan Sistem Deteksi Intrusi (IDS)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IDS hanya memantau sistem operasi, sedangkan IPS memantau jaringan"
+        },
+        {
+          "id": "B",
+          "text": "IDS hanya mencatat log dan mengirim alert, sedangkan IPS dipasang in-line dan dapat secara aktif memblokir atau men-drop lalu lintas berbahaya"
+        },
+        {
+          "id": "C",
+          "text": "IPS beroperasi secara offline tanpa koneksi jaringan"
+        },
+        {
+          "id": "D",
+          "text": "IDS memerlukan sertifikat SSL sedangkan IPS tidak"
+        }
+      ],
+      "answer": "B",
+      "explanation": "IDS beroperasi secara pasif (out-of-band) untuk mendeteksi ancaman dan memberi peringatan ke analis, sedangkan IPS ditempatkan secara in-line langsung di jalur lalu lintas data sehingga mampu memutus koneksi (drop packet/TCP reset) secara instan saat ancaman terdeteksi."
+    },
+    {
+      "id": "SOC-015",
+      "difficulty": "medium",
+      "question": "Dalam arsitektur keamanan jaringan, sistem atau server umpan yang sengaja dirancang memiliki kerentanan untuk memikat penyerang agar analis dapat mempelajari teknik dan motivasi mereka disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Firewall Gateway"
+        },
+        {
+          "id": "B",
+          "text": "Honeypot"
+        },
+        {
+          "id": "C",
+          "text": "Load Balancer"
+        },
+        {
+          "id": "D",
+          "text": "Proxy Server"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Honeypot adalah sistem jebakan yang tidak memiliki nilai produksi resmi. Setiap aktivitas interaksi menuju honeypot dianggap mencurigakan, memungkinkan tim SOC mempelajari TTP musuh dan mengalihkan penyerang dari aset kritis riil."
     }
   ]
 }

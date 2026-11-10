@@ -8,10 +8,22 @@
       "difficulty": "easy",
       "question": "Fase pertama dalam metodologi pengujian penetrasi standar (PTES) yang berfokus pada pengumpulan informasi target tanpa mengirim paket mencurigakan disebut:",
       "options": [
-        { "id": "A", "text": "Passive Reconnaissance (OSINT)" },
-        { "id": "B", "text": "Exploitation" },
-        { "id": "C", "text": "Post-Exploitation" },
-        { "id": "D", "text": "Reporting" }
+        {
+          "id": "A",
+          "text": "Passive Reconnaissance (OSINT)"
+        },
+        {
+          "id": "B",
+          "text": "Exploitation"
+        },
+        {
+          "id": "C",
+          "text": "Post-Exploitation"
+        },
+        {
+          "id": "D",
+          "text": "Reporting"
+        }
       ],
       "answer": "A",
       "explanation": "Passive Reconnaissance mengumpulkan informasi target (domain, email, IP range, ASN, teknologi) melalui sumber terbuka (OSINT, WHOIS, DNS records) tanpa berinteraksi langsung secara agresif dengan sistem target."
@@ -21,11 +33,26 @@
       "difficulty": "easy",
       "question": "Perintah Nmap manakah yang melakukan TCP SYN Scan (Stealth Scan) tanpa menyelesaikan 3-way handshake secara penuh?",
       "options": [
-        { "id": "A", "text": "nmap -sS <target>" },
-        { "id": "B", "text": "nmap -sT <target>" },
-        { "id": "C", "text": "nmap -sU <target>" },
-        { "id": "D", "text": "nmap -sA <target>" },
-        { "id": "E", "text": "nmap -sn <target>" }
+        {
+          "id": "A",
+          "text": "nmap -sS <target>"
+        },
+        {
+          "id": "B",
+          "text": "nmap -sT <target>"
+        },
+        {
+          "id": "C",
+          "text": "nmap -sU <target>"
+        },
+        {
+          "id": "D",
+          "text": "nmap -sA <target>"
+        },
+        {
+          "id": "E",
+          "text": "nmap -sn <target>"
+        }
       ],
       "answer": "A",
       "explanation": "Flag -sS mengaktifkan TCP SYN scan (half-open scan). Nmap mengirim SYN; jika target merespons SYN-ACK, port dinyatakan OPEN dan Nmap langsung mengirim RST agar koneksi tidak dicatat secara penuh oleh sistem target."
@@ -35,10 +62,22 @@
       "difficulty": "easy",
       "question": "Metasploit payload tipe 'Staged' (seperti windows/meterpreter/reverse_tcp) memiliki karakteristik utama:",
       "options": [
-        { "id": "A", "text": "Payload kecil (stager) dikirim terlebih dahulu untuk mengalokasikan memori dan mendownload payload utama yang lebih besar (stage)" },
-        { "id": "B", "text": "Seluruh binary Meterpreter dikemas dalam satu paket utuh tanpa koneksi kedua" },
-        { "id": "C", "text": "Hanya dapat dieksekusi secara offline" },
-        { "id": "D", "text": "Tidak mendukung reverse connection" }
+        {
+          "id": "A",
+          "text": "Payload kecil (stager) dikirim terlebih dahulu untuk mengalokasikan memori dan mendownload payload utama yang lebih besar (stage)"
+        },
+        {
+          "id": "B",
+          "text": "Seluruh binary Meterpreter dikemas dalam satu paket utuh tanpa koneksi kedua"
+        },
+        {
+          "id": "C",
+          "text": "Hanya dapat dieksekusi secara offline"
+        },
+        {
+          "id": "D",
+          "text": "Tidak mendukung reverse connection"
+        }
       ],
       "answer": "A",
       "explanation": "Staged payload mengirim stub kecil (stager) yang pas di dalam buffer rentan terbatas. Stager ini menginisiasi koneksi jaringan untuk mengunduh keseluruhan stage payload yang lebih kompleks."
@@ -48,10 +87,22 @@
       "difficulty": "easy",
       "question": "Jenis reverse shell apa yang menghubungkan kembali terminal interaktif dari korban ke listener (seperti Netcat) di mesin penyerang?",
       "options": [
-        { "id": "A", "text": "Reverse Shell" },
-        { "id": "B", "text": "Bind Shell" },
-        { "id": "C", "text": "Web Shell" },
-        { "id": "D", "text": "SSH Tunneling" }
+        {
+          "id": "A",
+          "text": "Reverse Shell"
+        },
+        {
+          "id": "B",
+          "text": "Bind Shell"
+        },
+        {
+          "id": "C",
+          "text": "Web Shell"
+        },
+        {
+          "id": "D",
+          "text": "SSH Tunneling"
+        }
       ],
       "answer": "A",
       "explanation": "Reverse Shell memaksa target membuat koneksi outbound ke IP penyerang, sangat efektif menembus firewall NAT yang umumnya memblokir koneksi inbound namun mengizinkan koneksi outbound."
@@ -61,10 +112,22 @@
       "difficulty": "medium",
       "question": "Serangan Active Directory 'Kerberoasting' mengeksploitasi tiket Kerberos mana untuk di-crack secara offline dengan Hashcat?",
       "options": [
-        { "id": "A", "text": "TGS (Ticket Granting Service) yang dienkripsi menggunakan NTLM hash akun Service Principal Name (SPN)" },
-        { "id": "B", "text": "TGT (Ticket Granting Ticket) milik krbtgt" },
-        { "id": "C", "text": "NTLMv1 challenge response" },
-        { "id": "D", "text": "DACL pada Domain Controller" }
+        {
+          "id": "A",
+          "text": "TGS (Ticket Granting Service) yang dienkripsi menggunakan NTLM hash akun Service Principal Name (SPN)"
+        },
+        {
+          "id": "B",
+          "text": "TGT (Ticket Granting Ticket) milik krbtgt"
+        },
+        {
+          "id": "C",
+          "text": "NTLMv1 challenge response"
+        },
+        {
+          "id": "D",
+          "text": "DACL pada Domain Controller"
+        }
       ],
       "answer": "A",
       "explanation": "Setiap domain user yang terautentikasi sah dapat meminta TGS untuk service akun apa saja yang memiliki SPN. Bagian dari tiket TGS dienkripsi menggunakan hash password akun layanan tersebut, sehingga dapat di-crack offline."
@@ -74,10 +137,22 @@
       "difficulty": "medium",
       "question": "Tool grafis populer berbasis graph database Neo4j yang digunakan oleh pentester untuk memetakan jalur privilege escalation (Attack Paths) pada Active Directory adalah:",
       "options": [
-        { "id": "A", "text": "BloodHound" },
-        { "id": "B", "text": "Burp Suite" },
-        { "id": "C", "text": "Mimikatz" },
-        { "id": "D", "text": "Wireshark" }
+        {
+          "id": "A",
+          "text": "BloodHound"
+        },
+        {
+          "id": "B",
+          "text": "Burp Suite"
+        },
+        {
+          "id": "C",
+          "text": "Mimikatz"
+        },
+        {
+          "id": "D",
+          "text": "Wireshark"
+        }
       ],
       "answer": "A",
       "explanation": "BloodHound mengolah relasi objek Active Directory (DACL, group membership, sessions, local admin rights) menjadi graf visual untuk menemukan jalur terpendek menuju Domain Admin."
@@ -87,10 +162,22 @@
       "difficulty": "medium",
       "question": "Teknik 'Pass-the-Hash' (PtH) memungkinkan penyerang untuk melakukan autentikasi ke server Windows remote tanpa harus:",
       "options": [
-        { "id": "A", "text": "Mengetahui plaintext password pengguna aslinya (cukup menggunakan NTLM hash langsung)" },
-        { "id": "B", "text": "Mengetahui username korban" },
-        { "id": "C", "text": "Terhubung ke jaringan internal" },
-        { "id": "D", "text": "Memiliki koneksi port 445 SMB" }
+        {
+          "id": "A",
+          "text": "Mengetahui plaintext password pengguna aslinya (cukup menggunakan NTLM hash langsung)"
+        },
+        {
+          "id": "B",
+          "text": "Mengetahui username korban"
+        },
+        {
+          "id": "C",
+          "text": "Terhubung ke jaringan internal"
+        },
+        {
+          "id": "D",
+          "text": "Memiliki koneksi port 445 SMB"
+        }
       ],
       "answer": "A",
       "explanation": "Protokol autentikasi NTLM menggunakan hash NTLM sebagai input langsung dalam proses response generation. Oleh karena itu, jika penyerang mencuri hash NTLM dari memori LSASS, mereka dapat langsung mengotentikasi diri tanpa perlu crack password ke plaintext."
@@ -100,10 +187,22 @@
       "difficulty": "medium",
       "question": "Teknik 'Pivoting' dalam penetration testing jaringan internal mengacu pada aktivitas:",
       "options": [
-        { "id": "A", "text": "Menggunakan mesin yang telah dikompromikan sebagai batu loncatan (proxy/tunnel) untuk mengakses subnet internal yang sebelumnya tidak dapat dijangkau" },
-        { "id": "B", "text": "Mengubah target pengujian ke perusahaan lain" },
-        { "id": "C", "text": "Melakukan rotasi password secara acak" },
-        { "id": "D", "text": "Menghapus log peristiwa di Event Viewer" }
+        {
+          "id": "A",
+          "text": "Menggunakan mesin yang telah dikompromikan sebagai batu loncatan (proxy/tunnel) untuk mengakses subnet internal yang sebelumnya tidak dapat dijangkau"
+        },
+        {
+          "id": "B",
+          "text": "Mengubah target pengujian ke perusahaan lain"
+        },
+        {
+          "id": "C",
+          "text": "Melakukan rotasi password secara acak"
+        },
+        {
+          "id": "D",
+          "text": "Menghapus log peristiwa di Event Viewer"
+        }
       ],
       "answer": "A",
       "explanation": "Pivoting (menggunakan tool seperti Chisel, Ligolo-ng, SSH port forwarding, atau SOCKS proxy Metasploit) merutekan paket pengujian melalui host yang sudah breached untuk menjangkau segmen jaringan terisolasi di belakang firewall."
@@ -113,10 +212,22 @@
       "difficulty": "hard",
       "question": "Serangan Active Directory 'AS-REP Roasting' dapat dilancarkan terhadap akun pengguna yang memiliki properti akun apa diaktifkan?",
       "options": [
-        { "id": "A", "text": "DONT_REQ_PREAUTH (Do not require Kerberos preauthentication)" },
-        { "id": "B", "text": "PASSWORD_NEVER_EXPIRES" },
-        { "id": "C", "text": "TRUSTED_FOR_DELEGATION" },
-        { "id": "D", "text": "ACCOUNTDISABLE" }
+        {
+          "id": "A",
+          "text": "DONT_REQ_PREAUTH (Do not require Kerberos preauthentication)"
+        },
+        {
+          "id": "B",
+          "text": "PASSWORD_NEVER_EXPIRES"
+        },
+        {
+          "id": "C",
+          "text": "TRUSTED_FOR_DELEGATION"
+        },
+        {
+          "id": "D",
+          "text": "ACCOUNTDISABLE"
+        }
       ],
       "answer": "A",
       "explanation": "Jika akun memiliki flag DONT_REQ_PREAUTH, penyerang dapat meminta tiket AS-REP dari KDC tanpa perlu memasukkan password terlebih dahulu. Respons AS-REP berisi komponen yang dienkripsi dengan hash password user dan dapat di-crack offline."
@@ -126,10 +237,22 @@
       "difficulty": "hard",
       "question": "Serangan 'Golden Ticket' pada Active Directory melibatkan pembuatan tiket TGT palsu yang ditandatangani menggunakan hash kunci rahasia akun:",
       "options": [
-        { "id": "A", "text": "krbtgt" },
-        { "id": "B", "text": "Administrator" },
-        { "id": "C", "text": "SYSTEM" },
-        { "id": "D", "text": "Guest" }
+        {
+          "id": "A",
+          "text": "krbtgt"
+        },
+        {
+          "id": "B",
+          "text": "Administrator"
+        },
+        {
+          "id": "C",
+          "text": "SYSTEM"
+        },
+        {
+          "id": "D",
+          "text": "Guest"
+        }
       ],
       "answer": "A",
       "explanation": "Akun 'krbtgt' bertindak sebagai Key Distribution Center (KDC) di domain Active Directory. Mengetahui hash NTLM atau kunci AES krbtgt memungkinkan pembuatan Golden Ticket TGT valid sewenang-wenang dengan hak Domain Admin permanen."
@@ -139,10 +262,22 @@
       "difficulty": "hard",
       "question": "Vulnerabilitas 'ZeroLogon' (CVE-2020-1472) pada protokol Netlogon Active Directory disebabkan oleh kelemahan implementasi kriptografi apa?",
       "options": [
-        { "id": "A", "text": "Penggunaan Initialization Vector (IV) yang selalu bernilai 16 byte nol (all-zero IV) pada mode AES-CFB8" },
-        { "id": "B", "text": "Penggunaan kunci RSA 512-bit" },
-        { "id": "C", "text": "Bypass NTLM signing via SMBv1" },
-        { "id": "D", "text": "Ketiadaan enkripsi pada query LDAP" }
+        {
+          "id": "A",
+          "text": "Penggunaan Initialization Vector (IV) yang selalu bernilai 16 byte nol (all-zero IV) pada mode AES-CFB8"
+        },
+        {
+          "id": "B",
+          "text": "Penggunaan kunci RSA 512-bit"
+        },
+        {
+          "id": "C",
+          "text": "Bypass NTLM signing via SMBv1"
+        },
+        {
+          "id": "D",
+          "text": "Ketiadaan enkripsi pada query LDAP"
+        }
       ],
       "answer": "A",
       "explanation": "ComputeNetlogonCredential menggunakan AES-CFB8 dengan IV 16 byte nol secara statis. Secara matematis, ada probabilitas 1 dari 256 di mana ciphertext dari input nol juga menghasilkan ciphertext nol, memungkinkan autentikasi spoofed tanpa kredensial sah."
@@ -152,13 +287,250 @@
       "difficulty": "hard",
       "question": "Dalam konteks Windows privilege escalation, apa itu serangan 'Potato' (seperti RottenPotato, JuicyPotato, SweetPotato)?",
       "options": [
-        { "id": "A", "text": "Penyalahgunaan hak SeImpersonatePrivilege / SeAssignPrimaryTokenPrivilege dengan memaksa SYSTEM berautentikasi ke NTLM relay lokal via DCOM/OXID RPC" },
-        { "id": "B", "text": "Brute force hash SAM secara lokal" },
-        { "id": "C", "text": "Injeksi kernel driver palsu" },
-        { "id": "D", "text": "Eksploitasi buffer overflow pada winlogon.exe" }
+        {
+          "id": "A",
+          "text": "Penyalahgunaan hak SeImpersonatePrivilege / SeAssignPrimaryTokenPrivilege dengan memaksa SYSTEM berautentikasi ke NTLM relay lokal via DCOM/OXID RPC"
+        },
+        {
+          "id": "B",
+          "text": "Brute force hash SAM secara lokal"
+        },
+        {
+          "id": "C",
+          "text": "Injeksi kernel driver palsu"
+        },
+        {
+          "id": "D",
+          "text": "Eksploitasi buffer overflow pada winlogon.exe"
+        }
       ],
       "answer": "A",
       "explanation": "Keluarga exploit Potato memicu objek DCOM/COM lokal untuk berautentikasi ke port lokal penyerang. Menggunakan hak istimewa impersonasi (SeImpersonatePrivilege yang lazim dimiliki akun layanan web IIS), token SYSTEM berhasil disalin untuk meluncurkan proses dengan hak tertinggi."
+    },
+    {
+      "id": "PENTEST-013",
+      "difficulty": "easy",
+      "question": "Tindakan mencari dan mengumpulkan informasi tentang perusahaan atau sistem target melalui mesin pencari dan sumber informasi publik (OSINT) tanpa berinteraksi langsung dengan server target merupakan contoh dari...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Active Port Scanning"
+        },
+        {
+          "id": "B",
+          "text": "Passive Reconnaissance"
+        },
+        {
+          "id": "C",
+          "text": "Network Sniffing"
+        },
+        {
+          "id": "D",
+          "text": "Denial of Service"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Passive Reconnaissance mengumpulkan intelijen target dari pihak ketiga (Google, Shodan, LinkedIn, WHOIS) tanpa mengirimkan paket langsung ke infrastruktur target, sehingga tidak meninggalkan jejak log pada firewall korban."
+    },
+    {
+      "id": "PENTEST-014",
+      "difficulty": "easy",
+      "question": "Operator pencarian Google Dorking manakah yang digunakan untuk membatasi hasil pencarian hanya pada situs web dengan nama domain atau TLD tertentu (misalnya domain .gov atau .mil)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "inurl:"
+        },
+        {
+          "id": "B",
+          "text": "site:"
+        },
+        {
+          "id": "C",
+          "text": "filetype:"
+        },
+        {
+          "id": "D",
+          "text": "link:"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Operator \"site:\" (contoh: site:gov confidential) memfilter kueri pencarian Google agar hanya menampilkan halaman dari domain atau akhiran TLD yang ditentukan."
+    },
+    {
+      "id": "PENTEST-015",
+      "difficulty": "easy",
+      "question": "Manakah dari pilihan berikut yang merupakan framework eksploitasi modular paling populer dan komprehensif yang digunakan oleh penetration tester untuk mengembangkan dan mengeksekusi kode exploit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nikto"
+        },
+        {
+          "id": "B",
+          "text": "Burp Suite"
+        },
+        {
+          "id": "C",
+          "text": "Metasploit Framework"
+        },
+        {
+          "id": "D",
+          "text": "OWASP ZAP"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Metasploit Framework (dari Rapid7) adalah platform open-source terbesar di dunia yang berisi ribuan modul exploit teruji, payloads (seperti Meterpreter), encoder, dan post-exploitation tools."
+    },
+    {
+      "id": "PENTEST-016",
+      "difficulty": "medium",
+      "question": "Langkah pertama yang paling fundamental dilakukan oleh scanner kerentanan (Vulnerability Scanner) saat memulai pemindaian subnet jaringan target adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mendeteksi sidik jari sistem operasi (OS fingerprinting)"
+        },
+        {
+          "id": "B",
+          "text": "Memeriksa apakah host target aktif dan dapat dijangkau (Host Discovery)"
+        },
+        {
+          "id": "C",
+          "text": "Memindai seluruh 65535 port TCP"
+        },
+        {
+          "id": "D",
+          "text": "Mengunduh file konfigurasi web server"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Host Discovery (menggunakan ICMP echo, ARP, atau TCP SYN) adalah langkah awal wajib untuk memetakan alamat IP mana saja yang aktif sebelum scanner membuang waktu memindai port pada IP yang mati."
+    },
+    {
+      "id": "PENTEST-017",
+      "difficulty": "medium",
+      "question": "Tahap dalam metodologi Ethical Hacking di mana penyerang melakukan kueri mendalam untuk mendapatkan daftar rinci nama akun pengguna, grup domain, shares jaringan, dan informasi layanan sistem disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Footprinting pasif"
+        },
+        {
+          "id": "B",
+          "text": "Enumerasi (Enumeration)"
+        },
+        {
+          "id": "C",
+          "text": "Menghapus jejak (Clearing Tracks)"
+        },
+        {
+          "id": "D",
+          "text": "Exploitation awal"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Enumerasi adalah proses aktif mengumpulkan informasi terperinci mengenai host target melalui koneksi terbuka (seperti NetBIOS, SNMP query, LDAP, DNS zone transfer, dan SMB shares) untuk mengidentifikasi celah masuk."
+    },
+    {
+      "id": "PENTEST-018",
+      "difficulty": "medium",
+      "question": "Seorang penetration tester ingin memindai firewall target secara tersembunyi dengan cara memecah header TCP ke dalam beberapa paket IP berukuran kecil agar lolos inspeksi packet filter. Teknik ini dikenal sebagai...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pemindaian Xmas"
+        },
+        {
+          "id": "B",
+          "text": "Pemindaian Fragmentasi IP (IP Fragmentation Scan)"
+        },
+        {
+          "id": "C",
+          "text": "Pemindaian ACK"
+        },
+        {
+          "id": "D",
+          "text": "Pemindaian NULL"
+        }
+      ],
+      "answer": "B",
+      "explanation": "IP Fragmentation Scan (opsi -f pada Nmap) membagi paket TCP menjadi fragmen-fragmen kecil 8-byte. Router atau packet filter sederhana yang tidak melakukan reassembly paket akan gagal mencocokkan rule filter terhadap header TCP yang terpecah."
+    },
+    {
+      "id": "PENTEST-019",
+      "difficulty": "medium",
+      "question": "Teknik pengintaian jaringan di mana pentester membaca pesan pembuka atau header selamat datang dari layanan yang berjalan di port target (seperti versi SSH atau web server) tanpa mengirim paket agresif disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ping Sweep"
+        },
+        {
+          "id": "B",
+          "text": "Banner Grabbing"
+        },
+        {
+          "id": "C",
+          "text": "Port Knocking"
+        },
+        {
+          "id": "D",
+          "text": "Wardriving"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Banner Grabbing mengambil informasi teks yang dikirimkan oleh layanan saat koneksi pertama kali dibuka (misal banner \"SSH-2.0-OpenSSH_8.2p1\" atau header \"Server: Apache/2.4.41\") untuk mengetahui versi perangkat lunak secara akurat."
+    },
+    {
+      "id": "PENTEST-020",
+      "difficulty": "medium",
+      "question": "Serangan yang memanfaatkan hubungan kepercayaan (Trust Relationship) yang telah dibangun antar dua sistem (misalnya trust domain Active Directory atau SSH public key otomatis) adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Serangan Brute-Force"
+        },
+        {
+          "id": "B",
+          "text": "Serangan Kamus"
+        },
+        {
+          "id": "C",
+          "text": "Serangan Sisi Klien"
+        },
+        {
+          "id": "D",
+          "text": "Serangan Sisi Kepercayaan (Trust Relationship Attack)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Trust Relationship Attack mengeksploitasi sistem sekunder yang memiliki pertahanan lebih lemah, lalu memanfaatkan koneksi terpercaya (trusted link) dari sistem sekunder tersebut untuk mengakses sistem primer yang lebih terlindungi."
+    },
+    {
+      "id": "PENTEST-021",
+      "difficulty": "hard",
+      "question": "Langkah penutup paling akhir dalam alur metodologi standar pengujian penetrasi (Ethical Hacking lifecycle) setelah menyelesaikan post-exploitation adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mendapatkan akses root"
+        },
+        {
+          "id": "B",
+          "text": "Menjaga persistensi akses"
+        },
+        {
+          "id": "C",
+          "text": "Pengintaian ulang"
+        },
+        {
+          "id": "D",
+          "text": "Menghapus jejak dan membersihkan artefak (Clearing Tracks)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Clearing Tracks adalah fase akhir di mana etis hacker membersihkan file sementara, menutup akun pengujian, menghapus script/binary yang diunggah, dan mengembalikan konfigurasi sistem target ke kondisi pristine awal."
     }
   ]
 }

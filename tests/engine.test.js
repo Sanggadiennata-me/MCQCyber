@@ -4,10 +4,10 @@ import { loadAllQuestionBanks, getCategories, getFilteredQuestions, stripAnswers
 import { evaluateQuizSubmission } from '../src/lib/scoring/evaluator.js';
 import { distributeTeamQuestions } from '../src/lib/room/distributor.js';
 
-test('loadAllQuestionBanks loads all 9 categories with 108 questions', () => {
+test('loadAllQuestionBanks loads all 9 categories with 182 questions', () => {
   const { categories, questionsMap } = loadAllQuestionBanks();
   assert.equal(categories.length, 9, 'Should have 9 categories');
-  assert.equal(questionsMap.size, 108, 'Should have 108 questions in total');
+  assert.equal(questionsMap.size, 182, 'Should have 182 questions in total');
 });
 
 test('stripAnswers strictly removes answer and explanation', () => {

@@ -8,10 +8,22 @@
       "difficulty": "easy",
       "question": "Prinsip dasar forensik digital 'Order of Volatility' (RFC 3227) menyatakan bahwa bukti digital yang harus diakuisisi terlebih dahulu adalah:",
       "options": [
-        { "id": "A", "text": "Memori volatile (RAM dan register CPU)" },
-        { "id": "B", "text": "Hard disk drive (SATA/NVMe)" },
-        { "id": "C", "text": "Media backup tape offline" },
-        { "id": "D", "text": "Optical disc (CD/DVD)" }
+        {
+          "id": "A",
+          "text": "Memori volatile (RAM dan register CPU)"
+        },
+        {
+          "id": "B",
+          "text": "Hard disk drive (SATA/NVMe)"
+        },
+        {
+          "id": "C",
+          "text": "Media backup tape offline"
+        },
+        {
+          "id": "D",
+          "text": "Optical disc (CD/DVD)"
+        }
       ],
       "answer": "A",
       "explanation": "Order of Volatility menginstruksikan investigator untuk mengakuisisi bukti yang paling cepat hilang terlebih dahulu saat perangkat dimatikan, yaitu register CPU, cache, memori RAM, lalu routing table/proses jaringan, sebelum storage persisten."
@@ -21,10 +33,22 @@
       "difficulty": "easy",
       "question": "Format image forensik standar industri apa yang mendukung kompresi, enkripsi, dan metadata verifikasi integritas hash bawaan (MD5/SHA1)?",
       "options": [
-        { "id": "A", "text": "E01 (Expert Witness Format)" },
-        { "id": "B", "text": "RAW / DD" },
-        { "id": "C", "text": "ISO 9660" },
-        { "id": "D", "text": "TAR.GZ" }
+        {
+          "id": "A",
+          "text": "E01 (Expert Witness Format)"
+        },
+        {
+          "id": "B",
+          "text": "RAW / DD"
+        },
+        {
+          "id": "C",
+          "text": "ISO 9660"
+        },
+        {
+          "id": "D",
+          "text": "TAR.GZ"
+        }
       ],
       "answer": "A",
       "explanation": "E01 (Expert Witness Format dari EnCase) menyimpan salinan bit-by-bit bersama metadata kasus, hash verifikasi, dan kompresi, berbeda dengan RAW/DD yang hanya berisi byte murni tanpa metadata."
@@ -34,10 +58,22 @@
       "difficulty": "easy",
       "question": "Artifact Windows berupa file tersembunyi apa yang merekam histori eksekusi program untuk mempercepat proses loading aplikasi (berisi nama binary, run count, dan timestamp)?",
       "options": [
-        { "id": "A", "text": "Prefetch files (.pf) di direktori C:\\Windows\\Prefetch" },
-        { "id": "B", "text": "Thumbs.db" },
-        { "id": "C", "text": "pagefile.sys" },
-        { "id": "D", "text": "desktop.ini" }
+        {
+          "id": "A",
+          "text": "Prefetch files (.pf) di direktori C:\\Windows\\Prefetch"
+        },
+        {
+          "id": "B",
+          "text": "Thumbs.db"
+        },
+        {
+          "id": "C",
+          "text": "pagefile.sys"
+        },
+        {
+          "id": "D",
+          "text": "desktop.ini"
+        }
       ],
       "answer": "A",
       "explanation": "Windows Prefetch (.pf) dibuat oleh Memory Manager untuk mencatat binary yang dijalankan, waktu eksekusi terakhir (hingga 8 kali di Win 10/11), run count, dan DLL yang dimuat."
@@ -47,10 +83,22 @@
       "difficulty": "easy",
       "question": "Perangkat keras apa yang wajib digunakan saat menghubungkan storage bukti target ke workstation investigator untuk mencegah perubahan data sekecil apapun?",
       "options": [
-        { "id": "A", "text": "Hardware Write Blocker" },
-        { "id": "B", "text": "USB Hub Powered" },
-        { "id": "C", "text": "Ethernet Tap" },
-        { "id": "D", "text": "SATA Multiplexer" }
+        {
+          "id": "A",
+          "text": "Hardware Write Blocker"
+        },
+        {
+          "id": "B",
+          "text": "USB Hub Powered"
+        },
+        {
+          "id": "C",
+          "text": "Ethernet Tap"
+        },
+        {
+          "id": "D",
+          "text": "SATA Multiplexer"
+        }
       ],
       "answer": "A",
       "explanation": "Hardware Write Blocker mencegat dan menolak setiap perintah write dari OS workstation ke media bukti, memastikan integritas data bukti asli 100% terlindungi (read-only)."
@@ -60,10 +108,22 @@
       "difficulty": "medium",
       "question": "Plugin Volatility 3 manakah yang digunakan untuk mendeteksi injeksi kode memori (seperti Process Hollowing atau Reflective DLL Injection) dengan mencari page memori berekstensi PAGE_EXECUTE_READWRITE tanpa backed file di disk?",
       "options": [
-        { "id": "A", "text": "windows.malfind" },
-        { "id": "B", "text": "windows.pslist" },
-        { "id": "C", "text": "windows.netscan" },
-        { "id": "D", "text": "windows.filescan" }
+        {
+          "id": "A",
+          "text": "windows.malfind"
+        },
+        {
+          "id": "B",
+          "text": "windows.pslist"
+        },
+        {
+          "id": "C",
+          "text": "windows.netscan"
+        },
+        {
+          "id": "D",
+          "text": "windows.filescan"
+        }
       ],
       "answer": "A",
       "explanation": "windows.malfind memindai Virtual Address Descriptor (VAD) setiap proses untuk mencari memory region dengan izin eksekusi (PAGE_EXECUTE_READWRITE) yang tidak terikat pada file biner di disk, indikasi kuat adanya shellcode terinjeksi."
@@ -73,10 +133,22 @@
       "difficulty": "medium",
       "question": "Pada sistem berkas NTFS, struktur data manakah yang menjadi 'buku induk' yang menyimpan record metadata setiap file dan folder (termasuk atribut $STANDARD_INFORMATION dan $FILE_NAME)?",
       "options": [
-        { "id": "A", "text": "Master File Table ($MFT)" },
-        { "id": "B", "text": "Superblock" },
-        { "id": "C", "text": "File Allocation Table (FAT)" },
-        { "id": "D", "text": "Volume Shadow Copy Service" }
+        {
+          "id": "A",
+          "text": "Master File Table ($MFT)"
+        },
+        {
+          "id": "B",
+          "text": "Superblock"
+        },
+        {
+          "id": "C",
+          "text": "File Allocation Table (FAT)"
+        },
+        {
+          "id": "D",
+          "text": "Volume Shadow Copy Service"
+        }
       ],
       "answer": "A",
       "explanation": "$MFT (Master File Table) adalah database inti NTFS di mana setiap file memiliki entri record 1024 byte yang berisi atribut waktu (MACB), hak akses, dan pointer ke cluster data ($DATA)."
@@ -86,10 +158,22 @@
       "difficulty": "medium",
       "question": "Teknik anti-forensik apa yang dilakukan penyerang untuk memodifikasi timestamp file (Modified, Accessed, Created) agar sesuai dengan file sistem lain dan menyamarkan aktivitas malware?",
       "options": [
-        { "id": "A", "text": "Timestomping" },
-        { "id": "B", "text": "Data Carving" },
-        { "id": "C", "text": "Slack Space Hiding" },
-        { "id": "D", "text": "Memory Dumps" }
+        {
+          "id": "A",
+          "text": "Timestomping"
+        },
+        {
+          "id": "B",
+          "text": "Data Carving"
+        },
+        {
+          "id": "C",
+          "text": "Slack Space Hiding"
+        },
+        {
+          "id": "D",
+          "text": "Memory Dumps"
+        }
       ],
       "answer": "A",
       "explanation": "Timestomping adalah teknik memalsukan atribut timestamp $STANDARD_INFORMATION pada $MFT. Investigator dapat mendeteksinya dengan membandingkan nilai tersebut dengan timestamp pada atribut $FILE_NAME yang tidak mudah dimodifikasi oleh API standar."
@@ -99,10 +183,22 @@
       "difficulty": "medium",
       "question": "Ruang sisa antara akhir data file sebenarnya dengan batas akhir cluster sektor penyimpanan tempat data lama yang belum ter-overwrite dapat dipulihkan disebut:",
       "options": [
-        { "id": "A", "text": "File Slack / Slack Space" },
-        { "id": "B", "text": "Unallocated Space" },
-        { "id": "C", "text": "Bad Sector" },
-        { "id": "D", "text": "Master Boot Record" }
+        {
+          "id": "A",
+          "text": "File Slack / Slack Space"
+        },
+        {
+          "id": "B",
+          "text": "Unallocated Space"
+        },
+        {
+          "id": "C",
+          "text": "Bad Sector"
+        },
+        {
+          "id": "D",
+          "text": "Master Boot Record"
+        }
       ],
       "answer": "A",
       "explanation": "File Slack terjadi saat ukuran file lebih kecil dari kelipatan ukuran cluster (misalnya file 1500 byte disimpan pada cluster 4096 byte; sisanya 2596 byte adalah slack space yang bisa menyimpan fragmen data lama)."
@@ -112,10 +208,22 @@
       "difficulty": "hard",
       "question": "Di mana Windows Registry menyimpan rekaman eksekusi program GUI maupun non-GUI oleh user via Shellbags yang dapat membuktikan bahwa user pernah membuka folder tertentu?",
       "options": [
-        { "id": "A", "text": "USRCLASS.DAT di bawah Local Settings\\Software\\Microsoft\\Windows\\Shell\\Bags" },
-        { "id": "B", "text": "SYSTEM hive di CurrentControlSet\\Services" },
-        { "id": "C", "text": "SAM hive di Domains\\Account\\Users" },
-        { "id": "D", "text": "BCD (Boot Configuration Data)" }
+        {
+          "id": "A",
+          "text": "USRCLASS.DAT di bawah Local Settings\\Software\\Microsoft\\Windows\\Shell\\Bags"
+        },
+        {
+          "id": "B",
+          "text": "SYSTEM hive di CurrentControlSet\\Services"
+        },
+        {
+          "id": "C",
+          "text": "SAM hive di Domains\\Account\\Users"
+        },
+        {
+          "id": "D",
+          "text": "BCD (Boot Configuration Data)"
+        }
       ],
       "answer": "A",
       "explanation": "Shellbags disimpan di NTUSER.DAT dan USRCLASS.DAT untuk mempertahankan preferensi tampilan folder di Windows Explorer. Artifact ini membuktikan eksistensi dan pembukaan folder oleh user, bahkan jika folder tersebut sudah dihapus atau berada di drive eksternal."
@@ -125,10 +233,22 @@
       "difficulty": "hard",
       "question": "Fitur NTFS apa yang memungkinkan penyerang menyembunyikan payload malware atau data exfiltration di balik nama file yang sah tanpa mengubah ukuran file utama di Windows Explorer?",
       "options": [
-        { "id": "A", "text": "Alternate Data Streams (ADS)" },
-        { "id": "B", "text": "Sparse Files" },
-        { "id": "C", "text": "Hardlinks" },
-        { "id": "D", "text": "Symbolic Links" }
+        {
+          "id": "A",
+          "text": "Alternate Data Streams (ADS)"
+        },
+        {
+          "id": "B",
+          "text": "Sparse Files"
+        },
+        {
+          "id": "C",
+          "text": "Hardlinks"
+        },
+        {
+          "id": "D",
+          "text": "Symbolic Links"
+        }
       ],
       "answer": "A",
       "explanation": "Alternate Data Streams (ADS) memungkinkan file memiliki lebih dari satu stream $DATA (contoh: normal.txt:malware.exe). Explorer hanya menampilkan ukuran stream default (::$DATA), menyembunyikan ukuran payload di stream kedua."
@@ -138,10 +258,22 @@
       "difficulty": "hard",
       "question": "Pada Linux forensics, artifact log apa yang berformat binary dan merekam setiap sesi login/logout pengguna saat ini beserta terminal tty dan IP asal?",
       "options": [
-        { "id": "A", "text": "/var/run/utmp (dan /var/log/wtmp untuk histori historis)" },
-        { "id": "B", "text": "/var/log/syslog" },
-        { "id": "C", "text": "/etc/shadow" },
-        { "id": "D", "text": "/var/log/auth.log" }
+        {
+          "id": "A",
+          "text": "/var/run/utmp (dan /var/log/wtmp untuk histori historis)"
+        },
+        {
+          "id": "B",
+          "text": "/var/log/syslog"
+        },
+        {
+          "id": "C",
+          "text": "/etc/shadow"
+        },
+        {
+          "id": "D",
+          "text": "/var/log/auth.log"
+        }
       ],
       "answer": "A",
       "explanation": "utmp (sesi aktif), wtmp (histori login), dan btmp (percobaan login gagal) adalah binary logs di Linux yang dibaca menggunakan perintah seperti 'who', 'last', dan 'lastb'."
@@ -151,13 +283,50 @@
       "difficulty": "hard",
       "question": "Bagaimana teknik 'File Carving' bekerja untuk memulihkan file dari raw disk unallocated space tanpa bantuan filesystem metadata?",
       "options": [
-        { "id": "A", "text": "Memindai disk byte-demi-byte untuk menemukan magic bytes (file signature header dan footer) serta struktur internal format file" },
-        { "id": "B", "text": "Membaca ulang salinan inode tabel" },
-        { "id": "C", "text": "Mendekripsi partisi BitLocker tanpa password" },
-        { "id": "D", "text": "Merekonstruksi RAID parity array secara hardware" }
+        {
+          "id": "A",
+          "text": "Memindai disk byte-demi-byte untuk menemukan magic bytes (file signature header dan footer) serta struktur internal format file"
+        },
+        {
+          "id": "B",
+          "text": "Membaca ulang salinan inode tabel"
+        },
+        {
+          "id": "C",
+          "text": "Mendekripsi partisi BitLocker tanpa password"
+        },
+        {
+          "id": "D",
+          "text": "Merekonstruksi RAID parity array secara hardware"
+        }
       ],
       "answer": "A",
       "explanation": "File Carving (contoh: Scalpel, Foremost) mencari magic bytes awal (header, misal 0xFFD8FFE0 untuk JPEG atau %PDF- untuk PDF) dan penutup (footer) langsung pada unallocated disk cluster ketika tabel indeks filesystem sudah rusak atau dihapus."
+    },
+    {
+      "id": "FOR-013",
+      "difficulty": "easy",
+      "question": "Dalam investigasi forensik digital, apa tujuan utama dari pembuatan dokumen \"Chain of Custody\" (Rantai Bukti)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Untuk menganalisis kode biner malware di laboratorium"
+        },
+        {
+          "id": "B",
+          "text": "Untuk memulihkan data yang terhapus dari partisi disk"
+        },
+        {
+          "id": "C",
+          "text": "Untuk mendokumentasikan penanganan, transfer, dan pengamanan barang bukti digital secara kronologis agar sah dan dapat diterima di pengadilan"
+        },
+        {
+          "id": "D",
+          "text": "Untuk mengkloning sektor hard disk secara bit-by-bit"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Chain of Custody adalah catatan kronologis yang mendokumentasikan siapa yang menyita, mengumpulkan, menganalisis, dan memindahkan barang bukti digital, menjamin integritas bukti tidak terkontaminasi agar berkekuatan hukum di persidangan."
     }
   ]
 }

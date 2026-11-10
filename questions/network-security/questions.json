@@ -8,10 +8,22 @@
       "difficulty": "easy",
       "question": "Protokol keamanan apa yang digunakan untuk mengenkripsi lalu lintas DNS sehingga tidak dapat diintip oleh penyedia layanan internet (ISP)?",
       "options": [
-        { "id": "A", "text": "DNS over HTTPS (DoH) / DNS over TLS (DoT)" },
-        { "id": "B", "text": "SNMPv1" },
-        { "id": "C", "text": "RIPv2" },
-        { "id": "D", "text": "FTP Passive Mode" }
+        {
+          "id": "A",
+          "text": "DNS over HTTPS (DoH) / DNS over TLS (DoT)"
+        },
+        {
+          "id": "B",
+          "text": "SNMPv1"
+        },
+        {
+          "id": "C",
+          "text": "RIPv2"
+        },
+        {
+          "id": "D",
+          "text": "FTP Passive Mode"
+        }
       ],
       "answer": "A",
       "explanation": "DNS over HTTPS (DoH) dan DNS over TLS (DoT) mengenkripsi kueri DNS biasa (port 53 UDP) menggunakan TLS/HTTPS untuk melindungi privasi kueri dari pengintaian pihak ketiga dan manipulasi MITM."
@@ -21,10 +33,22 @@
       "difficulty": "easy",
       "question": "Port default manakah yang digunakan oleh protokol SSH (Secure Shell) untuk koneksi remote terenkripsi?",
       "options": [
-        { "id": "A", "text": "22" },
-        { "id": "B", "text": "23" },
-        { "id": "C", "text": "80" },
-        { "id": "D", "text": "443" }
+        {
+          "id": "A",
+          "text": "22"
+        },
+        {
+          "id": "B",
+          "text": "23"
+        },
+        {
+          "id": "C",
+          "text": "80"
+        },
+        {
+          "id": "D",
+          "text": "443"
+        }
       ],
       "answer": "A",
       "explanation": "SSH berjalan pada port TCP 22 secara default. Port 23 adalah Telnet (tidak terenkripsi), port 80 adalah HTTP, dan port 443 adalah HTTPS."
@@ -34,10 +58,22 @@
       "difficulty": "easy",
       "question": "Pada protokol TCP, bendera (flags) apa saja yang dikirimkan dalam proses 3-Way Handshake untuk membangun koneksi baru?",
       "options": [
-        { "id": "A", "text": "SYN -> SYN-ACK -> ACK" },
-        { "id": "B", "text": "ACK -> SYN -> FIN" },
-        { "id": "C", "text": "RST -> SYN -> ACK" },
-        { "id": "D", "text": "URG -> PSH -> SYN" }
+        {
+          "id": "A",
+          "text": "SYN -> SYN-ACK -> ACK"
+        },
+        {
+          "id": "B",
+          "text": "ACK -> SYN -> FIN"
+        },
+        {
+          "id": "C",
+          "text": "RST -> SYN -> ACK"
+        },
+        {
+          "id": "D",
+          "text": "URG -> PSH -> SYN"
+        }
       ],
       "answer": "A",
       "explanation": "Proses 3-Way Handshake TCP diawali dengan client mengirim paket SYN, server membalas dengan SYN-ACK, dan client mengonfirmasi dengan ACK sebelum data ditransfer."
@@ -47,10 +83,22 @@
       "difficulty": "easy",
       "question": "Teknik penyerangan jaringan lokal di mana penyerang mengirimkan frame ARP palsu untuk memetakan IP gateway ke MAC address penyerang disebut:",
       "options": [
-        { "id": "A", "text": "ARP Spoofing / ARP Poisoning" },
-        { "id": "B", "text": "Smurf Attack" },
-        { "id": "C", "text": "BGP Hijacking" },
-        { "id": "D", "text": "DNS Amplification" }
+        {
+          "id": "A",
+          "text": "ARP Spoofing / ARP Poisoning"
+        },
+        {
+          "id": "B",
+          "text": "Smurf Attack"
+        },
+        {
+          "id": "C",
+          "text": "BGP Hijacking"
+        },
+        {
+          "id": "D",
+          "text": "DNS Amplification"
+        }
       ],
       "answer": "A",
       "explanation": "ARP Spoofing memanfaatkan ketiadaan autentikasi dalam protokol ARP untuk meracuni ARP cache korban, sehingga seluruh lalu lintas jaringan dialihkan melalui mesin penyerang (Man-in-the-Middle)."
@@ -60,10 +108,22 @@
       "difficulty": "medium",
       "question": "Protokol apa yang digunakan oleh switch untuk mencegah terjadinya layer 2 loop atau broadcast storm pada topologi jaringan yang redundan?",
       "options": [
-        { "id": "A", "text": "Spanning Tree Protocol (STP)" },
-        { "id": "B", "text": "Border Gateway Protocol (BGP)" },
-        { "id": "C", "text": "Address Resolution Protocol (ARP)" },
-        { "id": "D", "text": "Dynamic Host Configuration Protocol (DHCP)" }
+        {
+          "id": "A",
+          "text": "Spanning Tree Protocol (STP)"
+        },
+        {
+          "id": "B",
+          "text": "Border Gateway Protocol (BGP)"
+        },
+        {
+          "id": "C",
+          "text": "Address Resolution Protocol (ARP)"
+        },
+        {
+          "id": "D",
+          "text": "Dynamic Host Configuration Protocol (DHCP)"
+        }
       ],
       "answer": "A",
       "explanation": "Spanning Tree Protocol (STP - IEEE 802.1D) memblokir port cadangan secara logis untuk mencegah terjadinya switching loop dan broadcast storm pada jaringan LAN berkecepatan tinggi."
@@ -73,10 +133,22 @@
       "difficulty": "medium",
       "question": "Bagaimana serangan SYN Flood bekerja untuk menghabiskan sumber daya server korban?",
       "options": [
-        { "id": "A", "text": "Mengirim banjir paket SYN dengan spoofed IP dan tidak membalas dengan paket ACK terakhir, memenuhi SYN backlog queue server" },
-        { "id": "B", "text": "Membanjiri port UDP 53 dengan query DNS rekursif besar" },
-        { "id": "C", "text": "Mengirim paket FIN-RST palsu untuk memutuskan koneksi aktif" },
-        { "id": "D", "text": "Mengirimkan frame ethernet dengan ukuran melebihi MTU 1500 byte" }
+        {
+          "id": "A",
+          "text": "Mengirim banjir paket SYN dengan spoofed IP dan tidak membalas dengan paket ACK terakhir, memenuhi SYN backlog queue server"
+        },
+        {
+          "id": "B",
+          "text": "Membanjiri port UDP 53 dengan query DNS rekursif besar"
+        },
+        {
+          "id": "C",
+          "text": "Mengirim paket FIN-RST palsu untuk memutuskan koneksi aktif"
+        },
+        {
+          "id": "D",
+          "text": "Mengirimkan frame ethernet dengan ukuran melebihi MTU 1500 byte"
+        }
       ],
       "answer": "A",
       "explanation": "SYN Flood membiarkan koneksi TCP dalam status HALF-OPEN (SYN_RECV) hingga kapasitas antrean backlog server habis dan menolak koneksi sah baru. SYN Cookies adalah salah satu mitigasinya."
@@ -86,10 +158,22 @@
       "difficulty": "medium",
       "question": "Fitur keamanan switch (Switch Port Security) manakah yang membatasi pengiriman DHCP Offer palsu dari rogue DHCP server di jaringan lokal?",
       "options": [
-        { "id": "A", "text": "DHCP Snooping" },
-        { "id": "B", "text": "BPDU Guard" },
-        { "id": "C", "text": "Dynamic ARP Inspection (DAI)" },
-        { "id": "D", "text": "Port Mirroring / SPAN" }
+        {
+          "id": "A",
+          "text": "DHCP Snooping"
+        },
+        {
+          "id": "B",
+          "text": "BPDU Guard"
+        },
+        {
+          "id": "C",
+          "text": "Dynamic ARP Inspection (DAI)"
+        },
+        {
+          "id": "D",
+          "text": "Port Mirroring / SPAN"
+        }
       ],
       "answer": "A",
       "explanation": "DHCP Snooping membedakan port switch menjadi 'trusted' (terhubung ke server DHCP resmi) dan 'untrusted'. Paket balasan DHCP DHCPOFFER dari port untrusted akan otomatis di-drop oleh switch."
@@ -99,10 +183,22 @@
       "difficulty": "medium",
       "question": "Serangan 'DNS Amplification' memanfaatkan karakteristik protokol apa untuk menghasilkan volume lalu lintas serangan DDoS yang berlipat ganda?",
       "options": [
-        { "id": "A", "text": "UDP (User Datagram Protocol) yang bersifat connectionless dengan spoofing IP sumber dan query EDNS0 berukuran besar" },
-        { "id": "B", "text": "TCP Handshake 3 arah dengan window size 0" },
-        { "id": "C", "text": "ICMP Echo Reply tanpa validasi sequence number" },
-        { "id": "D", "text": "BGP Keepalive packets" }
+        {
+          "id": "A",
+          "text": "UDP (User Datagram Protocol) yang bersifat connectionless dengan spoofing IP sumber dan query EDNS0 berukuran besar"
+        },
+        {
+          "id": "B",
+          "text": "TCP Handshake 3 arah dengan window size 0"
+        },
+        {
+          "id": "C",
+          "text": "ICMP Echo Reply tanpa validasi sequence number"
+        },
+        {
+          "id": "D",
+          "text": "BGP Keepalive packets"
+        }
       ],
       "answer": "A",
       "explanation": "DNS Amplification mengeksploitasi UDP yang tidak memverifikasi IP pengirim. Penyerang memalsukan IP sumber menjadi IP korban dan mengirim query 'ANY' ke Open Resolvers yang menghasilkan jawaban berukuran hingga 50x lebih besar dari query."
@@ -112,10 +208,22 @@
       "difficulty": "hard",
       "question": "Dalam protokol TLS 1.3, fitur apa yang dihilangkan secara permanen dari versi TLS sebelumnya untuk menjamin Perfect Forward Secrecy (PFS)?",
       "options": [
-        { "id": "A", "text": "RSA key transport / static key exchange" },
-        { "id": "B", "text": "Elliptic Curve Diffie-Hellman Ephemeral (ECDHE)" },
-        { "id": "C", "text": "AEAD cipher suites" },
-        { "id": "D", "text": "Server Name Indication (SNI)" }
+        {
+          "id": "A",
+          "text": "RSA key transport / static key exchange"
+        },
+        {
+          "id": "B",
+          "text": "Elliptic Curve Diffie-Hellman Ephemeral (ECDHE)"
+        },
+        {
+          "id": "C",
+          "text": "AEAD cipher suites"
+        },
+        {
+          "id": "D",
+          "text": "Server Name Indication (SNI)"
+        }
       ],
       "answer": "A",
       "explanation": "TLS 1.3 menghapus static RSA key exchange (di mana pre-master secret dienkripsi dengan public key server). TLS 1.3 mewajibkan ephemeral Diffie-Hellman (ECDHE/DHE) agar kunci sesi masa lalu tidak dapat didekripsi jika private key server bocor di kemudian hari (PFS)."
@@ -125,10 +233,22 @@
       "difficulty": "hard",
       "question": "Mekanisme apa pada protokol BGP yang dirancang untuk mencegah BGP Route Hijacking dengan memvalidasi kepemilikan Autonomous System (AS) atas alokasi IP prefix melalui Route Origin Authorization (ROA)?",
       "options": [
-        { "id": "A", "text": "RPKI (Resource Public Key Infrastructure)" },
-        { "id": "B", "text": "OSPF Cryptographic Authentication" },
-        { "id": "C", "text": "BGP Dampening" },
-        { "id": "D", "text": "MPLS Label Switching" }
+        {
+          "id": "A",
+          "text": "RPKI (Resource Public Key Infrastructure)"
+        },
+        {
+          "id": "B",
+          "text": "OSPF Cryptographic Authentication"
+        },
+        {
+          "id": "C",
+          "text": "BGP Dampening"
+        },
+        {
+          "id": "D",
+          "text": "MPLS Label Switching"
+        }
       ],
       "answer": "A",
       "explanation": "RPKI (Resource Public Key Infrastructure) menggunakan sertifikat X.509 berjenjang untuk membuat objek ROA (Route Origin Authorization) yang membuktikan AS mana yang sah meng-advertise suatu subnet IP prefix di Internet."
@@ -138,10 +258,22 @@
       "difficulty": "hard",
       "question": "Serangan 'KRACK' (Key Reinstallation Attack) pada WPA2 mengeksploitasi kelemahan pada tahap apa?",
       "options": [
-        { "id": "A", "text": "Pesan ketiga (Message 3) pada 4-Way Handshake saat penginstalan Pairwise Transient Key (PTK)" },
-        { "id": "B", "text": "Algoritma enkripsi AES-CCMP secara matematis" },
-        { "id": "C", "text": "Hashing PBKDF2 pada Pre-Shared Key (PSK)" },
-        { "id": "D", "text": "Beacon frame management pada Access Point" }
+        {
+          "id": "A",
+          "text": "Pesan ketiga (Message 3) pada 4-Way Handshake saat penginstalan Pairwise Transient Key (PTK)"
+        },
+        {
+          "id": "B",
+          "text": "Algoritma enkripsi AES-CCMP secara matematis"
+        },
+        {
+          "id": "C",
+          "text": "Hashing PBKDF2 pada Pre-Shared Key (PSK)"
+        },
+        {
+          "id": "D",
+          "text": "Beacon frame management pada Access Point"
+        }
       ],
       "answer": "A",
       "explanation": "KRACK memaksa klien WPA2 menginstal ulang kunci PTK yang sama dengan cara memanipulasi pengiriman ulang Message 3 pada 4-way handshake, mereset counter nonces/replay ke 0 sehingga paket dapat didekripsi atau diputar ulang."
@@ -151,13 +283,750 @@
       "difficulty": "hard",
       "question": "Dalam enkripsi IPsec, perbedaan mendasar antara mode 'Tunnel' dan mode 'Transport' adalah:",
       "options": [
-        { "id": "A", "text": "Mode Tunnel mengenkripsi seluruh paket IP asli dan menambahkan header IP baru, sedangkan Transport hanya mengenkripsi payload paket IP" },
-        { "id": "B", "text": "Mode Transport digunakan untuk site-to-site VPN saja" },
-        { "id": "C", "text": "Mode Tunnel tidak mendukung protokol ESP" },
-        { "id": "D", "text": "Mode Transport mengenkripsi IP header publik" }
+        {
+          "id": "A",
+          "text": "Mode Tunnel mengenkripsi seluruh paket IP asli dan menambahkan header IP baru, sedangkan Transport hanya mengenkripsi payload paket IP"
+        },
+        {
+          "id": "B",
+          "text": "Mode Transport digunakan untuk site-to-site VPN saja"
+        },
+        {
+          "id": "C",
+          "text": "Mode Tunnel tidak mendukung protokol ESP"
+        },
+        {
+          "id": "D",
+          "text": "Mode Transport mengenkripsi IP header publik"
+        }
       ],
       "answer": "A",
       "explanation": "IPsec Tunnel Mode membungkus seluruh paket IP asli (termasuk header aslinya) di dalam payload paket IP baru, ideal untuk gateway VPN. Transport Mode hanya mengenkripsi layer 4 payload (misal TCP/UDP) dengan mempertahankan header IP asli, ideal untuk host-to-host."
+    },
+    {
+      "id": "NET-013",
+      "difficulty": "easy",
+      "question": "Opsi Nmap -T5 digunakan untuk melakukan pemindaian jaringan dengan template timing kategori...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Paranoid (sangat lambat)"
+        },
+        {
+          "id": "B",
+          "text": "Sneaky (lambat)"
+        },
+        {
+          "id": "C",
+          "text": "Polite (normal)"
+        },
+        {
+          "id": "D",
+          "text": "Insane (sangat cepat)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Nmap memiliki 6 timing templates: -T0 (Paranoid), -T1 (Sneaky), -T2 (Polite), -T3 (Normal), -T4 (Aggressive), dan -T5 (Insane). -T5 melakukan scan secara paralel sangat cepat dan mengorbankan akurasi jika jaringan lambat."
+    },
+    {
+      "id": "NET-014",
+      "difficulty": "easy",
+      "question": "Manakah dari perangkat lunak berikut yang paling terkenal digunakan untuk mengaudit dan meretas kunci enkripsi nirkabel WEP serta WPA/WPA2-PSK?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wireshark"
+        },
+        {
+          "id": "B",
+          "text": "Nessus"
+        },
+        {
+          "id": "C",
+          "text": "Aircrack-ng"
+        },
+        {
+          "id": "D",
+          "text": "Metasploit"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Aircrack-ng adalah rangkaian alat keamanan jaringan nirkabel standar industri untuk menangkap paket (airodump-ng), deautentikasi (aireplay-ng), dan memecahkan kunci WEP serta 4-way handshake WPA/WPA2-PSK."
+    },
+    {
+      "id": "NET-015",
+      "difficulty": "easy",
+      "question": "Log firewall menunjukkan serangkaian koneksi dari satu alamat IP sumber ke beberapa nomor port berurutan (misalnya 21, 22, 23, 25, 80) pada satu alamat IP tujuan. Aktivitas ini paling mungkin merupakan...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Serangan Smurf"
+        },
+        {
+          "id": "B",
+          "text": "Pemindaian Port (Port Scanning)"
+        },
+        {
+          "id": "C",
+          "text": "Serangan Teardrop"
+        },
+        {
+          "id": "D",
+          "text": "Sesi Transfer FTP Pasif"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Pola koneksi cepat ke serangkaian port berurutan dari satu IP pengirim merupakan ciri khas Port Scanning (misalnya menggunakan Nmap atau Masscan) untuk mendeteksi port dan layanan yang terbuka pada host tujuan."
+    },
+    {
+      "id": "NET-016",
+      "difficulty": "easy",
+      "question": "Port TCP standar yang digunakan oleh layanan protokol HTTP (tidak terenkripsi) dan HTTPS (terenkripsi) berturut-turut adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "21 dan 22"
+        },
+        {
+          "id": "B",
+          "text": "25 dan 110"
+        },
+        {
+          "id": "C",
+          "text": "80 dan 443"
+        },
+        {
+          "id": "D",
+          "text": "8080 dan 8443"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Port 80 adalah port default untuk HTTP tanpa enkripsi, sedangkan port 443 adalah port default untuk HTTPS yang diamankan menggunakan TLS/SSL."
+    },
+    {
+      "id": "NET-017",
+      "difficulty": "easy",
+      "question": "Perangkat jaringan layer 3 yang digunakan untuk menghubungkan dua atau lebih jaringan komputer dengan subnet berbeda dan mengarahkan paket data antar jaringan adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hub"
+        },
+        {
+          "id": "B",
+          "text": "Switch"
+        },
+        {
+          "id": "C",
+          "text": "Repeater"
+        },
+        {
+          "id": "D",
+          "text": "Router"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Router beroperasi pada Layer 3 (Network Layer) model OSI dan bertanggung jawab untuk merutekan paket IP antar segmen jaringan yang berbeda berdasarkan tabel routing."
+    },
+    {
+      "id": "NET-018",
+      "difficulty": "easy",
+      "question": "Protokol mana yang bertanggung jawab untuk menerjemahkan nama domain yang mudah dibaca manusia (seperti www.google.com) menjadi alamat IP numerik?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DHCP"
+        },
+        {
+          "id": "B",
+          "text": "DNS (Domain Name System)"
+        },
+        {
+          "id": "C",
+          "text": "ARP"
+        },
+        {
+          "id": "D",
+          "text": "HTTP"
+        }
+      ],
+      "answer": "B",
+      "explanation": "DNS (Domain Name System) bertindak sebagai buku telepon internet yang memetakan nama domain menjadi alamat IP (rekord A untuk IPv4 dan AAAA untuk IPv6)."
+    },
+    {
+      "id": "NET-019",
+      "difficulty": "easy",
+      "question": "Protokol transfer file bawaan manakah yang dianggap tidak aman karena mentransmisikan data serta kredensial kata sandi dalam bentuk teks biasa (plaintext) tanpa enkripsi?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SFTP"
+        },
+        {
+          "id": "B",
+          "text": "FTPS"
+        },
+        {
+          "id": "C",
+          "text": "FTP"
+        },
+        {
+          "id": "D",
+          "text": "SCP"
+        }
+      ],
+      "answer": "C",
+      "explanation": "FTP mentransmisikan data otentikasi (USER dan PASS) serta file payload secara plaintext pada port 21, sehingga rentan disadap menggunakan packet sniffer di jaringan yang sama."
+    },
+    {
+      "id": "NET-020",
+      "difficulty": "medium",
+      "question": "Perintah nmap dengan opsi \"-sX [target]\" akan menjalankan teknik pemindaian apa?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pemindaian SYN Stealth"
+        },
+        {
+          "id": "B",
+          "text": "Pemindaian UDP"
+        },
+        {
+          "id": "C",
+          "text": "Pemindaian Xmas"
+        },
+        {
+          "id": "D",
+          "text": "Pemindaian Versi Layanan"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Opsi -sX pada Nmap menjalankan Xmas scan, dinamai demikian karena menyalakan paket dengan flag FIN, PSH, dan URG secara bersamaan, tampak seperti lampu pohon natal yang menyala."
+    },
+    {
+      "id": "NET-021",
+      "difficulty": "medium",
+      "question": "Pemindaian Nmap Xmas (-sX) secara spesifik mengatur kombinasi flag TCP mana saja pada paket probe yang dikirimkannya?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SYN, RST, ACK"
+        },
+        {
+          "id": "B",
+          "text": "FIN, PSH, URG"
+        },
+        {
+          "id": "C",
+          "text": "SYN, FIN"
+        },
+        {
+          "id": "D",
+          "text": "ACK, RST"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Nmap Xmas scan mengatur flag FIN, PSH, dan URG aktif. Menurut RFC 793, port tertutup akan membalas dengan paket RST, sedangkan port terbuka akan mengabaikan paket tersebut (no response)."
+    },
+    {
+      "id": "NET-022",
+      "difficulty": "medium",
+      "question": "Jika paket ICMP (Ping) diblokir oleh firewall host target, alat baris perintah manakah yang dapat digunakan untuk memeriksa keaktifan host dengan mengirim paket TCP SYN khusus ke port tertentu?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Traceroute"
+        },
+        {
+          "id": "B",
+          "text": "Hping (hping3)"
+        },
+        {
+          "id": "C",
+          "text": "Netstat"
+        },
+        {
+          "id": "D",
+          "text": "Arp"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Hping3 adalah network packet generator dan analyzer yang mendukung crafting paket kustom TCP, UDP, ICMP, dan RAW-IP, sangat berguna untuk host discovery saat ICMP echo request diblokir firewall."
+    },
+    {
+      "id": "NET-023",
+      "difficulty": "medium",
+      "question": "Sebuah organisasi mengonfigurasi dua server DNS: satu di zona DMZ untuk melayani kueri eksternal dan satu di jaringan internal untuk melayani kueri internal. Arsitektur keamanan ini dikenal sebagai...",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNS Forwarding"
+        },
+        {
+          "id": "B",
+          "text": "Split DNS (Split-Horizon DNS)"
+        },
+        {
+          "id": "C",
+          "text": "DNS Caching"
+        },
+        {
+          "id": "D",
+          "text": "Dynamic DNS"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Split DNS (Split-Horizon DNS) menyediakan resolusi nama domain yang berbeda tergantung asal kueri, menyembunyikan IP subnet internal dan topologi privat dari publik internet."
+    },
+    {
+      "id": "NET-024",
+      "difficulty": "medium",
+      "question": "Alat pengujian penetrasi multifungsi yang dirancang untuk melakukan serangan Man-in-the-Middle (MITM), packet sniffing, dan manipulasi injeksi konten langsung pada jaringan lokal (LAN) adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nmap"
+        },
+        {
+          "id": "B",
+          "text": "Wireshark"
+        },
+        {
+          "id": "C",
+          "text": "Ettercap"
+        },
+        {
+          "id": "D",
+          "text": "John the Ripper"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Ettercap adalah suite komprehensif untuk serangan man-in-the-middle di jaringan LAN, mendukung ARP poisoning, pass-through filtering, credential sniffing, dan injeksi konten secara on-the-fly."
+    },
+    {
+      "id": "NET-025",
+      "difficulty": "medium",
+      "question": "Zona perimeter jaringan yang aman antara jaringan internal tepercaya sebuah organisasi dan jaringan publik eksternal (seperti internet) tempat server publik ditempatkan disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "LAN"
+        },
+        {
+          "id": "B",
+          "text": "WAN"
+        },
+        {
+          "id": "C",
+          "text": "VLAN"
+        },
+        {
+          "id": "D",
+          "text": "DMZ (Demilitarized Zone)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "DMZ (Demilitarized Zone) adalah subnet fisik atau logis yang mengisolasi server publik (web, email, DNS publik) dari jaringan korporat internal, sehingga kompromi pada server DMZ tidak langsung merambah ke LAN privat."
+    },
+    {
+      "id": "NET-026",
+      "difficulty": "medium",
+      "question": "Bentuk serangan siber di mana lalu lintas dari situs web yang sah diarahkan secara diam-diam ke situs web tiruan palsu dengan cara meracuni cache DNS atau memodifikasi file hosts korban disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Phishing konvensional"
+        },
+        {
+          "id": "B",
+          "text": "Pharming"
+        },
+        {
+          "id": "C",
+          "text": "Malvertising"
+        },
+        {
+          "id": "D",
+          "text": "Evil Twin"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Pharming membajak resolusi DNS (DNS Poisoning) atau file hosts komputer korban sehingga saat korban mengetikkan URL domain yang sah (misal bank.com), browser secara otomatis diarahkan ke IP server palsu penyerang."
+    },
+    {
+      "id": "NET-027",
+      "difficulty": "medium",
+      "question": "Alat open-source standar industri yang paling populer digunakan untuk inspeksi mendalam paket jaringan (packet sniffing dan protokol protocol analysis) adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Metasploit"
+        },
+        {
+          "id": "B",
+          "text": "Wireshark"
+        },
+        {
+          "id": "C",
+          "text": "Nessus"
+        },
+        {
+          "id": "D",
+          "text": "Aircrack-ng"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Wireshark adalah network protocol analyzer terkemuka yang menangkap lalu lintas jaringan secara real-time dan menampilkan dekode struktur paket secara terperinci."
+    },
+    {
+      "id": "NET-028",
+      "difficulty": "medium",
+      "question": "Sebuah server proxy yang menyembunyikan alamat IP asli klien dan membuat permintaan ke server web tujuan seolah-olah berasal dari IP proxy itu sendiri tanpa menyertakan header penunjuk identitas disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transparent Proxy"
+        },
+        {
+          "id": "B",
+          "text": "Anonymizing Proxy"
+        },
+        {
+          "id": "C",
+          "text": "Caching Proxy"
+        },
+        {
+          "id": "D",
+          "text": "Reverse Proxy"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Anonymizing Proxy (Forward Anonymous Proxy) menyamarkan identitas klien dengan tidak meneruskan header \"X-Forwarded-For\", sehingga situs tujuan hanya melihat alamat IP milik server proxy."
+    },
+    {
+      "id": "NET-029",
+      "difficulty": "medium",
+      "question": "Apa fungsi utama dari Reverse Proxy dalam arsitektur infrastruktur web modern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Menyembunyikan identitas penelusuran klien dari server web eksternal"
+        },
+        {
+          "id": "B",
+          "text": "Bertindak sebagai gerbang perantara bagi server internal untuk melayani permintaan klien, menangani load balancing, caching, dan SSL termination"
+        },
+        {
+          "id": "C",
+          "text": "Menyaring email spam yang masuk ke jaringan kantor"
+        },
+        {
+          "id": "D",
+          "text": "Memblokir serangan virus di workstation lokal"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Reverse Proxy (seperti Nginx, Envoy, atau HAProxy) berada di depan server backend internal untuk mengelola lalu lintas masuk, membagi beban kerja (load balancing), enkripsi SSL, dan menyembunyikan arsitektur server privat."
+    },
+    {
+      "id": "NET-030",
+      "difficulty": "medium",
+      "question": "Protokol manajemen jaringan standar yang digunakan untuk memantau status perangkat seperti router, switch, printer, dan server (seperti utilisasi CPU, bandwidth port, suhu) adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "HTTP"
+        },
+        {
+          "id": "B",
+          "text": "FTP"
+        },
+        {
+          "id": "C",
+          "text": "SNMP (Simple Network Management Protocol)"
+        },
+        {
+          "id": "D",
+          "text": "SMTP"
+        }
+      ],
+      "answer": "C",
+      "explanation": "SNMP (Simple Network Management Protocol) menggunakan agen pada perangkat jaringan dan Management Information Base (MIB) untuk memantau performa serta mengirim peringatan (SNMP traps) ke Network Management System (NMS)."
+    },
+    {
+      "id": "NET-031",
+      "difficulty": "medium",
+      "question": "Standar protokol enkripsi jaringan nirkabel (Wi-Fi) manakah yang dianggap paling mutakhir dan paling aman saat ini, menggantikan WPA2 dengan algoritma SAE (Simultaneous Authentication of Equals)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WEP"
+        },
+        {
+          "id": "B",
+          "text": "WPA"
+        },
+        {
+          "id": "C",
+          "text": "WPA2-PSK"
+        },
+        {
+          "id": "D",
+          "text": "WPA3"
+        }
+      ],
+      "answer": "D",
+      "explanation": "WPA3 menggunakan protokol Dragonfly (Simultaneous Authentication of Equals / SAE) untuk menggagalkan serangan offline dictionary attack dan menyediakan enkripsi 192-bit enterprise yang kokoh."
+    },
+    {
+      "id": "NET-032",
+      "difficulty": "medium",
+      "question": "Teknik privasi jaringan apa yang menyembunyikan alamat IP asli pengguna dengan cara merutekan paket lalu lintas terenkripsi berlapis melalui tiga simpul relay sukarela (Guard, Middle, Exit node) di seluruh dunia?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PPTP VPN"
+        },
+        {
+          "id": "B",
+          "text": "HTTP Proxy"
+        },
+        {
+          "id": "C",
+          "text": "The Onion Router (Tor)"
+        },
+        {
+          "id": "D",
+          "text": "NAT Gateway"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Tor (The Onion Router) mengenkripsi lalu lintas dalam beberapa lapisan (mirip lapisan bawang) dan mengalirkannya melalui sirkuit tiga node relawan, sehingga tidak ada satu simpul pun yang mengetahui IP sumber sekaligus server tujuan akhir secara bersamaan."
+    },
+    {
+      "id": "NET-033",
+      "difficulty": "medium",
+      "question": "Serangan Layer 2 di mana penyerang membanjiri tabel CAM switch dengan ribuan alamat MAC palsu sehingga switch beralih ke mode \"hub\" (fail-open) dan menyiarkan seluruh paket ke semua port disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "ARP Poisoning"
+        },
+        {
+          "id": "B",
+          "text": "MAC Flooding"
+        },
+        {
+          "id": "C",
+          "text": "DNS Spoofing"
+        },
+        {
+          "id": "D",
+          "text": "Port Scanning"
+        }
+      ],
+      "answer": "B",
+      "explanation": "MAC Flooding (misal menggunakan tool macof) menghabiskan kapasitas Content Addressable Memory (CAM table) switch. Saat tabel penuh, switch gagal memetakan port dan beralih melakukan broadcast seluruh frame ke setiap port (fail-open), memungkinkan sniffing."
+    },
+    {
+      "id": "NET-034",
+      "difficulty": "medium",
+      "question": "Tipe firewall yang memeriksa dan memfilter lalu lintas pada Layer 7 (Application Layer) model OSI serta mampu memeriksa konten pesan protokol tertentu (seperti HTTP, FTP, SIP) dikenal sebagai...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Packet-Filtering Firewall (Stateless)"
+        },
+        {
+          "id": "B",
+          "text": "Circuit-Level Gateway"
+        },
+        {
+          "id": "C",
+          "text": "Stateful Inspection Firewall"
+        },
+        {
+          "id": "D",
+          "text": "Application-Level Gateway (Proxy Firewall)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Application-Level Gateway (ALG / Proxy Firewall) beroperasi pada Layer 7 OSI. Firewall ini memahami sintaks aplikasi dan memeriksa payload hingga tingkat konten terdalam sebelum meneruskannya."
+    },
+    {
+      "id": "NET-035",
+      "difficulty": "medium",
+      "question": "Serangan siber berupa pengiriman pesan teks atau kartu nama digital yang tidak diminta ke perangkat berkemampuan Bluetooth dalam jarak dekat tanpa izin disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bluesnarfing"
+        },
+        {
+          "id": "B",
+          "text": "Bluejacking"
+        },
+        {
+          "id": "C",
+          "text": "Bluesmacking"
+        },
+        {
+          "id": "D",
+          "text": "Bluebugging"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Bluejacking adalah aksi mengirimkan pesan tanpa izin ke perangkat Bluetooth lain. Berbeda dengan Bluesnarfing (mencuri data kontak/kalender) atau Bluebugging (mengambil alih kontrol panggilan telepon)."
+    },
+    {
+      "id": "NET-036",
+      "difficulty": "medium",
+      "question": "Aktivitas mencari dan memetakan keberadaan jaringan nirkabel (Wi-Fi) yang rentan sambil bergerak di area publik menggunakan kendaraan bermotor dengan antena dan GPS disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wardriving"
+        },
+        {
+          "id": "B",
+          "text": "Warflying"
+        },
+        {
+          "id": "C",
+          "text": "Warchalking"
+        },
+        {
+          "id": "D",
+          "text": "Port Knocking"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Wardriving adalah metode pemetaan sinyal Wi-Fi dari kendaraan yang bergerak menggunakan perangkat lunak scanner nirkabel dan receiver GPS untuk mengidentifikasi access point terbuka atau berkonfigurasi lemah."
+    },
+    {
+      "id": "NET-037",
+      "difficulty": "medium",
+      "question": "Manakah dari bendera (flag) TCP berikut yang digunakan oleh pengirim untuk mengakhiri sesi koneksi TCP secara normal dan teratur (Graceful Connection Termination)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SYN"
+        },
+        {
+          "id": "B",
+          "text": "ACK"
+        },
+        {
+          "id": "C",
+          "text": "RST"
+        },
+        {
+          "id": "D",
+          "text": "FIN"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Flag FIN (Finish) dikirimkan untuk memberitahu pihak penerima bahwa pengirim telah selesai mentransmisikan data dan ingin menutup koneksi melalui proses 4-way handshake penutupan TCP."
+    },
+    {
+      "id": "NET-038",
+      "difficulty": "medium",
+      "question": "Serangan di mana penyerang meracuni cache resolver DNS dengan data palsu sehingga pengguna diarahkan ke situs berbahaya tanpa disadari disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNS Spoofing (DNS Cache Poisoning)"
+        },
+        {
+          "id": "B",
+          "text": "ARP Spoofing"
+        },
+        {
+          "id": "C",
+          "text": "IP Spoofing"
+        },
+        {
+          "id": "D",
+          "text": "MAC Spoofing"
+        }
+      ],
+      "answer": "A",
+      "explanation": "DNS Cache Poisoning menyuntikkan rekaman DNS palsu ke dalam tabel cache DNS server rekursif, mengalihkan seluruh pengguna yang meminta domain tersebut ke alamat IP penyerang."
+    },
+    {
+      "id": "NET-039",
+      "difficulty": "medium",
+      "question": "Standar IEEE internasional yang mendefinisikan protokol dan arsitektur untuk teknologi jaringan area lokal nirkabel (Wireless LAN / Wi-Fi) adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "IEEE 802.3"
+        },
+        {
+          "id": "B",
+          "text": "IEEE 802.11"
+        },
+        {
+          "id": "C",
+          "text": "IEEE 802.1X"
+        },
+        {
+          "id": "D",
+          "text": "IEEE 802.1Q"
+        }
+      ],
+      "answer": "B",
+      "explanation": "IEEE 802.11 adalah kelompok standar untuk Wi-Fi (seperti 802.11a/b/g/n/ac/ax/be). IEEE 802.3 adalah Ethernet kabel, 802.1X adalah otentikasi port, dan 802.1Q adalah VLAN tagging."
+    },
+    {
+      "id": "NET-040",
+      "difficulty": "hard",
+      "question": "Dalam arsitektur protokol IPsec, protokol manakah yang bertugas untuk menegosiasikan Security Association (SA) dan mengelola pertukaran kunci enkripsi secara aman?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Authentication Header (AH)"
+        },
+        {
+          "id": "B",
+          "text": "Encapsulating Security Payload (ESP)"
+        },
+        {
+          "id": "C",
+          "text": "Internet Key Exchange (IKE)"
+        },
+        {
+          "id": "D",
+          "text": "Generic Routing Encapsulation (GRE)"
+        }
+      ],
+      "answer": "C",
+      "explanation": "IKE (Internet Key Exchange, beroperasi pada port UDP 500) menggunakan algoritma Diffie-Hellman untuk menegosiasikan parameter keamanan dan menghasilkan kunci sesi yang digunakan oleh AH atau ESP dalam IPsec."
+    },
+    {
+      "id": "NET-041",
+      "difficulty": "hard",
+      "question": "Serangan \"Replay Attack\" pada komunikasi jaringan melibatkan tindakan...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Menangkap dan menyiarkan ulang transmisi data atau token autentikasi yang sah untuk mengelabui penerima agar mengotorisasi tindakan kedua kali"
+        },
+        {
+          "id": "B",
+          "text": "Menghapus file log rekaman video insiden keamanan"
+        },
+        {
+          "id": "C",
+          "text": "Mengirimkan email penipuan yang sama ribuan kali"
+        },
+        {
+          "id": "D",
+          "text": "Melakukan brute-force password berulang-ulang"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Replay Attack mencegat transmisi sah (misal perintah transfer uang atau token login) dan mengirimkannya kembali ke server tanpa modifikasi. Pencegahannya adalah penggunaan nonce unik, sequence numbers, atau timestamp jangka pendek."
     }
   ]
 }

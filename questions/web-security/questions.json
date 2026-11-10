@@ -8,10 +8,22 @@
       "difficulty": "easy",
       "question": "Vulnerabilitas web apa yang terjadi saat aplikasi web menerima data masukan pengguna tanpa validasi dan langsung menyisipkannya ke dalam query database SQL?",
       "options": [
-        { "id": "A", "text": "SQL Injection (SQLi)" },
-        { "id": "B", "text": "Cross-Site Scripting (XSS)" },
-        { "id": "C", "text": "Cross-Site Request Forgery (CSRF)" },
-        { "id": "D", "text": "Insecure Deserialization" }
+        {
+          "id": "A",
+          "text": "SQL Injection (SQLi)"
+        },
+        {
+          "id": "B",
+          "text": "Cross-Site Scripting (XSS)"
+        },
+        {
+          "id": "C",
+          "text": "Cross-Site Request Forgery (CSRF)"
+        },
+        {
+          "id": "D",
+          "text": "Insecure Deserialization"
+        }
       ],
       "answer": "A",
       "explanation": "SQL Injection (SQLi) terjadi ketika input dari pengguna yang tidak divalidasi atau tidak di-escape digabungkan langsung ke dalam query SQL, memungkinkan penyerang memanipulasi struktur query tersebut."
@@ -21,10 +33,22 @@
       "difficulty": "easy",
       "question": "Atribut cookie apa yang mencegah script JavaScript di sisi client (seperti serangan XSS) membaca isi cookie sesi?",
       "options": [
-        { "id": "A", "text": "SameSite=Strict" },
-        { "id": "B", "text": "HttpOnly" },
-        { "id": "C", "text": "Secure" },
-        { "id": "D", "text": "Domain" }
+        {
+          "id": "A",
+          "text": "SameSite=Strict"
+        },
+        {
+          "id": "B",
+          "text": "HttpOnly"
+        },
+        {
+          "id": "C",
+          "text": "Secure"
+        },
+        {
+          "id": "D",
+          "text": "Domain"
+        }
       ],
       "answer": "B",
       "explanation": "Flag 'HttpOnly' pada header Set-Cookie menginstruksikan browser agar cookie tidak dapat diakses melalui Document.cookie di JavaScript, sehingga memitigasi pencurian sesi akibat Stored atau Reflected XSS."
@@ -34,10 +58,22 @@
       "difficulty": "easy",
       "question": "Metode HTTP mana yang secara semantik dirancang untuk bersifat idempotent dan digunakan untuk memperbarui sebagian (partial update) dari sebuah resource?",
       "options": [
-        { "id": "A", "text": "POST" },
-        { "id": "B", "text": "PATCH" },
-        { "id": "C", "text": "PUT" },
-        { "id": "D", "text": "OPTIONS" }
+        {
+          "id": "A",
+          "text": "POST"
+        },
+        {
+          "id": "B",
+          "text": "PATCH"
+        },
+        {
+          "id": "C",
+          "text": "PUT"
+        },
+        {
+          "id": "D",
+          "text": "OPTIONS"
+        }
       ],
       "answer": "B",
       "explanation": "Metode HTTP PATCH digunakan untuk melakukan modifikasi parsial pada resource, sedangkan PUT menggantikan keseluruhan resource representasi target."
@@ -47,10 +83,22 @@
       "difficulty": "easy",
       "question": "HTTP response header apa yang digunakan untuk memberitahu browser agar hanya merender halaman di iframe dari domain yang sama?",
       "options": [
-        { "id": "A", "text": "X-Frame-Options: SAMEORIGIN" },
-        { "id": "B", "text": "X-Content-Type-Options: nosniff" },
-        { "id": "C", "text": "Strict-Transport-Security" },
-        { "id": "D", "text": "Access-Control-Allow-Origin: *" }
+        {
+          "id": "A",
+          "text": "X-Frame-Options: SAMEORIGIN"
+        },
+        {
+          "id": "B",
+          "text": "X-Content-Type-Options: nosniff"
+        },
+        {
+          "id": "C",
+          "text": "Strict-Transport-Security"
+        },
+        {
+          "id": "D",
+          "text": "Access-Control-Allow-Origin: *"
+        }
       ],
       "answer": "A",
       "explanation": "X-Frame-Options: SAMEORIGIN mencegah halaman dimuat di dalam <iframe> atau <frame> oleh origin lain, efektif mencegah serangan Clickjacking."
@@ -60,10 +108,22 @@
       "difficulty": "medium",
       "question": "Dalam serangan Cross-Site Request Forgery (CSRF), mekanisme pertahanan modern mana yang dapat dikonfigurasi pada cookie tanpa memerlukan token tersembunyi di form?",
       "options": [
-        { "id": "A", "text": "Atribut SameSite=Lax atau SameSite=Strict" },
-        { "id": "B", "text": "Header X-XSS-Protection" },
-        { "id": "C", "text": "Pemberian flag Secure saja" },
-        { "id": "D", "text": "Enkripsi payload JSON dengan AES-GCM" }
+        {
+          "id": "A",
+          "text": "Atribut SameSite=Lax atau SameSite=Strict"
+        },
+        {
+          "id": "B",
+          "text": "Header X-XSS-Protection"
+        },
+        {
+          "id": "C",
+          "text": "Pemberian flag Secure saja"
+        },
+        {
+          "id": "D",
+          "text": "Enkripsi payload JSON dengan AES-GCM"
+        }
       ],
       "answer": "A",
       "explanation": "Atribut SameSite pada cookie mengatur apakah cookie akan dikirimkan bersama request lintas-situs (cross-site). Nilai 'Strict' atau 'Lax' secara signifikan mencegah browser mengirim cookie sesi pada transaksi antar domain yang diinisiasi oleh penyerang."
@@ -73,10 +133,22 @@
       "difficulty": "medium",
       "question": "Teknik serangan apa yang memanfaatkan perbedaan interpretasi antara front-end reverse proxy dan back-end server terkait header Content-Length dan Transfer-Encoding?",
       "options": [
-        { "id": "A", "text": "HTTP Request Smuggling" },
-        { "id": "B", "text": "Server-Side Template Injection (SSTI)" },
-        { "id": "C", "text": "XML External Entity (XXE)" },
-        { "id": "D", "text": "JSON Web Token Confusion" }
+        {
+          "id": "A",
+          "text": "HTTP Request Smuggling"
+        },
+        {
+          "id": "B",
+          "text": "Server-Side Template Injection (SSTI)"
+        },
+        {
+          "id": "C",
+          "text": "XML External Entity (XXE)"
+        },
+        {
+          "id": "D",
+          "text": "JSON Web Token Confusion"
+        }
       ],
       "answer": "A",
       "explanation": "HTTP Request Smuggling terjadi akibat desinkronisasi batas request antara reverse proxy dan backend ketika memproses request berantai yang mengandung header Content-Length (CL) dan Transfer-Encoding: chunked (TE) secara bersamaan."
@@ -86,10 +158,22 @@
       "difficulty": "medium",
       "question": "Ketika penyerang dapat memanipulasi parameter URL yang kemudian dimasukkan ke fungsi template engine seperti Jinja2 atau Twig sehingga mengeksekusi kode Python/PHP di server, kerentanan ini disebut:",
       "options": [
-        { "id": "A", "text": "Server-Side Template Injection (SSTI)" },
-        { "id": "B", "text": "Client-Side Prototype Pollution" },
-        { "id": "C", "text": "DOM-based XSS" },
-        { "id": "D", "text": "Directory Traversal" }
+        {
+          "id": "A",
+          "text": "Server-Side Template Injection (SSTI)"
+        },
+        {
+          "id": "B",
+          "text": "Client-Side Prototype Pollution"
+        },
+        {
+          "id": "C",
+          "text": "DOM-based XSS"
+        },
+        {
+          "id": "D",
+          "text": "Directory Traversal"
+        }
       ],
       "answer": "A",
       "explanation": "Server-Side Template Injection (SSTI) terjadi saat input pengguna di-evaluasi langsung oleh template engine server, memungkinkan penyerang menyuntikkan payload ekspresi objek template untuk mencapai Remote Code Execution (RCE)."
@@ -99,10 +183,22 @@
       "difficulty": "medium",
       "question": "Pada autentikasi JSON Web Token (JWT), serangan 'Key Confusion' (HMAC vs RSA) biasanya terjadi ketika:",
       "options": [
-        { "id": "A", "text": "Server mengharapkan RS256 tetapi menerima token HS256 yang ditandatangani menggunakan RSA Public Key sebagai secret HMAC" },
-        { "id": "B", "text": "Algoritma JWT diubah menjadi 'none' tanpa pemeriksaan" },
-        { "id": "C", "text": "Waktu kedaluwarsa (exp claim) berada di masa lalu" },
-        { "id": "D", "text": "Penyerang mendekripsi payload JWT yang tidak dienkripsi" }
+        {
+          "id": "A",
+          "text": "Server mengharapkan RS256 tetapi menerima token HS256 yang ditandatangani menggunakan RSA Public Key sebagai secret HMAC"
+        },
+        {
+          "id": "B",
+          "text": "Algoritma JWT diubah menjadi 'none' tanpa pemeriksaan"
+        },
+        {
+          "id": "C",
+          "text": "Waktu kedaluwarsa (exp claim) berada di masa lalu"
+        },
+        {
+          "id": "D",
+          "text": "Penyerang mendekripsi payload JWT yang tidak dienkripsi"
+        }
       ],
       "answer": "A",
       "explanation": "Pada algoritma asymmetric (RS256), public key bersifat publik. Jika verifier token mempercayai header 'alg: HS256' dari penyerang dan menggunakan RSA public key sebagai secret HMAC simetris, penyerang dapat membuat token palsu yang valid."
@@ -112,10 +208,22 @@
       "difficulty": "hard",
       "question": "Header Content Security Policy (CSP) manakah yang paling efektif mencegah eksploitasi DOM XSS akibat pemanggilan berbahaya ke sink seperti 'element.innerHTML' dan 'eval()'?",
       "options": [
-        { "id": "A", "text": "require-trusted-types-for 'script'" },
-        { "id": "B", "text": "default-src 'self'" },
-        { "id": "C", "text": "frame-ancestors 'none'" },
-        { "id": "D", "text": "upgrade-insecure-requests" }
+        {
+          "id": "A",
+          "text": "require-trusted-types-for 'script'"
+        },
+        {
+          "id": "B",
+          "text": "default-src 'self'"
+        },
+        {
+          "id": "C",
+          "text": "frame-ancestors 'none'"
+        },
+        {
+          "id": "D",
+          "text": "upgrade-insecure-requests"
+        }
       ],
       "answer": "A",
       "explanation": "Direktif CSP 'require-trusted-types-for \\'script\\'' mengaktifkan Trusted Types di browser, yang memblokir penulisan string mentah ke DOM injection sinks berbahaya dan mewajibkan penggunaan objek TrustedHTML yang telah disanitasi melalui policy terdaftar."
@@ -125,10 +233,22 @@
       "difficulty": "hard",
       "question": "Dalam konteks SSRF (Server-Side Request Forgery) di cloud environment AWS, endpoint metadata link-local manakah yang dilindungi oleh IMDSv2 menggunakan session token berbasis PUT request?",
       "options": [
-        { "id": "A", "text": "http://169.254.169.254/latest/meta-data/" },
-        { "id": "B", "text": "http://127.0.0.1:8080/metadata" },
-        { "id": "C", "text": "http://metadata.google.internal/computeMetadata/v1/" },
-        { "id": "D", "text": "http://10.0.0.1/aws/creds" }
+        {
+          "id": "A",
+          "text": "http://169.254.169.254/latest/meta-data/"
+        },
+        {
+          "id": "B",
+          "text": "http://127.0.0.1:8080/metadata"
+        },
+        {
+          "id": "C",
+          "text": "http://metadata.google.internal/computeMetadata/v1/"
+        },
+        {
+          "id": "D",
+          "text": "http://10.0.0.1/aws/creds"
+        }
       ],
       "answer": "A",
       "explanation": "169.254.169.254 adalah IPv4 link-local address untuk AWS Instance Metadata Service (IMDS). IMDSv2 mewajibkan pembuatan session token via HTTP PUT dengan header 'X-aws-ec2-metadata-token-ttl-seconds' untuk mencegah eksploitasi SSRF sederhana."
@@ -138,10 +258,22 @@
       "difficulty": "hard",
       "question": "Kerentanan 'Prototype Pollution' pada aplikasi Node.js umumnya dieksploitasi dengan memodifikasi properti bawaan dari:",
       "options": [
-        { "id": "A", "text": "Object.prototype via __proto__ atau constructor.prototype" },
-        { "id": "B", "text": "Global environment process.env" },
-        { "id": "C", "text": "Buffer.allocUnsafe memory layout" },
-        { "id": "D", "text": "V8 Garbage Collector pointer" }
+        {
+          "id": "A",
+          "text": "Object.prototype via __proto__ atau constructor.prototype"
+        },
+        {
+          "id": "B",
+          "text": "Global environment process.env"
+        },
+        {
+          "id": "C",
+          "text": "Buffer.allocUnsafe memory layout"
+        },
+        {
+          "id": "D",
+          "text": "V8 Garbage Collector pointer"
+        }
       ],
       "answer": "A",
       "explanation": "Prototype Pollution terjadi saat fungsi recursive merge atau object traversal menyalin properti input tanpa memvalidasi kunci '__proto__' atau 'constructor.prototype', sehingga memodifikasi Object.prototype dan menyuntikkan perilaku berbahaya ke seluruh objek JavaScript dalam proses."
@@ -151,13 +283,225 @@
       "difficulty": "hard",
       "question": "Serangan 'Cache Poisoning' via unkeyed inputs terjadi ketika penyerang:",
       "options": [
-        { "id": "A", "text": "Memanipulasi HTTP request header yang diproses oleh back-end namun tidak diikutsertakan dalam cache key oleh CDN/reverse proxy" },
-        { "id": "B", "text": "Menghapus file cache langsung di server storage" },
-        { "id": "C", "text": "Mengirimkan request dengan header Cache-Control: no-cache" },
-        { "id": "D", "text": "Melakukan flooding paket SYN ke port Redis" }
+        {
+          "id": "A",
+          "text": "Memanipulasi HTTP request header yang diproses oleh back-end namun tidak diikutsertakan dalam cache key oleh CDN/reverse proxy"
+        },
+        {
+          "id": "B",
+          "text": "Menghapus file cache langsung di server storage"
+        },
+        {
+          "id": "C",
+          "text": "Mengirimkan request dengan header Cache-Control: no-cache"
+        },
+        {
+          "id": "D",
+          "text": "Melakukan flooding paket SYN ke port Redis"
+        }
       ],
       "answer": "A",
       "explanation": "Cache key biasanya hanya menyertakan Host header dan Request Path. Jika aplikasi merespons berdasarkan header lain (seperti X-Forwarded-Host) dan CDN menyimpannya dalam cache, respons berbahaya tersebut akan disajikan ke semua pengguna lain yang membuka URL yang sama."
+    },
+    {
+      "id": "WEB-013",
+      "difficulty": "easy",
+      "question": "Jenis firewall apa yang dirancang khusus untuk melindungi aplikasi web dari serangan seperti SQL injection dan Cross-Site Scripting (XSS) pada Layer 7 OSI?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Packet-Filtering Firewall"
+        },
+        {
+          "id": "B",
+          "text": "Stateful Inspection Firewall"
+        },
+        {
+          "id": "C",
+          "text": "Proxy Firewall"
+        },
+        {
+          "id": "D",
+          "text": "Web Application Firewall (WAF)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Web Application Firewall (WAF) beroperasi pada Layer 7 (Application Layer) model OSI dan secara khusus menganalisis lalu lintas HTTP/HTTPS untuk mendeteksi serta memblokir payload serangan web seperti SQL Injection dan XSS."
+    },
+    {
+      "id": "WEB-014",
+      "difficulty": "medium",
+      "question": "Kerentanan yang memungkinkan penyerang membaca file sensitif di luar direktori root server web dengan memanipulasi variabel input menggunakan urutan \"../\" disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Injeksi Perintah"
+        },
+        {
+          "id": "B",
+          "text": "Inklusi File Lokal (LFI)"
+        },
+        {
+          "id": "C",
+          "text": "Traversal Direktori (Directory Traversal)"
+        },
+        {
+          "id": "D",
+          "text": "Injeksi SQL"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Directory Traversal (atau Path Traversal) memanfaatkan kegagalan sanitasi path pada input file, memungkinkan penyerang menggunakan karakter dot-dot-slash (\"../\") untuk melintasi hierarki folder dan mengakses file sistem di luar web root."
+    },
+    {
+      "id": "WEB-015",
+      "difficulty": "medium",
+      "question": "Serangan di mana penyerang memasukkan data masukan ke dalam aplikasi web yang kemudian diinterpretasikan dan dieksekusi langsung sebagai kode/perintah oleh sistem disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Code Injection"
+        },
+        {
+          "id": "B",
+          "text": "Buffer Overflow"
+        },
+        {
+          "id": "C",
+          "text": "Session Hijacking"
+        },
+        {
+          "id": "D",
+          "text": "Man-in-the-Middle"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Code Injection terjadi ketika data masukan pengguna dievaluasi secara dinamis oleh interpreter aplikasi (seperti fungsi eval() atau include dinamis) tanpa validasi ketat, sehingga dieksekusi sebagai instruksi kode baru."
+    },
+    {
+      "id": "WEB-016",
+      "difficulty": "medium",
+      "question": "Protokol berbasis XML yang digunakan untuk bertukar informasi terstruktur dalam implementasi layanan web (Web Services) adalah...",
+      "options": [
+        {
+          "id": "A",
+          "text": "JSON"
+        },
+        {
+          "id": "B",
+          "text": "REST"
+        },
+        {
+          "id": "C",
+          "text": "SOAP"
+        },
+        {
+          "id": "D",
+          "text": "WSDL"
+        }
+      ],
+      "answer": "C",
+      "explanation": "SOAP (Simple Object Access Protocol) adalah protokol perpesanan berbasis XML murni yang terstandardisasi untuk pertukaran data antar aplikasi terdistribusi, berbeda dengan REST yang merupakan gaya arsitektur dan lazim menggunakan JSON."
+    },
+    {
+      "id": "WEB-017",
+      "difficulty": "medium",
+      "question": "Serangan injeksi SQL di mana penyerang tidak menerima respon error atau data langsung dari database, tetapi menyimpulkan struktur data berdasarkan respon Benar/Salah (True/False) dari aplikasi dikenal sebagai...",
+      "options": [
+        {
+          "id": "A",
+          "text": "In-band SQLi"
+        },
+        {
+          "id": "B",
+          "text": "Out-of-band SQLi"
+        },
+        {
+          "id": "C",
+          "text": "Union-based SQLi"
+        },
+        {
+          "id": "D",
+          "text": "Blind SQLi"
+        }
+      ],
+      "answer": "D",
+      "explanation": "Blind SQL Injection (khususnya Boolean-based Blind SQLi) mengeksploitasi perbedaan perilaku aplikasi saat query kondisional bernilai TRUE vs FALSE untuk merekonstruksi isi database karakter demi karakter."
+    },
+    {
+      "id": "WEB-018",
+      "difficulty": "medium",
+      "question": "Dalam konteks keamanan aplikasi web, apa yang dimaksud dengan Session Hijacking?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mengambil alih sesi pengguna yang sah dengan mencuri token atau cookie sesi mereka"
+        },
+        {
+          "id": "B",
+          "text": "Membanjiri server dengan permintaan sesi untuk membuatnya tidak tersedia"
+        },
+        {
+          "id": "C",
+          "text": "Mengenkripsi data sesi pengguna di server"
+        },
+        {
+          "id": "D",
+          "text": "Menghapus sesi pengguna secara paksa melalui database"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Session Hijacking (pembajakan sesi) terjadi ketika penyerang berhasil mencuri session ID atau cookie autentikasi korban (misal via XSS, network sniffing, atau session fixation) untuk bertindak sebagai pengguna sah tanpa perlu login ulang."
+    },
+    {
+      "id": "WEB-019",
+      "difficulty": "hard",
+      "question": "Kerentanan perangkat lunak tingkat rendah yang terjadi ketika sebuah program mencoba menulis data melebihi kapasitas alokasi buffer memori sementara disebut...",
+      "options": [
+        {
+          "id": "A",
+          "text": "SQL Injection"
+        },
+        {
+          "id": "B",
+          "text": "Cross-Site Scripting"
+        },
+        {
+          "id": "C",
+          "text": "Buffer Overflow"
+        },
+        {
+          "id": "D",
+          "text": "Format String Vulnerability"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Buffer Overflow terjadi saat program menulis data melewati batas memori buffer yang dialokasikan, menimpa data memori di sebelahnya termasuk instruksi pointer (EIP/RIP) yang dapat diarahkan ke arbitrary shellcode."
+    },
+    {
+      "id": "WEB-020",
+      "difficulty": "hard",
+      "question": "Serangan Man-in-the-Browser (MITB) adalah jenis serangan siber di mana...",
+      "options": [
+        {
+          "id": "A",
+          "text": "Penyerang berada secara fisik di antara pengguna dan layar komputer"
+        },
+        {
+          "id": "B",
+          "text": "Penyerang memodifikasi halaman web dan transaksi secara real-time di browser menggunakan malware/ekstensi berbahaya"
+        },
+        {
+          "id": "C",
+          "text": "Penyerang membanjiri browser dengan jendela pop-up iklan"
+        },
+        {
+          "id": "D",
+          "text": "Penyerang menghapus riwayat penelusuran browser secara paksa"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Man-in-the-Browser (MITB) memanfaatkan Trojan atau ekstensi browser berbahaya untuk mencegat dan memanipulasi panggilan API DOM browser secara real-time, memungkinkan manipulasi transaksi (seperti rekening tujuan transfer bank) sebelum dikirimkan ke server."
     }
   ]
 }
