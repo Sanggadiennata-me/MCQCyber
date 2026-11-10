@@ -87,7 +87,7 @@ export async function POST(request) {
     const participantTokenHash = hashToken(participantToken);
 
     // Insert room
-    const { data: room, error: roomError } = await supabase
+    let { data: room, error: roomError } = await supabase
       .from('rooms')
       .insert({
         room_code: roomCode,
@@ -98,6 +98,23 @@ export async function POST(request) {
       .select()
       .single();
 
+    // Auto-heal on API key invalidation
+    if (roomError && roomError.message?.includes('Invalid API key')) {
+      const fallbackClient = getAdminSupabase(true);
+      const retryResult = await fallbackClient
+        .from('rooms')
+        .insert({
+          room_code: roomCode,
+          host_token_hash: hostTokenHash,
+          status: 'WAITING',
+          configuration,
+        })
+        .select()
+        .single();
+      room = retryResult.data;
+      roomError = retryResult.error;
+    }
+
     if (roomError || !room) {
       console.error('Error creating room:', roomError);
       return NextResponse.json(
@@ -107,7 +124,7 @@ export async function POST(request) {
     }
 
     // Insert host as the first participant
-    const { data: participant, error: participantError } = await supabase
+    let { data: participant, error: participantError } = await supabase
       .from('room_participants')
       .insert({
         room_id: room.id,
@@ -117,6 +134,22 @@ export async function POST(request) {
       })
       .select()
       .single();
+
+    if (participantError && participantError.message?.includes('Invalid API key')) {
+      const fallbackClient = getAdminSupabase(true);
+      const retryP = await fallbackClient
+        .from('room_participants')
+        .insert({
+          room_id: room.id,
+          nickname: nicknameVal.nickname,
+          participant_token_hash: participantTokenHash,
+          status: 'READY',
+        })
+        .select()
+        .single();
+      participant = retryP.data;
+      participantError = retryP.error;
+    }
 
     if (participantError || !participant) {
       console.error('Error creating host participant:', participantError);

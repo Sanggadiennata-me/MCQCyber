@@ -4,32 +4,46 @@ import { createLocalSupabaseAdapter } from './localAdapter';
 const DEFAULT_SUPABASE_URL = 'https://azfvlvqpakyhbuquxcqo.supabase.co';
 const DEFAULT_ANON_KEY = 'sb_publishable_sutrDx8_2YfKzE1dJNqI1Q_Ip97F2T5';
 
-// Prioritize the active Supabase project and bypass stale Vercel dashboard variables
-const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+// Clean and sanitize environment values to avoid whitespace/newline issues
+const rawUrl = (process.env.NEXT_PUBLIC_SUPABASE_URL || '').trim().replace(/['"]/g, '');
 const supabaseUrl =
-  rawUrl.includes('gldesqcwgxbhaqrgpiwl') || !rawUrl
+  !rawUrl || rawUrl.includes('gldesqcwgxbhaqrgpiwl') || rawUrl.includes('placeholder')
     ? DEFAULT_SUPABASE_URL
     : rawUrl;
 
-const rawKey =
+const rawKey = (
   process.env.SUPABASE_SERVICE_ROLE_KEY ||
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  '';
+  ''
+).trim().replace(/['"]/g, '');
 
-// If key is from the old project (legacy JWT) or missing, fallback to active publishable key
+// Strictly validate service role key; if corrupted or old, fallback to guaranteed active publishable key
 const serviceRoleKey =
-  rawKey.startsWith('sb_') && !rawKey.includes('placeholder')
+  rawKey.startsWith('sb_secret_') && rawKey.length === 42
     ? rawKey
     : DEFAULT_ANON_KEY;
 
 let adminInstance = null;
+let fallbackInstance = null;
 let localInstance = null;
 
 /**
  * Returns a server-side Supabase client.
- * Falls back to local file-backed adapter when cloud credentials are not provided.
+ * Supports auto-fallback to guaranteed publishable key on key mismatches.
  */
-export function getAdminSupabase() {
+export function getAdminSupabase(forceFallback = false) {
+  if (forceFallback) {
+    if (!fallbackInstance) {
+      fallbackInstance = createClient(DEFAULT_SUPABASE_URL, DEFAULT_ANON_KEY, {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false,
+        },
+      });
+    }
+    return fallbackInstance;
+  }
+
   if (supabaseUrl && serviceRoleKey) {
     if (!adminInstance) {
       adminInstance = createClient(supabaseUrl, serviceRoleKey, {
