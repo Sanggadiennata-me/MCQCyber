@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAdminSupabase, isSupabaseConfigured } from '@/lib/supabase/admin';
 import { generateRoomCode, generateSessionToken, hashToken, sanitizeNickname } from '@/lib/security/tokens';
+import { cleanStaleRooms } from '../cleanup/route';
 
 export async function POST(request) {
   try {
@@ -15,6 +16,9 @@ export async function POST(request) {
     }
 
     const supabase = getAdminSupabase();
+    // Opportunistic lazy cleanup in background (non-blocking)
+    cleanStaleRooms(supabase).catch(() => {});
+
     const body = await request.json();
 
     const {

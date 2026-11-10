@@ -1,6 +1,19 @@
 import { NextResponse } from 'next/server';
 import { getAdminSupabase, isSupabaseConfigured } from '@/lib/supabase/admin';
 
+export async function cleanStaleRooms(supabase) {
+  if (!supabase) return;
+  const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
+  const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000).toISOString();
+  const fifteenMinsAgo = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+
+  await Promise.allSettled([
+    supabase.from('rooms').delete().eq('status', 'WAITING').lt('created_at', twoHoursAgo),
+    supabase.from('rooms').delete().eq('status', 'COMPLETED').lt('finished_at', thirtyMinsAgo),
+    supabase.from('rooms').delete().eq('status', 'EXPIRED').lt('created_at', fifteenMinsAgo),
+  ]);
+}
+
 export async function POST(request) {
   return handleCleanup(request);
 }
@@ -46,35 +59,8 @@ async function handleCleanup(request) {
       }
     }
 
-    // Automated periodic cleanup:
-    // 1. WAITING rooms older than 2 hours (abandoned lobbies)
-    // 2. COMPLETED rooms older than 30 minutes (allows viewing results)
-    // 3. EXPIRED rooms older than 15 minutes
-    const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
-    const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000).toISOString();
-    const fifteenMinsAgo = new Date(Date.now() - 15 * 60 * 1000).toISOString();
-
-    const { error: err1 } = await supabase
-      .from('rooms')
-      .delete()
-      .eq('status', 'WAITING')
-      .lt('created_at', twoHoursAgo);
-
-    const { error: err2 } = await supabase
-      .from('rooms')
-      .delete()
-      .eq('status', 'COMPLETED')
-      .lt('finished_at', thirtyMinsAgo);
-
-    const { error: err3 } = await supabase
-      .from('rooms')
-      .delete()
-      .eq('status', 'EXPIRED')
-      .lt('created_at', fifteenMinsAgo);
-
-    if (err1 || err2 || err3) {
-      console.error('Errors in scheduled cleanup:', err1, err2, err3);
-    }
+    // Automated periodic cleanup
+    await cleanStaleRooms(supabase);
 
     return NextResponse.json({
       success: true,

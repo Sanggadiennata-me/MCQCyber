@@ -129,3 +129,18 @@ BEGIN
   RETURN deleted_count;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- ==============================================================================
+-- 6. OPTIONAL SUPABASE NATIVE PG_CRON (FREE IN SUPABASE POSTGRESQL)
+-- ==============================================================================
+-- Jika menggunakan Vercel Hobby (yang membatasi cron gratis hanya 1x sehari),
+-- Anda bisa menjalankan cron gratis langsung di database Supabase:
+-- 1. Buka Supabase Dashboard -> Database -> Extensions -> Aktifkan "pg_cron".
+-- 2. Jalankan perintah SQL berikut di SQL Editor Supabase:
+--
+-- SELECT cron.schedule(
+--   'auto-cleanup-stale-rooms',
+--   '*/30 * * * *',
+--   $$ SELECT cleanup_stale_rooms(120, 30); $$
+-- );
+
