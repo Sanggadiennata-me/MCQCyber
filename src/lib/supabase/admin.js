@@ -15,10 +15,12 @@ const rawKey =
   process.env.SUPABASE_SERVICE_ROLE_KEY ||
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
   '';
+
+// If key is from the old project (legacy JWT) or missing, fallback to active publishable key
 const serviceRoleKey =
-  !rawKey || rawKey.includes('placeholder')
-    ? DEFAULT_ANON_KEY
-    : rawKey;
+  rawKey.startsWith('sb_') && !rawKey.includes('placeholder')
+    ? rawKey
+    : DEFAULT_ANON_KEY;
 
 let adminInstance = null;
 let localInstance = null;

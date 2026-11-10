@@ -11,9 +11,9 @@ const supabaseUrl =
 
 const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabaseAnonKey =
-  !rawKey || rawKey.includes('placeholder')
-    ? DEFAULT_ANON_KEY
-    : rawKey;
+  rawKey.includes('sb_publishable_sutrDx8_2YfKzE1dJNqI1Q_Ip97F2T5')
+    ? rawKey
+    : DEFAULT_ANON_KEY;
 
 let clientInstance = null;
 
