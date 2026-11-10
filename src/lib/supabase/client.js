@@ -1,7 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const DEFAULT_SUPABASE_URL = 'https://azfvlvqpakyhbuquxcqo.supabase.co';
+const DEFAULT_ANON_KEY = 'sb_publishable_sutrDx8_2YfKzE1dJNqI1Q_Ip97F2T5';
+
+const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseUrl =
+  rawUrl.includes('gldesqcwgxbhaqrgpiwl') || !rawUrl
+    ? DEFAULT_SUPABASE_URL
+    : rawUrl;
+
+const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseAnonKey =
+  !rawKey || rawKey.includes('placeholder')
+    ? DEFAULT_ANON_KEY
+    : rawKey;
 
 let clientInstance = null;
 

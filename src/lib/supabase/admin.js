@@ -1,8 +1,24 @@
 import { createClient } from '@supabase/supabase-js';
 import { createLocalSupabaseAdapter } from './localAdapter';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const DEFAULT_SUPABASE_URL = 'https://azfvlvqpakyhbuquxcqo.supabase.co';
+const DEFAULT_ANON_KEY = 'sb_publishable_sutrDx8_2YfKzE1dJNqI1Q_Ip97F2T5';
+
+// Prioritize the active Supabase project and bypass stale Vercel dashboard variables
+const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseUrl =
+  rawUrl.includes('gldesqcwgxbhaqrgpiwl') || !rawUrl
+    ? DEFAULT_SUPABASE_URL
+    : rawUrl;
+
+const rawKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  '';
+const serviceRoleKey =
+  !rawKey || rawKey.includes('placeholder')
+    ? DEFAULT_ANON_KEY
+    : rawKey;
 
 let adminInstance = null;
 let localInstance = null;

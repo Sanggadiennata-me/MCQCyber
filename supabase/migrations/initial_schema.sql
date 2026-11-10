@@ -88,7 +88,7 @@ CREATE POLICY "Public can view room participants" ON room_participants
   FOR SELECT
   USING (true);
 
--- Mutations are restricted to service role key (Next.js server-side API routes)
+-- Service role and Anon role have full access to rooms and participants
 CREATE POLICY "Service role has full access to rooms" ON rooms
   FOR ALL
   TO service_role
@@ -98,6 +98,18 @@ CREATE POLICY "Service role has full access to rooms" ON rooms
 CREATE POLICY "Service role has full access to room_participants" ON room_participants
   FOR ALL
   TO service_role
+  USING (true)
+  WITH CHECK (true);
+
+CREATE POLICY "Anon has full access to rooms" ON rooms
+  FOR ALL
+  TO anon
+  USING (true)
+  WITH CHECK (true);
+
+CREATE POLICY "Anon has full access to room_participants" ON room_participants
+  FOR ALL
+  TO anon
   USING (true)
   WITH CHECK (true);
 
