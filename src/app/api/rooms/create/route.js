@@ -100,8 +100,19 @@ export async function POST(request) {
 
     if (roomError || !room) {
       console.error('Error creating room:', roomError);
+      let targetHost = 'none';
+      try {
+        targetHost = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL || '').host;
+      } catch {}
       return NextResponse.json(
-        { error: 'Gagal membuat room di database: ' + (roomError?.message || '') },
+        {
+          error: 'Gagal membuat room di database: ' + (roomError?.message || ''),
+          diag: {
+            targetHost,
+            hasServiceRoleKey: Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY),
+            hasAnonKey: Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
+          },
+        },
         { status: 500 }
       );
     }
