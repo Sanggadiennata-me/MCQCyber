@@ -21,7 +21,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
-      <body className="min-h-screen flex flex-col bg-cyber-bg text-cyber-text antialiased selection:bg-cyber-primary selection:text-white">
+      <body className="min-h-screen flex flex-col bg-cyber-bg text-cyber-text antialiased selection:bg-cyber-primary selection:text-[#080D1A]">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />

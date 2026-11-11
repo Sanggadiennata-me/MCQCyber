@@ -151,7 +151,7 @@ export default function TeamResultPage({ params }) {
           <button
             onClick={handleLeaveAndCleanup}
             disabled={cleaningUp}
-            className="flex items-center gap-2 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+            className="flex items-center gap-2 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
           >
             <Trash2 className="h-4 w-4" />
             <span>{cleaningUp ? 'Membersihkan...' : 'Keluar & Bersihkan Sesi'}</span>

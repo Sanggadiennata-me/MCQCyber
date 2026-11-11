@@ -73,7 +73,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/practice"
-            className="inline-flex items-center justify-center rounded-sm bg-cyber-primary px-4 py-1.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+            className="inline-flex items-center justify-center rounded-sm bg-cyber-primary px-4 py-1.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
           >
             Mulai Solo
           </Link>

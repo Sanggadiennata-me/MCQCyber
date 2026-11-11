@@ -130,7 +130,7 @@ export default function AboutPage() {
       <div className="text-center pt-2">
         <Link
           href="/practice"
-          className="inline-flex items-center justify-center rounded-sm bg-cyber-primary px-8 py-3 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+          className="inline-flex items-center justify-center rounded-sm bg-cyber-primary px-8 py-3 text-sm font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
         >
           Mulai Solo Practice Sekarang
         </Link>

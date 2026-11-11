@@ -120,7 +120,7 @@ export default function JoinRoomPage() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors disabled:opacity-50 shadow-sm"
         >
           {submitting ? (
             <span>Memeriksa Room...</span>

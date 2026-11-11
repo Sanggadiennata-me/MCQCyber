@@ -88,7 +88,7 @@ export default function CategoriesPage() {
 
                 <Link
                   href={`/practice?category=${cat.slug}`}
-                  className="flex items-center justify-center gap-1.5 w-full rounded-sm bg-cyber-field border border-cyber-primary/40 py-2.5 text-xs font-semibold text-white hover:bg-cyber-primary transition-colors"
+                  className="flex items-center justify-center gap-1.5 w-full rounded-sm bg-cyber-field border border-cyber-primary/40 py-2.5 text-xs font-semibold text-white hover:bg-cyber-primary hover:text-cyber-ink transition-colors"
                 >
                   <span>Mulai Latihan Kategori Ini</span>
                   <ArrowRight className="h-3.5 w-3.5" />

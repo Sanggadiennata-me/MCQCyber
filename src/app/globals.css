@@ -2,48 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Epilogue';
+  src: url('/fonts/Epilogue-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
-  --bg: #050506;
-  --surface: #121216;
-  --surface-raised: #18181f;
-  --border: #23232a;
-  --border-strong: #383842;
-  --ink: #f4f4f5;
-  --muted: #9e9ea7;
-  --accent: #e11d48;
-  --accent-hover: #be123c;
-  --accent-ink: #ffffff;
+  --bg: #080D1A;
+  --surface: #0F182E;
+  --surface-raised: #131E3D;
+  --border: #1E2C4F;
+  --border-strong: #2A3A68;
+  --ink: #F8FAFC;
+  --muted: #94A3B8;
+  --accent: #FAA322;
+  --accent-hover: #F59E0B;
+  --accent-gold: #FACC15;
+  --accent-ink: #080D1A;
 }
 
 body {
-  background-color: #050506;
-  color: #f4f4f5;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #080D1A;
+  color: #F8FAFC;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom subtle scrollbar */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Epilogue', 'DM Sans', sans-serif;
+}
+
+/* Custom subtle scrollbar matching ItechV2 */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050506;
+  background: #080D1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #23232a;
+  background: #1E2C4F;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e11d48;
+  background: #FAA322;
 }
 
-/* Selection highlight */
+/* Selection highlight matching ItechV2 */
 ::selection {
-  background-color: #e11d48;
-  color: #ffffff;
+  background-color: #FAA322;
+  color: #080D1A;
 }

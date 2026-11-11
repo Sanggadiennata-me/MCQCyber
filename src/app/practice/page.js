@@ -226,7 +226,7 @@ function PracticeForm() {
                   onClick={() => setDifficulty(item.id)}
                   className={`py-2 px-3 rounded-sm border text-xs font-semibold transition-colors ${
                     difficulty === item.id
-                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
@@ -246,7 +246,7 @@ function PracticeForm() {
                   onClick={() => setQuestionCount(num)}
                   className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                     questionCount === num
-                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
@@ -271,7 +271,7 @@ function PracticeForm() {
                 onClick={() => setDurationMinutes(mins)}
                 className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                   durationMinutes === mins
-                    ? 'border-cyber-primary bg-cyber-primary text-white'
+                    ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                     : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                 }`}
               >
@@ -340,7 +340,7 @@ function PracticeForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors disabled:opacity-50 shadow-sm"
         >
           {submitting ? (
             <span>Mempersiapkan Soal...</span>

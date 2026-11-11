@@ -39,7 +39,7 @@ export default function TeamPortalPage() {
           <div className="pt-8">
             <Link
               href="/team/create"
-              className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+              className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
             >
               <span>Buat Room Baru</span>
               <ArrowRight className="h-4 w-4" />

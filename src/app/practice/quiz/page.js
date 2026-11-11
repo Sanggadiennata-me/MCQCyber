@@ -196,7 +196,7 @@ export default function SoloQuizPage() {
 
           <button
             onClick={() => setShowConfirmModal(true)}
-            className="rounded-sm bg-cyber-primary px-4 py-2 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+            className="rounded-sm bg-cyber-primary px-4 py-2 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
           >
             Selesai Ujian
           </button>
@@ -234,7 +234,7 @@ export default function SoloQuizPage() {
                     <span
                       className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-sm font-bold text-xs ${
                         isSelected
-                          ? 'bg-cyber-primary text-white'
+                          ? 'bg-cyber-primary text-cyber-ink font-bold'
                           : 'bg-cyber-card text-cyber-muted border border-cyber-border'
                       }`}
                     >
@@ -273,7 +273,7 @@ export default function SoloQuizPage() {
             ) : (
               <button
                 onClick={() => setShowConfirmModal(true)}
-                className="flex items-center gap-1.5 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+                className="flex items-center gap-1.5 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
               >
                 <span>Selesai & Kumpulkan</span>
                 <Send className="h-3.5 w-3.5" />
@@ -298,7 +298,7 @@ export default function SoloQuizPage() {
                     onClick={() => setCurrentIndex(idx)}
                     className={`h-9 rounded-sm font-mono text-xs font-semibold tabular-nums transition-colors ${
                       isCurrent
-                        ? 'border-2 border-white bg-cyber-primary text-white'
+                        ? 'border-2 border-white bg-cyber-primary text-cyber-ink font-bold'
                         : isAnswered
                         ? 'border border-cyber-primary bg-cyber-field text-white'
                         : 'border border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
@@ -376,7 +376,7 @@ export default function SoloQuizPage() {
                   handleFinalSubmit(false);
                 }}
                 disabled={isSubmitting}
-                className="flex-1 rounded-sm bg-cyber-primary py-2.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
+                className="flex-1 rounded-sm bg-cyber-primary py-2.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors disabled:opacity-50 shadow-sm"
               >
                 {isSubmitting ? 'Mengirim...' : 'Ya, Kumpulkan'}
               </button>

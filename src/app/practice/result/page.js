@@ -131,7 +131,7 @@ export default function SoloResultPage() {
         <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-cyber-border">
           <Link
             href="/practice"
-            className="flex items-center gap-2 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+            className="flex items-center gap-2 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
           >
             <RotateCcw className="h-4 w-4" />
             <span>Mulai Sesi Baru</span>
@@ -161,7 +161,7 @@ export default function SoloResultPage() {
               onClick={() => setFilterType('all')}
               className={`px-3 py-1.5 rounded-sm border font-medium transition-colors ${
                 filterType === 'all'
-                  ? 'border-cyber-primary bg-cyber-primary text-white'
+                  ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                   : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
               }`}
             >

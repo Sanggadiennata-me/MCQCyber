@@ -9,28 +9,33 @@ const config = {
     extend: {
       colors: {
         cyber: {
-          bg: "#050506",
-          secondary: "#0d0d10",
-          card: "#121216",
-          cardHover: "#18181f",
-          border: "#23232a",
-          borderStrong: "#383842",
-          hover: "#18181f",
-          primary: "#e11d48",
-          primaryHover: "#be123c",
-          primaryDark: "#881337",
-          electric: "#f43f5e",
-          accent: "#fb7185",
-          field: "#1f1014",
-          success: "#16a34a",
-          danger: "#e11d48",
-          text: "#f4f4f5",
-          muted: "#9e9ea7",
-          darkMuted: "#666672",
+          bg: "#080D1A",           // Canvas deep navy background (ItechV2)
+          secondary: "#0F182E",    // Surface navy (ItechV2)
+          card: "#131E3D",         // Navy card surface (ItechV2)
+          cardHover: "#18295E",    // Deep navy hover (ItechV2)
+          border: "#1E2C4F",       // Subtle navy border (ItechV2)
+          borderStrong: "#2A3A68", // Stronger navy border (ItechV2)
+          hover: "#162342",        // Surface hover
+          primary: "#FAA322",      // iTech signature warm amber/orange accent
+          primaryHover: "#F59E0B", // Bright gold-amber hover
+          primaryDark: "#D97706",  // Amber dark
+          electric: "#FACC15",     // Accent gold (ItechV2)
+          accent: "#FDE047",       // Light gold
+          techBlue: "#2563EB",     // iTech tech blue
+          navyLight: "#1E284C",    // Navy light
+          field: "#0B132B",        // Input fields container
+          success: "#10B981",      // Success green
+          danger: "#EF4444",       // Danger red
+          text: "#F8FAFC",         // Crisp white foreground (ItechV2)
+          muted: "#94A3B8",        // Slate-400 muted text (ItechV2)
+          darkMuted: "#64748B",    // Slate-500
+          ink: "#080D1A",          // Dark ink for high contrast on primary accent
         },
       },
       fontFamily: {
-        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        sans: ["'DM Sans'", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        heading: ["'Epilogue'", "'DM Sans'", "sans-serif"],
+        display: ["'Epilogue'", "'DM Sans'", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
     },

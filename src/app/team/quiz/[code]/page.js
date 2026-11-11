@@ -272,7 +272,7 @@ export default function TeamQuizPage({ params }) {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href={`/team/result/${roomCode}`}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-sm bg-cyber-primary px-6 py-3 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-sm bg-cyber-primary px-6 py-3 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
             >
               <Trophy className="h-4 w-4" />
               <span>Buka Halaman Hasil Tim</span>
@@ -324,7 +324,7 @@ export default function TeamQuizPage({ params }) {
 
           <button
             onClick={() => setShowConfirmModal(true)}
-            className="rounded-sm bg-cyber-primary px-4 py-2 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+            className="rounded-sm bg-cyber-primary px-4 py-2 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
           >
             Submit Ujian
           </button>
@@ -362,7 +362,7 @@ export default function TeamQuizPage({ params }) {
                     <span
                       className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-sm font-bold text-xs ${
                         isSelected
-                          ? 'bg-cyber-primary text-white'
+                          ? 'bg-cyber-primary text-cyber-ink font-bold'
                           : 'bg-cyber-card text-cyber-muted border border-cyber-border'
                       }`}
                     >
@@ -401,7 +401,7 @@ export default function TeamQuizPage({ params }) {
             ) : (
               <button
                 onClick={() => setShowConfirmModal(true)}
-                className="flex items-center gap-1.5 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors"
+                className="flex items-center gap-1.5 rounded-sm bg-cyber-primary px-5 py-2.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors shadow-sm"
               >
                 <span>Selesai & Kumpulkan</span>
                 <Send className="h-3.5 w-3.5" />
@@ -426,7 +426,7 @@ export default function TeamQuizPage({ params }) {
                     onClick={() => setCurrentIndex(idx)}
                     className={`h-9 rounded-sm font-mono text-xs font-semibold tabular-nums transition-colors ${
                       isCurrent
-                        ? 'border-2 border-white bg-cyber-primary text-white'
+                        ? 'border-2 border-white bg-cyber-primary text-cyber-ink font-bold'
                         : isAnswered
                         ? 'border border-cyber-primary bg-cyber-field text-white'
                         : 'border border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
@@ -504,7 +504,7 @@ export default function TeamQuizPage({ params }) {
                   handleFinalSubmit(false);
                 }}
                 disabled={submitting}
-                className="flex-1 rounded-sm bg-cyber-primary py-2.5 text-xs font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
+                className="flex-1 rounded-sm bg-cyber-primary py-2.5 text-xs font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors disabled:opacity-50 shadow-sm"
               >
                 {submitting ? 'Mengirim...' : 'Kumpulkan Sekarang'}
               </button>

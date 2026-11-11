@@ -179,7 +179,7 @@ export default function RoomLobbyPage({ params }) {
           </span>
           <button
             onClick={handleCopyCode}
-            className="flex items-center gap-1.5 rounded-sm bg-cyber-field border border-cyber-primary/40 px-3.5 py-2 text-xs font-semibold text-white hover:bg-cyber-primary transition-colors"
+            className="flex items-center gap-1.5 rounded-sm bg-cyber-field border border-cyber-primary/40 px-3.5 py-2 text-xs font-semibold text-white hover:bg-cyber-primary hover:text-cyber-ink transition-colors"
             title="Salin Room Code"
           >
             {copied ? (
@@ -281,13 +281,13 @@ export default function RoomLobbyPage({ params }) {
               <button
                 onClick={handleStartMatch}
                 disabled={!canStart || starting}
-                className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-40"
+                className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors disabled:opacity-40 shadow-sm"
               >
                 {starting ? (
                   <span>Membagikan Soal...</span>
                 ) : (
                   <>
-                    <Play className="h-4 w-4 fill-white" />
+                    <Play className="h-4 w-4 fill-current" />
                     <span>Mulai Pertandingan Sekarang</span>
                   </>
                 )}

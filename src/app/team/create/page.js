@@ -204,7 +204,7 @@ export default function CreateRoomPage() {
                         onClick={() => toggleCategory(cat.slug)}
                         className={`flex items-center justify-between p-2.5 rounded-sm border text-xs font-medium transition-colors ${
                           isSelected
-                            ? 'border-cyber-primary bg-cyber-primary text-white'
+                            ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                             : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                         }`}
                       >
@@ -231,7 +231,7 @@ export default function CreateRoomPage() {
                   onClick={() => setQuestionCount(num)}
                   className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                     questionCount === num
-                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
@@ -254,7 +254,7 @@ export default function CreateRoomPage() {
                   onClick={() => setDurationMinutes(mins)}
                   className={`py-2 px-2 rounded-sm border text-xs font-semibold tabular-nums transition-colors ${
                     durationMinutes === mins
-                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
@@ -285,7 +285,7 @@ export default function CreateRoomPage() {
                   onClick={() => setDifficulty(d.id)}
                   className={`py-2 px-2 rounded-sm border text-xs font-semibold transition-colors ${
                     difficulty === d.id
-                      ? 'border-cyber-primary bg-cyber-primary text-white'
+                      ? 'border-cyber-primary bg-cyber-primary text-cyber-ink font-bold'
                       : 'border-cyber-border bg-cyber-secondary text-cyber-muted hover:border-cyber-primary/60'
                   }`}
                 >
@@ -318,7 +318,7 @@ export default function CreateRoomPage() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-semibold text-white hover:bg-cyber-primaryHover transition-colors disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 rounded-sm bg-cyber-primary py-3.5 text-sm font-bold text-cyber-ink hover:bg-cyber-primaryHover transition-colors disabled:opacity-50 shadow-sm"
         >
           {submitting ? (
             <span>Mempersiapkan Room...</span>
